@@ -1,0 +1,6 @@
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Release\Statistics.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Release\Statistics.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Release\ContentFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Release\ContentFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\obj\Release\Statistics.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\obj\Release\Statistics.pdb

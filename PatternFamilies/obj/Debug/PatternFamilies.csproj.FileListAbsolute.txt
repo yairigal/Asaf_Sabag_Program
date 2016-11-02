@@ -1,0 +1,48 @@
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\ContentFamilies.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\PatternFamilies\obj\Debug\PatternFamilies.pdb
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\yairi\Desktop\Reserach\code\PatternFamilies\obj\Debug\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.pdb

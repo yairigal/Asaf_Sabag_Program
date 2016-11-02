@@ -1,0 +1,10 @@
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\Research5774.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\Research5774.pdb

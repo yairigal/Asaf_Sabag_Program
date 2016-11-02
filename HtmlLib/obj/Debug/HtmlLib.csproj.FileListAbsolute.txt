@@ -1,0 +1,20 @@
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\bin\Debug\HtmlLib.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\obj\Debug\HtmlLib.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\obj\Debug\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\bin\Debug\HtmlLib.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\obj\Debug\HtmlLib.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\obj\Debug\HtmlLib.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\bin\Debug\HtmlLib.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\obj\Debug\HtmlLib.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\obj\Debug\HtmlLib.pdb
+C:\Users\yairi\Desktop\Reserach\code\HtmlLib\bin\Debug\HtmlLib.dll
+C:\Users\yairi\Desktop\Reserach\code\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
+C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.dll
+C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.pdb

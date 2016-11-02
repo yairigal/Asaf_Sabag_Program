@@ -1,0 +1,12 @@
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\bin\Release\HtmlLib.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\bin\Release\HtmlLib.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\obj\Release\HtmlLib.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\HtmlLib\obj\Release\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\bin\Release\HtmlLib.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\bin\Release\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\obj\Release\HtmlLib.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\HtmlLib\obj\Release\HtmlLib.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\bin\Release\HtmlLib.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\bin\Release\HtmlLib.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\obj\Release\HtmlLib.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\HtmlLib\obj\Release\HtmlLib.pdb

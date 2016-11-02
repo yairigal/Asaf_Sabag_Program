@@ -1,0 +1,72 @@
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Release\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\HtmlLib.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\HtmlLib.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\Research5774\obj\Release\Research5774.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.pdb
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.dll
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe.config
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.exe
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\Research5774.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.dll
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\HtmlLib.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.exe
+D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\Research5774\obj\Release\Research5774.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\Research5774.exe.config
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\Research5774.exe
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\Research5774.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\HtmlLib.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\Research5774.exe
+C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\Research5774.pdb

@@ -1,0 +1,21 @@
+c:\users\maortz\documents\visual studio 2013\Projects\Research5774\Research5774\bin\Debug\Research5774.exe.config
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\Research5774.exe.config
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\obj\Debug\Research5774.csprojResolveAssemblyReference.cache
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\ContentFamilies.dll
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\ContentFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\bin\Debug\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\obj\Debug\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research5773\Research5774\Research5774\obj\Debug\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\Research5774.exe.config
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Debug\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Debug\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\Research5774.exe
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\Research5774.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\ContentFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\ContentFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\bin\Debug\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\Research5774\obj\Debug\Research5774.csprojResolveAssemblyReference.cache
