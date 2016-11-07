@@ -2,23 +2,15 @@
 using PatternFamilies;
 using Statistics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Normalization;
 
 namespace WpfAArticleAnalysis
 {
@@ -28,6 +20,7 @@ namespace WpfAArticleAnalysis
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Static Declerations
         static P_family[] p_arr;
         static P_family SaveData;
         static int numberOfRemoved;
@@ -59,7 +52,9 @@ namespace WpfAArticleAnalysis
         private Thread newLogThread;
         private bool MakingLog = false;
         private static string[] FILES_NAMES;
+        #endregion
 
+        #region Declerations
         public static LogWindow lg = null;
         private Thread newWindowThread = null;
         private Thread myThread = null;
@@ -69,7 +64,12 @@ namespace WpfAArticleAnalysis
         private bool StemmerChecked;
         private bool TaggerChecked;
         int TrainingSetPres = 0;
+        //added by Yair
+        Normalizer normalizer;
+        //added by Yair
+        #endregion
 
+        #region Fucntions
         private void NewWindowHandler(object sender, RoutedEventArgs e)
         {
             newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
@@ -164,6 +164,7 @@ namespace WpfAArticleAnalysis
 
             //added By Yair
             initNormalUI();
+            normalizer = new Normalizer();
         }
         private void make_csv_file(string dir_of_articles, string output_path)
         {
@@ -1470,12 +1471,12 @@ namespace WpfAArticleAnalysis
         {
             make_csv_file(dir_of_articles_folders, output_path);
             this.Dispatcher.Invoke((Action)(() =>
-             {
-                 Submit.IsEnabled = true;
-                 TakeOutStopWords.IsEnabled = true;
-                 AnalysisMethod.IsEnabled = true;
-                 ArticleDir.IsEnabled = true;
-             }));
+            {
+                Submit.IsEnabled = true;
+                TakeOutStopWords.IsEnabled = true;
+                AnalysisMethod.IsEnabled = true;
+                ArticleDir.IsEnabled = true;
+            }));
             // MakeTxtLogNgramsAndNChars(p_arr);
 
             MessageBox.Show("Program Finished");
@@ -2256,5 +2257,7 @@ namespace WpfAArticleAnalysis
             LettersCB.Items.Add(NormaliztionMethods.NONE);
         }
         /******MadeByYAIR******/
+        #endregion
+
     }
 }

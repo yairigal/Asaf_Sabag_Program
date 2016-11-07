@@ -183,6 +183,23 @@ namespace Normalization
         {
             return cStr.ToLower();
         }
+
+        /// <summary>
+        /// returning the cStr without HTML tags.
+        /// </summary>
+        /// <param name="cStr"></param>
+        /// <returns></returns>
+        public string removeHTMLTags(string cStr)
+        {
+            //splitting all the words.
+            var words = cStr.Split(' ');
+            string newStr = string.Empty;
+            foreach (var item in words) 
+                if (!(item.StartsWith("<") && 
+                     (item.EndsWith(">") || item.EndsWith("/>"))))
+                    newStr += item+" ";
+            return newStr;     
+        }
         #endregion
 
         /// <summary>

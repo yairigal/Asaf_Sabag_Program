@@ -106,6 +106,10 @@
       <Project>{f5f62bd3-87cb-4a3d-b6cb-655b9ade77e9}</Project>
       <Name>ContentFamilies</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Normalization\Normalization.csproj">
+      <Project>{729b95f9-c2d4-44d2-a4d2-f07bccfc21a1}</Project>
+      <Name>Normalization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PatternFamilies\PatternFamilies.csproj">
       <Project>{d0323fc3-b453-4235-901f-67e3c9a3469d}</Project>
       <Name>PatternFamilies</Name>
