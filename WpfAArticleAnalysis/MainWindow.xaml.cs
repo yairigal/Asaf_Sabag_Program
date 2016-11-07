@@ -52,6 +52,10 @@ namespace WpfAArticleAnalysis
         private Thread newLogThread;
         private bool MakingLog = false;
         private static string[] FILES_NAMES;
+
+        //added by Yair
+        private static string normalFilesPath = @"\NormalFiles\";
+        //added by Yair
         #endregion
 
         #region Declerations
@@ -179,7 +183,7 @@ namespace WpfAArticleAnalysis
             }
             catch
             {
-                MessageBox.Show("dir is not currect ot the csv file is open");
+                MessageBox.Show("dir is not currect or the csv file is open");
                 return;
             }
             //
@@ -2248,6 +2252,9 @@ namespace WpfAArticleAnalysis
             No_HTML_Tags,
             NONE
         }
+        /// <summary>
+        /// initialzies the Normalizaion UI components (checkboxes)
+        /// </summary>
         private void initNormalUI()
         {
             HTMLRB.Content = "No Html Tags";
@@ -2255,6 +2262,134 @@ namespace WpfAArticleAnalysis
             LettersCB.Items.Add(NormaliztionMethods.All_Lowercase);
             LettersCB.Items.Add(NormaliztionMethods.All_Capitals);
             LettersCB.Items.Add(NormaliztionMethods.NONE);
+        }
+        /// <summary>
+        ///  returns a code on which normalization mode we should do now.
+        /// </summary>
+        /// <returns>
+        /// codes:
+        /// code 1 - with puncuataion and html lower case.
+        /// code 2 - with puncuataion and html upper case.
+        /// code 3 - with puncuataion and html with no change to letters.
+        /// code 4 - with puncutation no html lower case.
+        /// code 5 - with puncutation no html upper case.
+        /// code 6 - with puncutation no html with no change to letters.
+        /// code 7 - no puncutation with html and lower case.
+        /// code 8 - no puncutation with html and upper case
+        /// code 9 - no puncutation with html and no change to letters.
+        /// code 10 - no puncuation no html lower case.
+        /// code 11 - no puncuation no html upper case.
+        /// code 12 - no puncuation no html no change to letters.
+        /// </returns>
+        private int getNormalizationMode()
+        {
+            bool punc = PunRB.IsEnabled;
+            bool html = HTMLRB.IsEnabled;
+            bool lower = false, upper = false;
+            switch (LettersCB.SelectedIndex)
+            {
+                case 0://lower
+                    lower = true;
+                    break;
+                case 1://upper
+                    upper = true;
+                    break;
+                default:
+                    lower = upper = false;
+                    break;
+            }
+            if (punc)
+            {
+                if (html)
+                {
+                    if(lower)
+                    {
+                        return 1;
+                    }
+                    else if(upper)
+                    {
+                        return 2;
+                    }
+                    else
+                    {
+                        return 3;
+                    }
+                }
+                else
+                {
+                    if (lower)
+                    {
+                        return 4;
+                    }
+                    else if (upper)
+                    {
+                        return 5;
+                    }
+                    else
+                    {
+                        return 6;
+                    }
+                }
+            }
+            else
+            {
+                if (html)
+                {
+                    if (lower)
+                    {
+                        return 7;
+                    }
+                    else if (upper)
+                    {
+                        return 8;
+                    }
+                    else
+                    {
+                        return 9;
+                    }
+                }
+                else
+                {
+                    if (lower)
+                    {
+                        return 10;
+                    }
+                    else if (upper)
+                    {
+                        return 11;
+                    }
+                    else
+                    {
+                        return 12;
+                    }
+                }
+            }
+
+
+        }
+        //still working on this VV
+        private void normalize(Normalizer nrmlz, params string[] dirToNormal)
+        {
+            StreamReader read;
+            StreamWriter wrt;
+            try
+            {
+                foreach (var file in dirToNormal)
+                {
+                    read = new StreamReader(file);
+                    while (!read.EndOfStream)
+                    {
+                        read.ReadLine();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot retrieve data to normalize");
+                return;
+            }
+
+
         }
         /******MadeByYAIR******/
         #endregion
