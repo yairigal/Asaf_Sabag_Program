@@ -2238,7 +2238,7 @@ namespace WpfAArticleAnalysis
             }
         }
 
-        /********YAIR**********/
+        /******MadeByYAIR******/
         public enum NormaliztionMethods
         {
             No_Punctuation = 0,
@@ -2255,5 +2255,6 @@ namespace WpfAArticleAnalysis
             LettersCB.Items.Add(NormaliztionMethods.All_Capitals);
             LettersCB.Items.Add(NormaliztionMethods.NONE);
         }
+        /******MadeByYAIR******/
     }
 }

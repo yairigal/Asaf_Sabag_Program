@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArticleAnalysis", "Research5774\ArticleAnalysis.csproj", "{61A5FA6C-D18F-42D7-86B8-1ADB4C2BCD1C}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAArticleAnalysis", "WpfAArticleAnalysis\WpfAArticleAnalysis.csproj", "{9A7A9AF2-B67C-467E-AC82-A266217F0A7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics", "Statistics\Statistics.csproj", "{2F230740-092A-4E1B-93E0-764C2D175115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Normalization", "Normalization\Normalization.csproj", "{729B95F9-C2D4-44D2-A4D2-F07BCCFC21A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729B95F9-C2D4-44D2-A4D2-F07BCCFC21A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729B95F9-C2D4-44D2-A4D2-F07BCCFC21A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729B95F9-C2D4-44D2-A4D2-F07BCCFC21A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729B95F9-C2D4-44D2-A4D2-F07BCCFC21A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

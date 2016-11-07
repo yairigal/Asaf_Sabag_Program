@@ -137,3 +137,6 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfA
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
