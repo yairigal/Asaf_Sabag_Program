@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll.config
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.pdb
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.pdb

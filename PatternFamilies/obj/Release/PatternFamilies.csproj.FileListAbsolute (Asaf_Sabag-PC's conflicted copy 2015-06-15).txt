@@ -1,0 +1,15 @@
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\bin\Release\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\bin\Release\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Release\PatternFamilies.dll
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Release\PatternFamilies.pdb
+C:\Users\MaorTz\Google Drive\Research\Research5774\PatternFamilies\obj\Release\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\bin\Release\PatternFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\bin\Release\PatternFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Release\PatternFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Release\PatternFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\PatternFamilies\obj\Release\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Release\PatternFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\bin\Release\PatternFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Release\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Release\PatternFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\PatternFamilies\obj\Release\PatternFamilies.pdb

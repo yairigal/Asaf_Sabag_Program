@@ -1,0 +1,8 @@
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\bin\Release\ContentFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\bin\Release\ContentFamilies.pdb
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\obj\Release\ContentFamilies.dll
+C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\obj\Release\ContentFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Release\ContentFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Release\ContentFamilies.pdb
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Release\ContentFamilies.dll
+C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Release\ContentFamilies.pdb
