@@ -5,10 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="453" d:DesignWidth="752"
       Title="NormalizationPage">
 
     <Grid>
-        
+        <GroupBox x:Name="groupBox" Header="Normalization" HorizontalAlignment="Left" Margin="35,32,0,0" VerticalAlignment="Top" Height="49" Width="420">
+            <DockPanel>
+                <CheckBox x:Name="PunRB" Content="RadioButton" Margin="0,5"/>
+                <CheckBox x:Name="HTMLRB" Content="RadioButton" Height="17"/>
+                <ComboBox x:Name="LettersCB" Width="212" Margin="0,0,0,5" />
+            </DockPanel>
+        </GroupBox>
     </Grid>
 </Page>

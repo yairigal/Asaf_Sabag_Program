@@ -24,5 +24,70 @@ namespace WpfAArticleAnalysis.Pages
         {
             InitializeComponent();
         }
+
+        #region Properties
+        public ComboBox AnalysisMethod_code
+        {
+            get
+            {
+                return AnalysisMethod;
+            }
+        }
+        public TextBox ArticleDir_code
+        {
+            get
+            {
+                return ArticleDir;
+            }
+
+        }
+        public TextBox Threshold_code
+        {
+            get
+            {
+                return Threshold;
+            }
+
+        }
+        public ComboBox ReducingUniGrams_code
+        {
+            get
+            {
+                return ReducingUniGrams;
+            }
+        }
+        public CheckBox TakeOutStopWords_code
+        {
+            get
+            {
+                return TakeOutStopWords;
+            }
+
+        }
+        public CheckBox MakeLogFiles_code
+        {
+            get
+            {
+                return MakeLogFiles;
+            }
+        }
+        public CheckBox DomainsCounter_code
+        {
+            get
+            {
+                return DomainsCounter;
+            }
+
+        }
+        public Label FreqWarning_code
+        {
+            get
+            {
+                return FreqWarning;
+            }
+        }
+        #endregion
+
+
     }
 }

@@ -13,17 +13,21 @@ namespace WpfAArticleAnalysis
          * when adding a new page here you have to :
          *      add a page here (ENUM)
          *      add a page to a private attribute (in the class)
-         *      add a property to it (singelton get)
-         *      add in to the setPage switch
+         *      add a property to it (singelton in get)
+         *      add in to the setPage() switch
          */
         firstPage = 0,
         ngramPage,
-        NormaliztionPage
+        NormaliztionPage,
+        FeaturesPage
     }
 
     class PageHandler
     {
-        //Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="frame"></param>
         public PageHandler(Frame frame)
         {
             this.frame = frame;
@@ -34,6 +38,7 @@ namespace WpfAArticleAnalysis
         private Page firstPage = null;
         private Page ngramPage = null;
         private Page normalizationPage = null;
+        private Page featuresPage = null;
         #endregion
 
         #region Properties
@@ -42,7 +47,7 @@ namespace WpfAArticleAnalysis
             get
             {
                 if (firstPage == null)
-                    firstPage = new Page();
+                    firstPage = new Pages.FirstPage();
                 return firstPage;
             }
 
@@ -51,7 +56,6 @@ namespace WpfAArticleAnalysis
                 firstPage = value;
             }
         }
-
         public Page NgramPage
         {
             get
@@ -66,19 +70,27 @@ namespace WpfAArticleAnalysis
                 ngramPage = value;
             }
         }
-
         public Page NormalizaionPage
         {
             get
             {
                 if (normalizationPage == null)
-                    normalizationPage = new Page();
+                    normalizationPage = new Pages.NormalizationPage();
                 return normalizationPage;
             }
 
             set
             {
                 normalizationPage = value;
+            }
+        }
+        public Page FeaturesPage
+        {
+            get
+            {
+                if (featuresPage == null)
+                    featuresPage = new Pages.FeaturesPage();
+                return featuresPage;
             }
         }
         #endregion
@@ -97,6 +109,9 @@ namespace WpfAArticleAnalysis
                     break;
                 case Pages_ENUM.NormaliztionPage:
                     frame.Navigate(NormalizaionPage);
+                    break;
+                case Pages_ENUM.FeaturesPage:
+                    frame.Navigate(FeaturesPage);
                     break;
                 default:
                     break;
