@@ -70,6 +70,26 @@ namespace WpfAArticleAnalysis
         int TrainingSetPres = 0;
         //added by Yair
         Normalizer normalizer;
+        PageHandler PHandler;
+
+        TextBox UniGRams;
+        TextBox BiGRams;
+        TextBox TriGRams;
+        TextBox QuadGrams;
+        TextBox RareUGRAMs;
+        TextBox RareBGRAMS;
+        TextBox RareTriGrams;
+        TextBox RareQuadGrams;
+
+        TextBox UniChars;
+        TextBox BiChars;
+        TextBox TriChars;
+        TextBox QuadChars;
+        TextBox RareUniChars;
+        TextBox RareBiChars;
+        TextBox RareTriChars;
+        TextBox RareQuadChars;
+
         //added by Yair
         #endregion
 
@@ -91,7 +111,9 @@ namespace WpfAArticleAnalysis
         {
             float tr = (float)(1.0 / 888888.0);
             InitializeComponent();
-
+            //added by Yair
+            initPages();
+            PHandler.setPage(Pages_ENUM.ngramPage);
             NewWindowHandler(this, null);
 
 
@@ -1510,6 +1532,7 @@ namespace WpfAArticleAnalysis
             else if (FreqWarning != null)
                 FreqWarning.Content = "Put a number between 0 to 0.9999";
         }
+
         private void UniGRams_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1673,6 +1696,7 @@ namespace WpfAArticleAnalysis
             else
                 MessageBox.Show("Please Enter a natural number");
         }
+
         private void CreateLog()
         {
 
@@ -1814,6 +1838,7 @@ namespace WpfAArticleAnalysis
             RareQuadChars.Text = "0";
             Program.RareQuadChars = 0;
         }
+
         private void UniChars_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1974,6 +1999,7 @@ namespace WpfAArticleAnalysis
             else
                 MessageBox.Show("Please Enter a natural number");
         }
+
         private void Window_Closed(object sender, EventArgs e)
         {
             if (myThread != null)
@@ -2390,6 +2416,65 @@ namespace WpfAArticleAnalysis
             }
 
 
+        }
+        /// <summary>
+        /// linking the events from here to the contols on the pages.
+        /// </summary>
+        private void addEventsToControls()
+        {
+            UniGRams.TextChanged += UniGRams_TextChanged;
+            BiGRams.TextChanged += BiGRams_TextChanged;
+            TriGRams.TextChanged += TriGRams_TextChanged;
+            QuadGrams.TextChanged += QuadGrams_TextChanged;
+            RareUGRAMs.TextChanged += RareUGRAMs_TextChanged;
+            RareBGRAMS.TextChanged += RareBGRAMS_TextChanged;
+            RareTriGrams.TextChanged += RareTriGrams_TextChanged;
+            RareQuadGrams.TextChanged += RareQuadGrams_TextChanged;
+
+            UniChars.TextChanged += UniChars_TextChanged;
+            BiChars.TextChanged += BiChars_TextChanged;
+            TriChars.TextChanged += TriChars_TextChanged;
+            QuadChars.TextChanged += QuadChars_TextChanged;
+            RareUniChars.TextChanged += RareUniChars_TextChanged;
+            RareBiChars.TextChanged += RareBiChars_TextChanged;
+            RareTriChars.TextChanged += RareTriChars_TextChanged;
+            RareQuadChars.TextChanged += RareQuadChars_TextChanged;
+
+        }
+        /// <summary>
+        /// initialized the textboxes variable from the Page Real textboxes.
+        /// </summary>
+        private void initTextboxes()
+        {
+            Pages.Ngrampage currPage = PHandler.NgramPage as Pages.Ngrampage;
+            UniGRams = currPage.getUniGrams;
+            BiGRams = currPage.getBiGrams;
+            TriGRams = currPage.getTriGrams;
+            QuadGrams = currPage.getQuadGrams;
+
+            RareUGRAMs = currPage.getRareUniGrams;
+            RareTriGrams = currPage.getRareTriGrams;
+            RareBGRAMS = currPage.getRareBiGrams;
+            RareQuadGrams = currPage.getRareQuadGrams;
+
+            UniChars = currPage.getUniChars;
+            BiChars = currPage.getBiChars;
+            TriChars = currPage.getTriChars;
+            QuadChars = currPage.getQuadChars;
+
+            RareUniChars = currPage.getRareUniChars;
+            RareTriChars = currPage.getRareTriChars;
+            RareBiChars = currPage.getRareBiChars;
+            RareQuadChars = currPage.getRareQuadChars;
+        }
+        /// <summary>
+        /// initializes all the things that are linked to Pages,
+        /// Variables , new instance etc...
+        /// </summary>
+        private void initPages()
+        {
+            PHandler = new PageHandler(pageFrame);
+            initTextboxes();
         }
         /******MadeByYAIR******/
         #endregion

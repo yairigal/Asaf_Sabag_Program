@@ -1,0 +1,6 @@
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\bin\Debug\Normalization.dll.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\bin\Debug\Normalization.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\bin\Debug\Normalization.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\obj\Debug\Normalization.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Normalization\obj\Debug\Normalization.pdb

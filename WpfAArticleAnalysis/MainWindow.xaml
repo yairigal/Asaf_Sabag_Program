@@ -11,28 +11,14 @@
         <Label Content="Directory Of The Articles" HorizontalAlignment="Left" Margin="50,54,0,0" VerticalAlignment="Top" Height="24" Width="140"/>
         <Label Content="Freq. Threshold" HorizontalAlignment="Left" Margin="74,83,0,0" VerticalAlignment="Top" Height="24" Width="93"/>
         <Label Content="Reducing UniGrams with freq. of 3 and less" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.009,0.175" Height="23" Width="239"/>
-        <Label Content="# of UniGrams" HorizontalAlignment="Left" Margin="29,140,0,0" VerticalAlignment="Top" Height="24" Width="88"/>
-        <Label Content="# of BiGrams" HorizontalAlignment="Left" Margin="29,169,0,0" VerticalAlignment="Top" Height="24" Width="80"/>
-        <Label Content="# of TriGrams" HorizontalAlignment="Left" Margin="29,198,0,0" VerticalAlignment="Top" Height="24" Width="85"/>
-        <Label Content="# of QuadGrams" HorizontalAlignment="Left" Margin="29,222,0,0" VerticalAlignment="Top" Height="24" Width="99"/>
-        <Label Content="# of Rare UniGrams" HorizontalAlignment="Left" Margin="238,140,0,0" VerticalAlignment="Top" Height="24" Width="116"/>
-        <Label Content="# of Rare BiGrams" HorizontalAlignment="Left" Margin="241,169,0,0" VerticalAlignment="Top" Height="24" Width="109"/>
-        <Label Content="# of Rare TriGrams" HorizontalAlignment="Left" Margin="241,195,0,0" VerticalAlignment="Top" Height="24" Width="113"/>
-        <Label Content="# of Rare QuadGrams" HorizontalAlignment="Left" Margin="238,224,0,0" VerticalAlignment="Top" Height="24" Width="127"/>
+        
         <Label Content="Take out the stop words" HorizontalAlignment="Left" Margin="492,29,0,0" VerticalAlignment="Top" Height="24" Width="139"/>
         <ComboBox x:Name="AnalysisMethod" HorizontalAlignment="Left" Margin="260,29,0,0" VerticalAlignment="Top" Width="175" Height="20" SelectionChanged="AnalysisMethod_SelectionChanged" DropDownClosed="AnalysisMethod_DropDownClosed"/>
         <TextBox x:Name="ArticleDir" HorizontalAlignment="Left" Height="23" Margin="260,56,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="ArticleDir_TextChanged"/>
         <TextBox x:Name="Threshold" HorizontalAlignment="Left" Height="23" Margin="260,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="Threshold_TextChanged"/>
         <ComboBox x:Name="ReducingUniGrams" HorizontalAlignment="Left" Margin="260,115,0,0" VerticalAlignment="Top" Width="120" Height="20" DropDownClosed="ReducingUniGrams_DropDownClosed"/>
         <Label x:Name="FreqWarning" Foreground="#E80000" Content="" HorizontalAlignment="Left" Margin="413,85,0,0" VerticalAlignment="Top" Height="24" Width="229"/>
-        <TextBox x:Name="UniGRams" HorizontalAlignment="Left" Height="23" Margin="128,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="UniGRams_TextChanged"/>
-        <TextBox x:Name="BiGRams" HorizontalAlignment="Left" Height="23" Margin="129,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="BiGRams_TextChanged"/>
-        <TextBox x:Name="RareQuadGrams" HorizontalAlignment="Left" Height="23" Margin="374,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareQuadGrams_TextChanged"/>
-        <TextBox x:Name="RareTriGrams" HorizontalAlignment="Left" Height="23" Margin="374,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareTriGrams_TextChanged"/>
-        <TextBox x:Name="RareBGRAMS" HorizontalAlignment="Left" Height="23" Margin="374,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareBGRAMS_TextChanged"/>
-        <TextBox x:Name="RareUGRAMs" HorizontalAlignment="Left" Height="23" Margin="374,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareUGRAMs_TextChanged"/>
-        <TextBox x:Name="QuadGrams" HorizontalAlignment="Left" Height="23" Margin="129,228,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="QuadGrams_TextChanged"/>
-        <TextBox x:Name="TriGRams" HorizontalAlignment="Left" Height="23" Margin="128,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="TriGRams_TextChanged"/>
+       
         <CheckBox x:Name="TakeOutStopWords" Content="" HorizontalAlignment="Left" Margin="664,35,0,0" VerticalAlignment="Top" Height="14" Width="17" Checked="TakeOutStopWords_Checked" Unchecked="TakeOutStopWords_Unchecked"/>
         <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Left" Margin="782,14,0,0" VerticalAlignment="Top" Width="84" Click="Submit_Click" Height="27" Foreground="#FF0E0E0E">
             <Button.Background>
@@ -44,22 +30,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="# of RareQuadChars" HorizontalAlignment="Left" Margin="619,232,0,0" VerticalAlignment="Top" Height="24" Width="133"/>
-        <Label Content="# of RareTriChars" HorizontalAlignment="Left" Margin="636,202,0,0" VerticalAlignment="Top" Height="24" Width="142"/>
-        <Label Content="# of RareBiChars" HorizontalAlignment="Left" Margin="636,170,0,0" VerticalAlignment="Top" Height="24" Width="112"/>
-        <Label Content="# of RareUniChars" HorizontalAlignment="Left" Margin="636,140,0,0" VerticalAlignment="Top" Height="24" Width="114"/>
-        <Label Content="# of QuadChars" Margin="449,230,326,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="# of TriChars" HorizontalAlignment="Left" Margin="460,203,0,0" VerticalAlignment="Top" Height="24" Width="88"/>
-        <Label Content="# of BiChars" HorizontalAlignment="Left" Margin="460,171,0,0" VerticalAlignment="Top" Height="24" Width="88"/>
-        <Label Content="# of UniChars" HorizontalAlignment="Left" Margin="460,142,0,0" VerticalAlignment="Top" Height="24" Width="88"/>
-        <TextBox x:Name="UniChars" HorizontalAlignment="Left" Height="23" Margin="553,142,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="UniChars_TextChanged"/>
-        <TextBox x:Name="RareQuadChars" HorizontalAlignment="Left" Height="23" Margin="757,236,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareQuadChars_TextChanged"/>
-        <TextBox x:Name="RareTriChars" HorizontalAlignment="Left" Height="23" Margin="755,204,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareTriChars_TextChanged"/>
-        <TextBox x:Name="RareBiChars" HorizontalAlignment="Left" Height="23" Margin="755,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareBiChars_TextChanged"/>
-        <TextBox x:Name="QuadChars" HorizontalAlignment="Left" Height="23" Margin="553,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="QuadChars_TextChanged"/>
-        <TextBox x:Name="TriChars" HorizontalAlignment="Left" Height="23" Margin="553,207,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="TriChars_TextChanged"/>
-        <TextBox x:Name="BiChars" HorizontalAlignment="Left" Height="23" Margin="553,173,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="BiChars_TextChanged"/>
-        <TextBox x:Name="RareUniChars" HorizontalAlignment="Left" Height="23" Margin="755,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="RareUniChars_TextChanged"/>
+
+        
         <Label Content="Make Log files" HorizontalAlignment="Left" Margin="492,51,0,0" VerticalAlignment="Top" Height="27" Width="139"/>
         <CheckBox x:Name="MakeLogFiles" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="664,56,0,0" VerticalAlignment="Top" Height="14" Width="17" Checked="TakeOutStopWords_Checked" Unchecked="TakeOutStopWords_Unchecked" RenderTransformOrigin="0.647,2.857"/>
         <GroupBox x:Name="Familes" Header="Feature Sets" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="184" Width="312" Grid.Row="1">
@@ -99,7 +71,7 @@
                 <ComboBox x:Name="LettersCB" Width="212" Margin="0,0,0,5" />
             </DockPanel>
         </GroupBox>
-        <Frame Name="pageFrame" Content="Frame" HorizontalAlignment="Left" Height="453" Margin="948,8,0,0" VerticalAlignment="Top" Width="762" Grid.RowSpan="2"/>
+        <Frame Name="pageFrame" Content="Frame" HorizontalAlignment="Left" Height="453" Margin="948,8,0,0" VerticalAlignment="Top" Width="752" Grid.RowSpan="2"/>
         <Button x:Name="nextbtn" Content="Next" HorizontalAlignment="Left" Margin="1476,160,0,0" Grid.Row="1" VerticalAlignment="Top" Width="114" Height="48"/>
         <Button x:Name="prebtn" Content="Previous" HorizontalAlignment="Left" Margin="1066,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="122" Height="43"/>
 
