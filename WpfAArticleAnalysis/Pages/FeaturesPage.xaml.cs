@@ -20,9 +20,19 @@ namespace WpfAArticleAnalysis.Pages
     /// </summary>
     public partial class FeaturesPage : Page
     {
-        public FeaturesPage()
+        private FeaturesPage()
         {
             InitializeComponent();
         }
+
+        //singleton
+        private static FeaturesPage instance = null;
+        public static FeaturesPage getThisPage()
+        {
+            if (instance == null)
+                instance = new FeaturesPage();
+            return instance;
+        }
+        
     }
 }

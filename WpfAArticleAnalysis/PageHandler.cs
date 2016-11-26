@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using WpfAArticleAnalysis.Pages;
 
 namespace WpfAArticleAnalysis
 {
@@ -12,9 +13,8 @@ namespace WpfAArticleAnalysis
         /*
          * when adding a new page here you have to :
          *      add a page here (ENUM)
-         *      add a page to a private attribute (in the class)
-         *      add a property to it (singelton in get)
-         *      add in to the setPage() switch
+         *      add a singleton to it in his class
+         *      add it to the list on the Constructor (PageArgs)
          */
         firstPage = 0,
         ngramPage,
@@ -24,6 +24,19 @@ namespace WpfAArticleAnalysis
 
     class PageHandler
     {
+        #region Attributes
+        private Frame frame;
+        private static List<PageArgs> Pages = new List<PageArgs>
+        {
+            new PageArgs(FeaturesPage.getThisPage(),"featuresPage",Pages_ENUM.FeaturesPage),
+            new PageArgs(FirstPage.getThisPage(),"firstPage",Pages_ENUM.firstPage),
+            new PageArgs(Ngrampage.getThisPage(),"ngramPage",Pages_ENUM.ngramPage),
+            new PageArgs(NormalizationPage.getThisPage(),"normaliztionPage",Pages_ENUM.NormaliztionPage)
+        };
+        private List<Pages_ENUM> pageOrder;
+        private Pages_ENUM first, last;
+        #endregion
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -31,96 +44,67 @@ namespace WpfAArticleAnalysis
         public PageHandler(Frame frame)
         {
             this.frame = frame;
+            pageOrder = Enum.GetValues(typeof(Pages_ENUM)).Cast<Pages_ENUM>().ToList();
+            first = pageOrder.First();
+            last = pageOrder.Last();
+            setPage(first);
         }
-
-        #region Attributes
-        private Frame frame;
-        private Page firstPage = null;
-        private Page ngramPage = null;
-        private Page normalizationPage = null;
-        private Page featuresPage = null;
-        #endregion
-
-        #region Properties
-        public Page FirstPage
-        {
-            get
-            {
-                if (firstPage == null)
-                    firstPage = new Pages.FirstPage();
-                return firstPage;
-            }
-
-            set
-            {
-                firstPage = value;
-            }
-        }
-        public Page NgramPage
-        {
-            get
-            {
-                if (ngramPage == null)
-                    ngramPage = new Pages.Ngrampage();
-                return ngramPage;
-            }
-
-            set
-            {
-                ngramPage = value;
-            }
-        }
-        public Page NormalizaionPage
-        {
-            get
-            {
-                if (normalizationPage == null)
-                    normalizationPage = new Pages.NormalizationPage();
-                return normalizationPage;
-            }
-
-            set
-            {
-                normalizationPage = value;
-            }
-        }
-        public Page FeaturesPage
-        {
-            get
-            {
-                if (featuresPage == null)
-                    featuresPage = new Pages.FeaturesPage();
-                return featuresPage;
-            }
-        }
-        #endregion
 
         #region Functions
-        //need work
+        /// <summary>
+        /// sets the page on the frame.
+        /// </summary>
+        /// <param name="p"></param>
         public void setPage(Pages_ENUM p)
         {
-            switch (p)
-            {
-                case Pages_ENUM.firstPage:
-                    frame.Navigate(FirstPage);
-                    break;
-                case Pages_ENUM.ngramPage:
-                    frame.Navigate(NgramPage);
-                    break;
-                case Pages_ENUM.NormaliztionPage:
-                    frame.Navigate(NormalizaionPage);
-                    break;
-                case Pages_ENUM.FeaturesPage:
-                    frame.Navigate(FeaturesPage);
-                    break;
-                default:
-                    break;
-            }
+            frame.Navigate(PageConvertor.convertToPage(p));
         }
-
+        /// <summary>
+        /// returns the current page on the frame
+        /// </summary>
+        /// <returns></returns>
         public Page getCurrentPage()
         {
             return frame.Content as Page;
+        }
+        /// <summary>
+        /// Sets the next page on the Frame
+        /// </summary>
+        /// <returns> returns the next page that has set, - else returns null</returns>
+        public Page NextPage()
+        {
+            //if its the last Page -> finish
+            if (getCurrentPage() == PageConvertor.convertToPage(last))
+                return null;
+            //if its not the last page -> move to the next page
+            int currentPageIndex = pageOrder.IndexOf(PageConvertor.convert(getCurrentPage()));
+            var nextPage = pageOrder[currentPageIndex + 1];
+            setPage(nextPage);
+            return PageConvertor.convertToPage(nextPage);
+        }
+        /// <summary>
+        /// sets the pre page on the fram
+        /// </summary>
+        /// <returns>The prev page , is the first page is current returns null</returns>
+        public Page PreviousPage()
+        {
+            //if its the firstPage -> returns null
+            if (getCurrentPage() == PageConvertor.convertToPage(first))
+                return null;
+            //else set the prev page and return it
+            int currentPageIndex = pageOrder.IndexOf(PageConvertor.convert(getCurrentPage()));
+            var prevPage = pageOrder[currentPageIndex - 1];
+            setPage(prevPage);
+            return PageConvertor.convertToPage(prevPage);
+
+        }
+        /// <summary>
+        /// returns the Pages List.
+        /// </summary>
+        /// <returns></returns>
+        public static List<PageArgs> getList()
+        {
+            return Pages;
         }
         #endregion
 

@@ -20,7 +20,7 @@ namespace WpfAArticleAnalysis.Pages
     /// </summary>
     public partial class Ngrampage : Page
     {
-        public Ngrampage()
+        private Ngrampage()
         {
             InitializeComponent();
             initTextboxes();
@@ -213,6 +213,15 @@ namespace WpfAArticleAnalysis.Pages
             rareBiChars = RareBiChars;
             rareTriChars = RareTriChars;
             rareQuadChars = RareQuadChars;
+        }
+
+        //singleton
+        private static Ngrampage instance = null;
+        public static Ngrampage getThisPage()
+        {
+            if (instance == null)
+                instance = new Ngrampage();
+            return instance;
         }
 
         #endregion

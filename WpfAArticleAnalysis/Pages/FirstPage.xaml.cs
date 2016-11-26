@@ -20,7 +20,7 @@ namespace WpfAArticleAnalysis.Pages
     /// </summary>
     public partial class FirstPage : Page
     {
-        public FirstPage()
+        private FirstPage()
         {
             InitializeComponent();
         }
@@ -88,6 +88,14 @@ namespace WpfAArticleAnalysis.Pages
         }
         #endregion
 
+        //singleton
+        private static FirstPage instance = null;
+        public static FirstPage getThisPage()
+        {
+            if (instance == null)
+                instance = new FirstPage();
+            return instance;
+        }
 
     }
 }

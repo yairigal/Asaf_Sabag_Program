@@ -117,6 +117,10 @@ namespace WpfAArticleAnalysis
         CheckBox StemmerCheckBox;
         CheckBox TaggerCheckBox;
         CheckBox SelectAllCheckBox;
+        ComboBox TraningSetNum;
+        Button Tag_Articles; // Tag Articles
+        Button Count; // Count
+        Button Statistics; // Statistics
         #endregion
 
         //added by Yair
@@ -141,8 +145,9 @@ namespace WpfAArticleAnalysis
             float tr = (float)(1.0 / 888888.0);
             InitializeComponent();
             //added by Yair
+            pageFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             initPages();
-            PHandler.setPage(Pages_ENUM.FeaturesPage);
+            //added by Yair
             NewWindowHandler(this, null);
 
 
@@ -1536,34 +1541,7 @@ namespace WpfAArticleAnalysis
 
             MessageBox.Show("Program Finished");
         }
-
-        private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void ArticleDir_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            dir_of_articles_folders = ArticleDir.Text;
-        }
-        private void Threshold_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (FirstTime)
-            {
-                return;
-
-            }
-            double t;
-            if (Double.TryParse(Threshold.Text.ToString(), out t) && t >= 0 && t <= 0.9999)
-            {
-                FreqWarning.Content = "";
-                Program.THRESHOLD = t;
-                THRESHOLD = t;
-            }
-            else if (FreqWarning != null)
-                FreqWarning.Content = "Put a number between 0 to 0.9999";
-        }
-
-        #region NgramsPage Events
+        #region Pages Events
         private void UniGRams_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1887,15 +1865,6 @@ namespace WpfAArticleAnalysis
             else
                 MessageBox.Show("Please Enter a natural number");
         }
-        #endregion
-
-
-        private void CreateLog()
-        {
-
-            lg = new LogWindow();
-            lg.Show();
-        }
         private void AnalysisMethod_DropDownClosed(object sender, EventArgs e)
         {
             if (FirstTime)
@@ -1923,6 +1892,216 @@ namespace WpfAArticleAnalysis
                     break;
             }
         }
+        private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void ArticleDir_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dir_of_articles_folders = ArticleDir.Text;
+        }
+        private void Threshold_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (FirstTime)
+            {
+                return;
+
+            }
+            double t;
+            if (Double.TryParse(Threshold.Text.ToString(), out t) && t >= 0 && t <= 0.9999)
+            {
+                FreqWarning.Content = "";
+                Program.THRESHOLD = t;
+                THRESHOLD = t;
+            }
+            else if (FreqWarning != null)
+                FreqWarning.Content = "Put a number between 0 to 0.9999";
+        }
+        private void ReducingUniGrams_DropDownClosed(object sender, EventArgs e)
+        {
+
+            if (FirstTime)
+            {
+                return;
+
+            }
+
+            switch (ReducingUniGrams.Text.ToString())
+            {
+                case ("Each Articles"):
+                    Program.ForOneArticle = "E";
+                    break;
+                case ("All of them"):
+                    Program.ForOneArticle = "A";
+                    break;
+                case ("None of those"):
+                    Program.ForOneArticle = "N";
+                    break;
+            }
+        }
+        private void TakeOutStopWords_Checked(object sender, RoutedEventArgs e)
+        {
+            Program.RemoveStopWords = true;
+
+        }
+        private void TakeOutStopWords_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Program.RemoveStopWords = false;
+        }
+        private void SelectAllCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)SelectAllCheckBox.IsChecked)
+            {
+                OrthograficCheckBox.IsChecked = true;
+                ReachnessLangCheckBox.IsChecked = true;
+                ReachnessLangCheckBox.IsChecked = true;
+                StemmerCheckBox.IsChecked = true;
+                TaggerCheckBox.IsChecked = true;
+                QuantitativeCheckBox.IsChecked = true;
+
+                OrthograficChecked = true;
+                QuantitativeChecked = true;
+                ReachnessLangChecked = true;
+                StemmerChecked = true;
+                TaggerChecked = true;
+            }
+            else
+            {
+                OrthograficCheckBox.IsChecked = false;
+                ReachnessLangCheckBox.IsChecked = false;
+                ReachnessLangCheckBox.IsChecked = false;
+                StemmerCheckBox.IsChecked = false;
+                TaggerCheckBox.IsChecked = false;
+                QuantitativeCheckBox.IsChecked = false;
+
+                OrthograficChecked = false;
+                QuantitativeChecked = false;
+                ReachnessLangChecked = false;
+                StemmerChecked = false;
+                TaggerChecked = false;
+            }
+        }
+        private void StemmerCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)StemmerCheckBox.IsChecked)
+                StemmerChecked = true;
+            else
+                StemmerChecked = false;
+        }
+        private void TaggerCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)TaggerCheckBox.IsChecked)
+                TaggerChecked = true;
+            else
+                TaggerChecked = false;
+        }
+        private void ReachnessLangCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)ReachnessLangCheckBox.IsChecked)
+                ReachnessLangChecked = true;
+            else
+                ReachnessLangChecked = false;
+        }
+        private void QuantitativeCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)QuantitativeCheckBox.IsChecked)
+                QuantitativeChecked = true;
+            else
+                QuantitativeChecked = false;
+        }
+        private void OrthograficCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)OrthograficCheckBox.IsChecked)
+                OrthograficChecked = true;
+            else
+                OrthograficChecked = false;
+        }
+        private void TraningSetNum_DropDownClosed(object sender, EventArgs e)
+        {
+            switch (TraningSetNum.Text)
+            {
+                case "None":
+                    TrainingSetPres = 0;
+                    break;
+                case "10":
+                    TrainingSetPres = 10;
+                    break;
+                case "15":
+                    TrainingSetPres = 15;
+                    break;
+                case "20":
+                    TrainingSetPres = 20;
+                    break;
+                case "30":
+                    TrainingSetPres = 30;
+                    break;
+                case "33":
+                    TrainingSetPres = 33;
+                    break;
+                case "40":
+                    TrainingSetPres = 40;
+                    break;
+                case "50":
+                    TrainingSetPres = 50;
+                    break;
+                default:
+                    TrainingSetPres = 0;
+                    break;
+            }
+        }
+        private void Tag_Articles_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("Tag.bat");
+
+            var files = GetFilesInDir(ArticleDir.Text).Where(x => !x.Contains("_tagger_output")).Where(x => x.Contains(".txt"));
+
+            foreach (var item in files)
+            {
+                string toWrite = "";
+                toWrite += @"java -Xmx3000m -XX:MaxPermSize=4000m -classpath stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger " +
+                    "-model models/english-bidirectional-distsim.tagger -sentenceDelimiter newline -textFile ";
+                toWrite += item;
+                toWrite += " > " + item.Substring(0, item.LastIndexOf('.')) + "_tagger_output.txt";
+                sw.WriteLine(toWrite);
+            }
+            sw.Close();
+
+
+            var prcs = System.Diagnostics.Process.Start("Tag.bat");
+            MessageBox.Show("This going to take a while\n");
+            Submit.IsEnabled = false;
+            prcs.EnableRaisingEvents = true;
+            prcs.Exited += (s, e2) =>
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    Submit.IsEnabled = true;
+                }));
+
+            };
+
+        }
+        private void Count_Click(object sender, RoutedEventArgs e)
+        {
+            Thread count = new Thread(new ThreadStart(CountDifferentWords));
+            count.Start();
+
+        }
+        private void Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
+            StatsThread.SetApartmentState(ApartmentState.STA);
+            StatsThread.IsBackground = true;
+            StatsThread.Start();
+
+        }
+        #endregion
+        private void CreateLog()
+        {
+
+            lg = new LogWindow();
+            lg.Show();
+        }     
         private void ResetGramsAndChars()
         {
             Threshold.IsEnabled = true;
@@ -2040,15 +2219,6 @@ namespace WpfAArticleAnalysis
                 newWindowThread.Abort();
             }
         }
-        private void TakeOutStopWords_Checked(object sender, RoutedEventArgs e)
-        {
-            Program.RemoveStopWords = true;
-
-        }
-        private void TakeOutStopWords_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Program.RemoveStopWords = false;
-        }
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -2057,168 +2227,7 @@ namespace WpfAArticleAnalysis
         {
             Familes.IsEnabled = false;
 
-        }
-        private void SelectAllCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)SelectAllCheckBox.IsChecked)
-            {
-                OrthograficCheckBox.IsChecked = true;
-                ReachnessLangCheckBox.IsChecked = true;
-                ReachnessLangCheckBox.IsChecked = true;
-                StemmerCheckBox.IsChecked = true;
-                TaggerCheckBox.IsChecked = true;
-                QuantitativeCheckBox.IsChecked = true;
-
-                OrthograficChecked = true;
-                QuantitativeChecked = true;
-                ReachnessLangChecked = true;
-                StemmerChecked = true;
-                TaggerChecked = true;
-            }
-            else
-            {
-                OrthograficCheckBox.IsChecked = false;
-                ReachnessLangCheckBox.IsChecked = false;
-                ReachnessLangCheckBox.IsChecked = false;
-                StemmerCheckBox.IsChecked = false;
-                TaggerCheckBox.IsChecked = false;
-                QuantitativeCheckBox.IsChecked = false;
-
-                OrthograficChecked = false;
-                QuantitativeChecked = false;
-                ReachnessLangChecked = false;
-                StemmerChecked = false;
-                TaggerChecked = false;
-            }
-        }
-        private void StemmerCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)StemmerCheckBox.IsChecked)
-                StemmerChecked = true;
-            else
-                StemmerChecked = false;
-        }
-        private void TaggerCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)TaggerCheckBox.IsChecked)
-                TaggerChecked = true;
-            else
-                TaggerChecked = false;
-        }
-        private void ReachnessLangCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)ReachnessLangCheckBox.IsChecked)
-                ReachnessLangChecked = true;
-            else
-                ReachnessLangChecked = false;
-        }
-        private void QuantitativeCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)QuantitativeCheckBox.IsChecked)
-                QuantitativeChecked = true;
-            else
-                QuantitativeChecked = false;
-        }
-        private void OrthograficCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)OrthograficCheckBox.IsChecked)
-                OrthograficChecked = true;
-            else
-                OrthograficChecked = false;
-        }
-        private void TraningSetNum_DropDownClosed(object sender, EventArgs e)
-        {
-            switch (TraningSetNum.Text)
-            {
-                case "None":
-                    TrainingSetPres = 0;
-                    break;
-                case "10":
-                    TrainingSetPres = 10;
-                    break;
-                case "15":
-                    TrainingSetPres = 15;
-                    break;
-                case "20":
-                    TrainingSetPres = 20;
-                    break;
-                case "30":
-                    TrainingSetPres = 30;
-                    break;
-                case "33":
-                    TrainingSetPres = 33;
-                    break;
-                case "40":
-                    TrainingSetPres = 40;
-                    break;
-                case "50":
-                    TrainingSetPres = 50;
-                    break;
-                default:
-                    TrainingSetPres = 0;
-                    break;
-            }
-        }
-        private void ReducingUniGrams_DropDownClosed(object sender, EventArgs e)
-        {
-
-            if (FirstTime)
-            {
-                return;
-
-            }
-
-            switch (ReducingUniGrams.Text.ToString())
-            {
-                case ("Each Articles"):
-                    Program.ForOneArticle = "E";
-                    break;
-                case ("All of them"):
-                    Program.ForOneArticle = "A";
-                    break;
-                case ("None of those"):
-                    Program.ForOneArticle = "N";
-                    break;
-            }
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            StreamWriter sw = new StreamWriter("Tag.bat");
-
-            var files = GetFilesInDir(ArticleDir.Text).Where(x => !x.Contains("_tagger_output")).Where(x => x.Contains(".txt"));
-
-            foreach (var item in files)
-            {
-                string toWrite = "";
-                toWrite += @"java -Xmx3000m -XX:MaxPermSize=4000m -classpath stanford-postagger.jar edu.stanford.nlp.tagger.maxent.MaxentTagger " +
-                    "-model models/english-bidirectional-distsim.tagger -sentenceDelimiter newline -textFile ";
-                toWrite += item;
-                toWrite += " > " + item.Substring(0, item.LastIndexOf('.')) + "_tagger_output.txt";
-                sw.WriteLine(toWrite);
-            }
-            sw.Close();
-
-
-            var prcs = System.Diagnostics.Process.Start("Tag.bat");
-            MessageBox.Show("This going to take a while\n");
-            Submit.IsEnabled = false;
-            prcs.EnableRaisingEvents = true;
-            prcs.Exited += (s, e2) =>
-            {
-                this.Dispatcher.Invoke((Action)(() =>
-                {
-                    Submit.IsEnabled = true;
-                }));
-
-            };
-
-        }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Thread count = new Thread(new ThreadStart(CountDifferentWords));
-            count.Start();
-
-        }
+        } 
         private void CountDifferentWords()
         {
 
@@ -2274,15 +2283,7 @@ namespace WpfAArticleAnalysis
             }));
 
 
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
-            StatsThread.SetApartmentState(ApartmentState.STA);
-            StatsThread.IsBackground = true;
-            StatsThread.Start();
-
-        }
+        }      
         private void StatsCreator()
         {
 
@@ -2299,8 +2300,18 @@ namespace WpfAArticleAnalysis
                 MessageBox.Show(ex.Message);
             }
         }
+        private void image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PHandler.NextPage();
+        }
+
+        private void image_Copy_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            PHandler.PreviousPage();
+        }
 
         /******MadeByYAIR******/
+        #region Coded By Yair Yigal
         public enum NormaliztionMethods
         {
             No_Punctuation = 0,
@@ -2359,11 +2370,11 @@ namespace WpfAArticleAnalysis
             {
                 if (html)
                 {
-                    if(lower)
+                    if (lower)
                     {
                         return 1;
                     }
-                    else if(upper)
+                    else if (upper)
                     {
                         return 2;
                     }
@@ -2490,6 +2501,10 @@ namespace WpfAArticleAnalysis
             StemmerCheckBox.Click += StemmerCheckBox_Click;
             TaggerCheckBox.Click += TaggerCheckBox_Click;
             SelectAllCheckBox.Click += SelectAllCheckBox_Click;
+            TraningSetNum.DropDownClosed += TraningSetNum_DropDownClosed;
+            Tag_Articles.Click += Tag_Articles_Click;
+            Count.Click += Count_Click;
+            Statistics.Click += Statistics_Click;
             #endregion
 
         }
@@ -2498,7 +2513,7 @@ namespace WpfAArticleAnalysis
         /// </summary>
         private void initngramPageControls()
         {
-            Pages.Ngrampage currPage = PHandler.NgramPage as Pages.Ngrampage;
+            Pages.Ngrampage currPage = Pages.Ngrampage.getThisPage();
             UniGRams = currPage.getUniGrams;
             BiGRams = currPage.getBiGrams;
             TriGRams = currPage.getTriGrams;
@@ -2524,7 +2539,7 @@ namespace WpfAArticleAnalysis
         /// </summary>
         private void initFirstPageControls()
         {
-            var currPage = PHandler.FirstPage as Pages.FirstPage;
+            var currPage = Pages.FirstPage.getThisPage();
             AnalysisMethod = currPage.AnalysisMethod;
             ArticleDir = currPage.ArticleDir;
             Threshold = currPage.Threshold;
@@ -2540,17 +2555,17 @@ namespace WpfAArticleAnalysis
         /// </summary>
         private void initNormaliztionPageControls()
         {
-            var currPage = PHandler.NormalizaionPage as Pages.NormalizationPage;
+            var currPage = Pages.NormalizationPage.getThisPage();
             PunRB = currPage.PunRB;
             HTMLRB = currPage.HTMLRB;
-            LettersCB = currPage.LettersCB;        
+            LettersCB = currPage.LettersCB;
         }
         /// <summary>
         /// initialized the variable here to the conrols from FeatursPage.
         /// </summary>
         private void initFeaturesPageConrols()
         {
-            var currPage = PHandler.FeaturesPage as Pages.FeaturesPage;
+            var currPage = Pages.FeaturesPage.getThisPage();
             Familes = currPage.Familes;
             OrthograficCheckBox = currPage.OrthograficCheckBox;
             QuantitativeCheckBox = currPage.QuantitativeCheckBox;
@@ -2558,6 +2573,10 @@ namespace WpfAArticleAnalysis
             StemmerCheckBox = currPage.StemmerCheckBox;
             TaggerCheckBox = currPage.TaggerCheckBox;
             SelectAllCheckBox = currPage.SelectAllCheckBox;
+            TraningSetNum = currPage.TraningSetNum;
+            Tag_Articles = currPage.Tag_Articles;
+            Count = currPage.Count;
+            Statistics = currPage.Statistics;
         }
         /// <summary>
         /// initializes all the things that are linked to Pages,
@@ -2572,6 +2591,7 @@ namespace WpfAArticleAnalysis
             initFeaturesPageConrols();
             addEventsToControls();
         }
+        #endregion
         /******MadeByYAIR******/
         #endregion
 

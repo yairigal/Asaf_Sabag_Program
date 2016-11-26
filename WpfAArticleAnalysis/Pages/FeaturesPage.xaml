@@ -29,6 +29,12 @@
                 <CheckBox x:Name="SelectAllCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="136,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
             </Grid>
         </GroupBox>
-
+        <ComboBox x:Name="TraningSetNum" HorizontalAlignment="Left" Margin="394,47,0,0" VerticalAlignment="Top" Width="127" Height="20"/>
+        <Label Content="%" HorizontalAlignment="Left" Margin="526,47,0,0" VerticalAlignment="Top" Height="32" Width="37"/>
+        <Label Content="Training set %" HorizontalAlignment="Left" Margin="394,23,0,0" VerticalAlignment="Top" Height="24" Width="127"/>
+        <Button x:Name="Tag_Articles" Content="Tag Articles" HorizontalAlignment="Left" Margin="579,47,0,0" VerticalAlignment="Top" Width="95" Height="20"/>
+        <Button x:Name="Count" Content="Count" HorizontalAlignment="Left" Margin="599,117,0,0" VerticalAlignment="Top" Width="75" Height="22" />
+        <Label Content="Get Numbner Of Different Words in each Domain" Margin="394,72,0,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="286"/>
+        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Margin="394,149,0,0" VerticalAlignment="Top" Width="109" Height="63" />
     </Grid>
 </Page>

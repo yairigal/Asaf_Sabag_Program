@@ -91,6 +91,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageArgs.cs" />
+    <Compile Include="PageConvertor.cs" />
     <Compile Include="PageHandler.cs" />
     <Compile Include="Pages\FeaturesPage.xaml.cs">
       <DependentUpon>FeaturesPage.xaml</DependentUpon>
@@ -147,6 +149,10 @@
       <Project>{2f230740-092a-4e1b-93e0-764c2d175115}</Project>
       <Name>Statistics</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\leftButton.png" />
+    <Resource Include="Images\rightButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,9 +20,18 @@ namespace WpfAArticleAnalysis.Pages
     /// </summary>
     public partial class NormalizationPage : Page
     {
-        public NormalizationPage()
+        private NormalizationPage()
         {
             InitializeComponent();
+        }
+
+        //singleton
+        private static NormalizationPage instance = null;
+        public static NormalizationPage getThisPage()
+        {
+            if (instance == null)
+                instance = new NormalizationPage();
+            return instance;
         }
     }
 }
