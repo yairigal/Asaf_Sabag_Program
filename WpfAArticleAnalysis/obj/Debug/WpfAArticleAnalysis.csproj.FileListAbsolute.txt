@@ -140,3 +140,6 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfA
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
