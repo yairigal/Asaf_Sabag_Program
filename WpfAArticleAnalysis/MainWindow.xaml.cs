@@ -1485,6 +1485,8 @@ namespace WpfAArticleAnalysis
 
             MessageBox.Show("Program Finished");
         }
+
+        #region control_events&operations
         private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -2162,6 +2164,16 @@ namespace WpfAArticleAnalysis
             count.Start();
 
         }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
+            StatsThread.SetApartmentState(ApartmentState.STA);
+            StatsThread.IsBackground = true;
+            StatsThread.Start();
+
+        }
+        #endregion
+
         private void CountDifferentWords()
         {
 
@@ -2216,14 +2228,6 @@ namespace WpfAArticleAnalysis
                 MessageBox.Show("Finish counting");
             }));
 
-
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
-            StatsThread.SetApartmentState(ApartmentState.STA);
-            StatsThread.IsBackground = true;
-            StatsThread.Start();
 
         }
         private void StatsCreator()
