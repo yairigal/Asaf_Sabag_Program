@@ -7,8 +7,13 @@ using System.IO;
 
 namespace I_O
 {
-    interface I_O_Interface
+    /// <summary>
+    /// Interface for reading and writing from/to the different tweets files.
+    /// </summary>
+    interface I_O_Interface<T>
     {
-        FileStream open_file(string path);
+        IEnumerable<T> fileToTweets(string filePath);
+        string tweetToFile(IEnumerable<T> tweets, string path = "");
+
     }
 }
