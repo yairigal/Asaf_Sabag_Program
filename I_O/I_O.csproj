@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="I_O_Text.cs" />
     <Compile Include="I_O_Interface.cs" />
     <Compile Include="I_O_Json.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

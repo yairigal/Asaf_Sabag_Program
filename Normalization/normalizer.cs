@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using I_O;
 
 namespace Normalization
 {
     class normalizer
     {
-        string dir_To_Be_Normal = "";
-        string dir_For_The_Normal = "";
+        I_O_Json jFile;
 
-        public normalizer()
+        string dirToBeNormal = "";
+        string dirForTheNormal = "";
+
+        public normalizer(string dir, string type, string dst = "")
         {
-
+            dirToBeNormal = dir;
+            if (dst == "")
+                dirForTheNormal = dirToBeNormal + "normalaized";
         }
     }
 }

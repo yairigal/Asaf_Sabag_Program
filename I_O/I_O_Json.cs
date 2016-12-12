@@ -9,47 +9,58 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    class I_O_Json<Jobject> : I_O_Interface<JObject>
+    public class I_O_Json : I_O_Interface<JObject>
     {
-        public IEnumerable<JObject> fileToTweets(string filePath)
+        string filename;
+        string extension;
+
+        public I_O_Json()
         {
-            using (StreamReader reader = File.OpenText(filePath))
+        }
+
+        public void changeFile(string filePath)
+        {
+            filename = Path.GetFileNameWithoutExtension(filePath);
+            extension = Path.GetExtension(filePath);
+        }
+
+        public IEnumerable<JObject> fileToTweets(string delim, int count)
+        {
+            using (StreamReader reader = File.OpenText(filename+extension))
             {
-                int i = 1;
                 while (!reader.EndOfStream)
                 {
                     yield return JObject.Parse(reader.ReadLine());
-                    i++;
                 }
 
             }
         }
 
-        public string tweetToFile(IEnumerable<JObject> tweets, string filePath)
+        public string tweetToFile(IEnumerable<JObject> tweets, string change, string delim, int count)
         {
             JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter file = File.CreateText(@"5j_71cjJOp_number2.json"))
+            string afterChange = filename + "_" + change + extension;
+            using (StreamWriter writer = File.CreateText(afterChange))
             {
                 foreach (JObject item in tweets)
                 {
-                    serializer.Serialize(file, item, typeof(JObject));
-                    file.Write("\n");
+                    serializer.Serialize(writer, item, typeof(JObject));
+                    writer.Write("\n");
                 }
             }
-            return filePath;
+            return afterChange;
         }
 
         //static void Main(string[] args)
         //{
         //    List<JObject> li = new List<JObject>();
-        //    foreach (JObject j in file_to_tweets("5j_71cjJOp.json"))
+        //    foreach (JObject j in fileToTweets("5j_71cjJOp.json"))
         //    {
         //        li.Add(j);
         //        //Console.WriteLine(j["text"]);
         //    }
 
-        //    tweets_to_file(li);
+        //    tweetToFile(li, "");
         //}
     }
-}
 }

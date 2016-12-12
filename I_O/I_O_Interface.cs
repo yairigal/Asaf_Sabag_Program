@@ -12,8 +12,8 @@ namespace I_O
     /// </summary>
     interface I_O_Interface<T>
     {
-        IEnumerable<T> fileToTweets(string filePath);
-        string tweetToFile(IEnumerable<T> tweets, string path = "");
+        IEnumerable<T> fileToTweets(string delim, int count);
+        string tweetToFile(IEnumerable<T> tweets, string change, string delim, int count);
 
     }
 }
