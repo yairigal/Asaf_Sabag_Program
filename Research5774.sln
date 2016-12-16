@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics", "Statistics\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Normalization", "Normalization\Normalization.csproj", "{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I_O", "I_O\I_O.csproj", "{9A12DD2D-C509-4A48-A20C-F09AD11019ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "I_O\IO.csproj", "{9A12DD2D-C509-4A48-A20C-F09AD11019ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

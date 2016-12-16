@@ -7,18 +7,12 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class I_O_Text : I_O_Abstract<string>
+    public class IOText : IOAbstract<string>
     {
-        string filename;
-        string extension;
+        public IOText(string filePath):base(filePath)
+        {}
 
-        public I_O_Text(string filePath)
-        {
-            filename = Path.GetFileNameWithoutExtension(filePath);
-            extension = Path.GetExtension(filePath);
-        }
-
-        public IEnumerable<string> fileToTweets(string delim, int count)
+        public override IEnumerable<string> fileToTweets(string delim, int count)
         {
             using (StreamReader reader = File.OpenText(filename+extension))
             {
@@ -30,7 +24,7 @@ namespace I_O
             }
         }
 
-        public string tweetToFile(IEnumerable<string> tweets, string path, string delim, int count)
+        public override string tweetToFile(IEnumerable<string> tweets, string path, string delim, int count)
         {
             throw new NotImplementedException();
         }

@@ -9,24 +9,13 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class I_O_Json : I_O_Abstract<JObject>
+    public class IOJson : IOAbstract<JObject>
     {
-        string filename;
-        string extension;
-
-        public I_O_Json()
-        {
-        }
-
-        public void changeFile(string filePath)
-        {
-            filename = Path.GetFileNameWithoutExtension(filePath);
-            extension = Path.GetExtension(filePath);
-        }
+        public IOJson(string filen) :base(filen){}
 
         public override IEnumerable<JObject> fileToTweets(string delim, int count)
         {
-            using (StreamReader reader = File.OpenText(filename+extension))
+            using (StreamReader reader = File.OpenText(filename + extension))
             {
                 while (!reader.EndOfStream)
                 {

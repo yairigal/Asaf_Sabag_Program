@@ -9,7 +9,7 @@ namespace Normalization
 {
     class normalizer
     {
-        I_O_Json jFile;
+        IOJson jFile;
 
         string dirToBeNormal = "";
         string dirForTheNormal = "";
