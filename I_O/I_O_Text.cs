@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class I_O_Text : I_O_Interface<string>
+    public class I_O_Text : I_O_Abstract<string>
     {
         string filename;
         string extension;

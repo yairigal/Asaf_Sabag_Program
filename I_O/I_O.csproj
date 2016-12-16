@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="I_O_Text.cs" />
-    <Compile Include="I_O_Interface.cs" />
+    <Compile Include="I_O_Abstract.cs" />
     <Compile Include="I_O_Json.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

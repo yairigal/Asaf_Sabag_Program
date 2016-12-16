@@ -10,10 +10,11 @@ namespace I_O
     /// <summary>
     /// Interface for reading and writing from/to the different tweets files.
     /// </summary>
-    interface I_O_Interface<T>
+    abstract class I_O_Abstract<T>
     {
-        IEnumerable<T> fileToTweets(string delim, int count);
-        string tweetToFile(IEnumerable<T> tweets, string change, string delim, int count);
+
+        public abstract IEnumerable<T> fileToTweets(string delim, int count);
+        public abstract string tweetToFile(IEnumerable<T> tweets, string change, string delim, int count);
 
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class I_O_Json : I_O_Interface<JObject>
+    public class I_O_Json : I_O_Abstract<JObject>
     {
         string filename;
         string extension;
@@ -24,7 +24,7 @@ namespace I_O
             extension = Path.GetExtension(filePath);
         }
 
-        public IEnumerable<JObject> fileToTweets(string delim, int count)
+        public override IEnumerable<JObject> fileToTweets(string delim, int count)
         {
             using (StreamReader reader = File.OpenText(filename+extension))
             {
@@ -36,7 +36,7 @@ namespace I_O
             }
         }
 
-        public string tweetToFile(IEnumerable<JObject> tweets, string change, string delim, int count)
+        public override string tweetToFile(IEnumerable<JObject> tweets, string change, string delim, int count)
         {
             JsonSerializer serializer = new JsonSerializer();
             string afterChange = filename + "_" + change + extension;
@@ -50,17 +50,5 @@ namespace I_O
             }
             return afterChange;
         }
-
-        //static void Main(string[] args)
-        //{
-        //    List<JObject> li = new List<JObject>();
-        //    foreach (JObject j in fileToTweets("5j_71cjJOp.json"))
-        //    {
-        //        li.Add(j);
-        //        //Console.WriteLine(j["text"]);
-        //    }
-
-        //    tweetToFile(li, "");
-        //}
     }
 }
