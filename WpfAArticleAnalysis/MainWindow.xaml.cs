@@ -34,6 +34,7 @@ namespace WpfAArticleAnalysis
         static public List<string> allGramsWords;
         static int startYear = 1998;
         static string dir_of_articles_folders = @"TXT\BOOKS";
+        static string typeOfTweets = "JSON";
         static int INTERVAL_OF_YEAR_A = 3, INTERVAL_OF_YEAR_B = 5;
         static int TotalWords = 0;
         static double THRESHOLD = 0;
@@ -1414,6 +1415,9 @@ namespace WpfAArticleAnalysis
         }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            Normalization.normalizer norm = new Normalization.normalizer(dir_of_articles_folders,typeOfTweets);
+            norm.Normalize(getFlags());
+
             Process.GetCurrentProcess().MaxWorkingSet = new IntPtr(99999999999999999);
             output_path = "U-" + Program.NUM_OF_ONE + " B-" + Program.NUM_OF_TWO + " T-" + Program.NUM_OF_THREE + " F-" + Program.NUM_OF_FOUR;
             output_path += (Program.RareUniGrams != 0) ? (" RU-" + Program.RareUniGrams.ToString()) : "";
@@ -2239,15 +2243,20 @@ namespace WpfAArticleAnalysis
         }
 
         /********YAIR**********/
-        public enum NormaliztionMethods
+        /// <summary>
+        /// Returns a Dictionary with all the flags(NO_HTML,NO_PUNCTUATION,CAPITAL,LOWERCASE) and their values.
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<Normalization.NormaliztionMethods,bool> getFlags()
         {
-            No_Punctuation = 0,
-            All_Capitals,
-            All_Lowercase,
-            No_HTML_Tags,
-            NONE
+            IDictionary<Normalization.NormaliztionMethods, bool> flags =
+                new Dictionary<Normalization.NormaliztionMethods, bool>();
+
+            flags.Add(Normalization.NormaliztionMethods.All_Capitals, (bool)LettersCB.IsChecked);
+            flags.Add(Normalization.NormaliztionMethods.All_Lowercase, !(bool)LettersCB.IsChecked);
+            flags.Add(Normalization.NormaliztionMethods.No_HTML_Tags, (bool)HTMLCB.IsChecked);
+            flags.Add(Normalization.NormaliztionMethods.No_Punctuation, (bool)PunCB.IsChecked);
+            return flags;
         }
-
-
     }
 }
