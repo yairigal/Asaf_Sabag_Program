@@ -5,36 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="453" d:DesignWidth="752"
-      Title="FeaturesPage">
+      d:DesignHeight="453"
+      Title="FeaturesPage" Width="391">
 
     <Grid>
-        <GroupBox x:Name="Familes" Header="Feature Sets" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="184" Width="312" Grid.Row="1">
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="23*"/>
-                    <ColumnDefinition Width="142*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="Orthografic" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <Label Content="Quantitative" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.632,2.231" Grid.ColumnSpan="2"/>
-                <Label Content="Reachness Lang" HorizontalAlignment="Left" Margin="0,57,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <Label Content="Stemmer" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <Label Content="Tagger" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                <CheckBox x:Name="OrthograficCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="101,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-                <CheckBox x:Name="QuantitativeCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="101,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-                <CheckBox x:Name="ReachnessLangCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="101,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-                <CheckBox x:Name="StemmerCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="101,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-                <CheckBox x:Name="TaggerCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="101,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-                <Label Content="Select All" HorizontalAlignment="Left" Margin="38,136,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                <CheckBox x:Name="SelectAllCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="136,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.688" />
-            </Grid>
-        </GroupBox>
-        <ComboBox x:Name="TraningSetNum" HorizontalAlignment="Left" Margin="394,47,0,0" VerticalAlignment="Top" Width="127" Height="20"/>
-        <Label Content="%" HorizontalAlignment="Left" Margin="526,47,0,0" VerticalAlignment="Top" Height="32" Width="37"/>
-        <Label Content="Training set %" HorizontalAlignment="Left" Margin="394,23,0,0" VerticalAlignment="Top" Height="24" Width="127"/>
-        <Button x:Name="Tag_Articles" Content="Tag Articles" HorizontalAlignment="Left" Margin="579,47,0,0" VerticalAlignment="Top" Width="95" Height="20"/>
-        <Button x:Name="Count" Content="Count" HorizontalAlignment="Left" Margin="599,117,0,0" VerticalAlignment="Top" Width="75" Height="22" />
-        <Label Content="Get Numbner Of Different Words in each Domain" Margin="394,72,0,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="286"/>
-        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Margin="394,149,0,0" VerticalAlignment="Top" Width="109" Height="63" />
+        <ComboBox x:Name="TraningSetNum" HorizontalAlignment="Left" Margin="24,45,0,0" VerticalAlignment="Top" Width="127" Height="20"/>
+        <Label Content="%" HorizontalAlignment="Left" Margin="156,45,0,0" VerticalAlignment="Top" Height="32" Width="37"/>
+        <Label Content="Training set %" HorizontalAlignment="Left" Margin="24,21,0,0" VerticalAlignment="Top" Height="24" Width="127"/>
+        <Button x:Name="Tag_Articles" Content="Tag Articles" HorizontalAlignment="Left" Margin="209,45,0,0" VerticalAlignment="Top" Width="95" Height="20"/>
+        <Button x:Name="Count" Content="Count" HorizontalAlignment="Left" Margin="229,115,0,0" VerticalAlignment="Top" Width="75" Height="22" />
+        <Label Content="Get Numbner Of Different Words in each Domain" Margin="24,70,0,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="286"/>
+        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Margin="24,147,0,0" VerticalAlignment="Top" Width="109" Height="63" />
     </Grid>
 </Page>

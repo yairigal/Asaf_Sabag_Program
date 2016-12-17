@@ -31,6 +31,7 @@ namespace WpfAArticleAnalysis.Pages
         {
             if (instance == null)
                 instance = new NormalizationPage();
+            Public_Functions.setPageSize(instance);
             return instance;
         }
     }

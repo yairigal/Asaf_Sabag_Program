@@ -221,6 +221,7 @@ namespace WpfAArticleAnalysis.Pages
         {
             if (instance == null)
                 instance = new Ngrampage();
+            Public_Functions.setPageSize(instance);
             return instance;
         }
 

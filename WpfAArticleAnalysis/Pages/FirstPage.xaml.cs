@@ -94,6 +94,7 @@ namespace WpfAArticleAnalysis.Pages
         {
             if (instance == null)
                 instance = new FirstPage();
+            Public_Functions.setPageSize(instance);
             return instance;
         }
 

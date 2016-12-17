@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\App.xaml
-6-1457325050
+72076049319
 
-17-1654014380
+19-1160703895
 16-1628781136
-LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;
+LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
 
-True
+False
 

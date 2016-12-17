@@ -145,6 +145,7 @@ namespace WpfAArticleAnalysis
             float tr = (float)(1.0 / 888888.0);
             InitializeComponent();
             //added by Yair
+            setWindowSize();
             pageFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             initPages();
             //added by Yair
@@ -1877,18 +1878,23 @@ namespace WpfAArticleAnalysis
                 case "Only Ngrams":
                     chooseMethod = 1;
                     ResetGramsAndChars();
-
                     Familes.IsEnabled = false;
+                    PHandler.disablePage(Pages_ENUM.tagger);
+                    PHandler.enablePage(Pages_ENUM.ngramPage);
                     break;
                 case "Only Stylistis and Tagger":
                     DisableNgramsAndChars();
                     chooseMethod = 2;
                     Familes.IsEnabled = true;
+                    PHandler.disablePage(Pages_ENUM.ngramPage);
+                    PHandler.enablePage(Pages_ENUM.tagger);
                     break;
                 case "Both Ngrams and Other Families":
                     ResetGramsAndChars();
                     chooseMethod = 3;
                     Familes.IsEnabled = true;
+                    PHandler.enablePage(Pages_ENUM.ngramPage);
+                    PHandler.enablePage(Pages_ENUM.tagger);
                     break;
             }
         }
@@ -2435,30 +2441,30 @@ namespace WpfAArticleAnalysis
 
 
         }
-        //still working on this VV
-        private void normalize(Normalizer nrmlz, params string[] dirToNormal)
-        {
-            StreamReader read;
-            StreamWriter wrt;
-            try
-            {
-                foreach (var file in dirToNormal)
-                {
-                    read = new StreamReader(file);
-                    while (!read.EndOfStream)
-                    {
-                        read.ReadLine();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Cannot retrieve data to normalize");
-                return;
-            }
+        //old normalize function
+        //private void normalize(Normalizer nrmlz, params string[] dirToNormal)
+        //{
+        //    StreamReader read;
+        //    StreamWriter wrt;
+        //    try
+        //    {
+        //        foreach (var file in dirToNormal)
+        //        {
+        //            read = new StreamReader(file);
+        //            while (!read.EndOfStream)
+        //            {
+        //                read.ReadLine();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Cannot retrieve data to normalize");
+        //        return;
+        //    }
 
 
-        }
+        //}
         /// <summary>
         /// linking the events from here to the contols on the pages.
         /// </summary>
@@ -2566,6 +2572,18 @@ namespace WpfAArticleAnalysis
         private void initFeaturesPageConrols()
         {
             var currPage = Pages.FeaturesPage.getThisPage();
+            TraningSetNum = currPage.TraningSetNum;
+            Tag_Articles = currPage.Tag_Articles;
+            Count = currPage.Count;
+            Statistics = currPage.Statistics;
+        }
+        /// <summary>
+        /// initialized the variable here to the conrols from Tagger.
+        /// </summary>
+        private void initTaggerPageControls()
+        {
+            var currPage = Pages.Tagger.getThisPage();
+
             Familes = currPage.Familes;
             OrthograficCheckBox = currPage.OrthograficCheckBox;
             QuantitativeCheckBox = currPage.QuantitativeCheckBox;
@@ -2573,11 +2591,29 @@ namespace WpfAArticleAnalysis
             StemmerCheckBox = currPage.StemmerCheckBox;
             TaggerCheckBox = currPage.TaggerCheckBox;
             SelectAllCheckBox = currPage.SelectAllCheckBox;
-            TraningSetNum = currPage.TraningSetNum;
-            Tag_Articles = currPage.Tag_Articles;
-            Count = currPage.Count;
-            Statistics = currPage.Statistics;
         }
+        ///// <summary>
+        ///// enables or disables specific pages from showing.
+        ///// </summary>
+        //private void setPageOrder()
+        //{
+        //    //not tagger
+        //    if (chooseMethod == 1)
+        //    {
+        //        //PHandler.disablePage(Pages_ENUM.tagger);
+        //        PHandler.enablePage(Pages_ENUM.ngramPage);
+        //    }
+        //    //not ngram
+        //    if (chooseMethod == 2)
+        //        PHandler.disablePage(Pages_ENUM.ngramPage);
+        //    //PHandler.enablePage(Pages.ENUM.tagger)
+        //    //show both
+        //    if (chooseMethod == 3)
+        //    {
+        //        PHandler.enablePage(Pages_ENUM.ngramPage);
+        //        //PHandler.enablePage(Pages.ENUM.tagger)
+        //    }
+        //}
         /// <summary>
         /// initializes all the things that are linked to Pages,
         /// Variables , new instance etc...
@@ -2589,7 +2625,16 @@ namespace WpfAArticleAnalysis
             initFirstPageControls();
             initNormaliztionPageControls();
             initFeaturesPageConrols();
+            initTaggerPageControls();
             addEventsToControls();
+        }
+        /// <summary>
+        /// sets the windwos height and width
+        /// </summary>
+        private void setWindowSize()
+        {
+            Height = Public_Functions.FrameHeight;
+            Width = Public_Functions.FrameWidth;
         }
         #endregion
         /******MadeByYAIR******/

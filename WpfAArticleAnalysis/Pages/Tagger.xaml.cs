@@ -16,24 +16,22 @@ using System.Windows.Shapes;
 namespace WpfAArticleAnalysis.Pages
 {
     /// <summary>
-    /// Interaction logic for FeaturesPage.xaml
+    /// Interaction logic for Tagger.xaml
     /// </summary>
-    public partial class FeaturesPage : Page
+    public partial class Tagger : Page
     {
-        private FeaturesPage()
+        public Tagger()
         {
             InitializeComponent();
         }
 
-        //singleton
-        private static FeaturesPage instance = null;
-        public static FeaturesPage getThisPage()
+        private static Tagger instance = null;
+        public static Tagger getThisPage()
         {
             if (instance == null)
-                instance = new FeaturesPage();
+                instance = new Tagger();
             Public_Functions.setPageSize(instance);
             return instance;
         }
-        
     }
 }

@@ -32,12 +32,12 @@ namespace WpfAArticleAnalysis
         /// </summary>
         /// <param name="pe"></param>
         /// <returns></returns>
-        public static Page convertToPage(Pages_ENUM pe)
+        public static PageArgs convertToPage(Pages_ENUM pe)
         {
             foreach (var item in pageList)
             {
                 if (item.Enum == pe)
-                    return item.page;
+                    return item;
             }
             throw new Exception("Cannot convert from enum to page");
         }

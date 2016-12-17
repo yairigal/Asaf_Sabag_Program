@@ -169,3 +169,5 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Wpf
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FeaturesPage.g.cs
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FeaturesPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Tagger.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Tagger.baml
