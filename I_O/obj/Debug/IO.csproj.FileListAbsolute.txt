@@ -1,0 +1,7 @@
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\bin\Debug\I_O.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\bin\Debug\I_O.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\obj\Debug\IO.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\obj\Debug\I_O.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\I_O\obj\Debug\I_O.pdb

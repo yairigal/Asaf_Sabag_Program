@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOText.cs" />
-    <Compile Include="IOAbstract.cs" />
+    <Compile Include="IOInterface.cs" />
     <Compile Include="IOJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
