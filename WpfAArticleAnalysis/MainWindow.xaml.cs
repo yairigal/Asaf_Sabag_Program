@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using Normalization;
 
 namespace WpfAArticleAnalysis
 {
@@ -69,7 +68,6 @@ namespace WpfAArticleAnalysis
         private bool TaggerChecked;
         int TrainingSetPres = 0;
         //added by Yair
-        Normalizer normalizer;
         PageHandler PHandler;
 
         #region NgramPage
@@ -225,7 +223,6 @@ namespace WpfAArticleAnalysis
 
             //added By Yair
             initNormalUI();
-            normalizer = new Normalizer();
         }
         private void make_csv_file(string dir_of_articles, string output_path)
         {

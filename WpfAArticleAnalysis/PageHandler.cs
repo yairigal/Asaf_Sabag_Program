@@ -23,6 +23,10 @@ namespace WpfAArticleAnalysis
         FeaturesPage
     }
 
+    /// <summary>
+    /// Handler class that handles the pages on the frame 
+    /// manages the order , how to show them,and more.
+    /// </summary>
     class PageHandler
     {
         #region Attributes

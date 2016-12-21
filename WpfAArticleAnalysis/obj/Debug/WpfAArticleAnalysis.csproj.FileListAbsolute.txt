@@ -154,11 +154,9 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Wpf
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Normalization.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Normalization.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Statistics.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FirstPage.baml
