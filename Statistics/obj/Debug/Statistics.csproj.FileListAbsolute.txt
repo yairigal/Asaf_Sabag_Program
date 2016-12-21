@@ -19,3 +19,10 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamili
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.pdb

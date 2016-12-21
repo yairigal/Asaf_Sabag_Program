@@ -22,7 +22,7 @@ namespace Normalization
         //it should be the interface, no?
         //like this:
         //I_O_Intefrace jFile;
-        I_O_Json jFile;
+        IOAbstract<T> jFile;
 
         //directory for the files that are not normalized
         string dirToBeNormal = "";
