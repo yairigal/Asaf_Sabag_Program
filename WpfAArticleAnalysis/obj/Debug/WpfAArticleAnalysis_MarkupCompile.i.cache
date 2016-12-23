@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\
+=======
+C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\
+>>>>>>> origin/master
 WpfAArticleAnalysis
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\App.xaml
 2-13709700
 
 10189767922
 161479949556
+=======
+C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\App.xaml
+2-13709700
+
+10508530941
+16-171228648
+>>>>>>> origin/master
 LogWindow.xaml;MainWindow.xaml;
 
 False

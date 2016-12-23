@@ -245,7 +245,7 @@ namespace WpfAArticleAnalysis
         }
         private void MakeTxtLogNgramsAndNChars(P_family[] arr, bool all = true)
         {
-            return;
+            return; // what does that soppose to mean?
             newLogThread = new Thread(new ThreadStart(ThreadLog));
             newLogThread.SetApartmentState(ApartmentState.STA);
             newLogThread.IsBackground = true;
@@ -381,7 +381,7 @@ namespace WpfAArticleAnalysis
 
             //SaveData = P_family.GetTmpCopy(p_arr[0]);
 
-            return;
+            return; // what does that soppose to mean?
             P_family.Serialize(p_arr.ToList());
         }
         private static string[] GetFilesInDir(string path)
