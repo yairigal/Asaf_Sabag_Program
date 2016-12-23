@@ -33,8 +33,16 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentF
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.pdb
+<<<<<<< HEAD
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.dll
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.pdb
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.dll
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.pdb
+=======
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.pdb
+>>>>>>> refs/remotes/origin/Yair

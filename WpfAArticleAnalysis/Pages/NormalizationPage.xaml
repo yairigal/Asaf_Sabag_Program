@@ -1,0 +1,20 @@
+﻿<Page x:Class="WpfAArticleAnalysis.Pages.NormalizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="453"
+      Title="NormalizationPage" Width="482">
+
+    <Grid>
+        <GroupBox x:Name="groupBox" Header="Normalization" HorizontalAlignment="Left" Margin="37,37,0,0" VerticalAlignment="Top" Height="314" Width="140">
+            <Grid>
+                <CheckBox x:Name="PunRB" Content="RadioButton" Margin="0,10,0,258"/>
+                <CheckBox x:Name="HTMLRB" Content="RadioButton" Height="17" Margin="0,65,0,210"/>
+                <ComboBox x:Name="LettersCB" Width="120" Margin="0,142,8,121" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>

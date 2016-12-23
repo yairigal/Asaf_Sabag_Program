@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\Tagger.xaml.cs">
+      <DependentUpon>Tagger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Public Functions.cs" />
     <Page Include="LogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,8 +77,43 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\FeaturesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FirstPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ngrampage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NormalizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Tagger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageArgs.cs" />
+    <Compile Include="PageConvertor.cs" />
+    <Compile Include="PageHandler.cs" />
+    <Compile Include="Pages\FeaturesPage.xaml.cs">
+      <DependentUpon>FeaturesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FirstPage.xaml.cs">
+      <DependentUpon>FirstPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ngrampage.xaml.cs">
+      <DependentUpon>Ngrampage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NormalizationPage.xaml.cs">
+      <DependentUpon>NormalizationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,10 +145,6 @@
       <Project>{f5f62bd3-87cb-4a3d-b6cb-655b9ade77e9}</Project>
       <Name>ContentFamilies</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Normalization\Normalization.csproj">
-      <Project>{729b95f9-c2d4-44d2-a4d2-f07bccfc21a1}</Project>
-      <Name>Normalization</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PatternFamilies\PatternFamilies.csproj">
       <Project>{d0323fc3-b453-4235-901f-67e3c9a3469d}</Project>
       <Name>PatternFamilies</Name>
@@ -118,6 +153,10 @@
       <Project>{2f230740-092a-4e1b-93e0-764c2d175115}</Project>
       <Name>Statistics</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\leftButton.png" />
+    <Resource Include="Images\rightButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

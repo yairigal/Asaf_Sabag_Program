@@ -46,6 +46,7 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\ContentF
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.pdb
+<<<<<<< HEAD
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\PatternFamilies.dll
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\PatternFamilies.pdb
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\ContentFamilies.dll
@@ -53,3 +54,12 @@ C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\bin\Debug\Content
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.dll
 C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\PatternFamilies\obj\Debug\PatternFamilies.pdb
+=======
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\bin\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\bin\Debug\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\obj\Debug\PatternFamilies.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\obj\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\PatternFamilies\obj\Debug\PatternFamilies.pdb
+>>>>>>> refs/remotes/origin/Yair
