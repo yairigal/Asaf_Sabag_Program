@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace WpfAArticleAnalysis
 {
@@ -99,6 +100,7 @@ namespace WpfAArticleAnalysis
         CheckBox MakeLogFiles;
         CheckBox DomainsCounter;
         Label FreqWarning;
+        Button openDir;
         #endregion
 
         #region NormalizationPage
@@ -121,23 +123,9 @@ namespace WpfAArticleAnalysis
         Button Statistics; // Statistics
         #endregion
 
-        //added by Yair
         #endregion
 
         #region Fucntions
-        private void NewWindowHandler(object sender, RoutedEventArgs e)
-        {
-            newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
-            newWindowThread.SetApartmentState(ApartmentState.STA);
-            newWindowThread.IsBackground = true;
-            newWindowThread.Start();
-        }
-        private void ThreadStartingPoint()
-        {
-            lg = new LogWindow();
-            lg.Show();
-            System.Windows.Threading.Dispatcher.Run();
-        }
         public MainWindow()
         {
             float tr = (float)(1.0 / 888888.0);
@@ -146,31 +134,44 @@ namespace WpfAArticleAnalysis
             setWindowSize();
             pageFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             initPages();
+            changeSUBMITbuttonMode(false);
             //added by Yair
             NewWindowHandler(this, null);
 
-
-            AnalysisMethod.Items.Add("Only Ngrams");
-            AnalysisMethod.Items.Add("Only Stylistis and Tagger");
-            AnalysisMethod.Items.Add("Both Ngrams and Other Families");
-            AnalysisMethod.SelectedIndex = 0;
+            setUpAnalysisCombobox();
 
             ArticleDir.Text = @"TXT\BOOKS";
 
             Threshold.Text = "0";
 
+            setUpReducingUnigramsCombobox();
 
+            setUpTrainingSets();
+
+            setUpNGrams();
+
+            FirstTime = false;
+
+            //added By Yair
+            initNormalUI();
+        }
+
+        private void setUpReducingUnigramsCombobox()
+        {
             ReducingUniGrams.Items.Add("None of those");
             ReducingUniGrams.Items.Add("All of them");
             ReducingUniGrams.Items.Add("Each Article");
             ReducingUniGrams.SelectedIndex = 0;
-
-
+        }
+        private void setUpTrainingSets()
+        {
             string[] strs = new string[] { "None", "10", "15", "20", "30", "33", "40", "50" };
             TraningSetNum.ItemsSource = strs;
             TraningSetNum.SelectedIndex = 0;
             TrainingSetPres = 0;
-
+        }
+        private void setUpNGrams()
+        {
             UniGRams.Text = "500";
             Program.NUM_OF_ONE = 500;
 
@@ -218,11 +219,26 @@ namespace WpfAArticleAnalysis
 
             RareQuadChars.Text = "0";
             Program.RareQuadChars = 0;
-
-            FirstTime = false;
-
-            //added By Yair
-            initNormalUI();
+        }
+        private void setUpAnalysisCombobox()
+        {
+            AnalysisMethod.Items.Add("Only Ngrams");
+            AnalysisMethod.Items.Add("Only Stylistis and Tagger");
+            AnalysisMethod.Items.Add("Both Ngrams and Other Families");
+            AnalysisMethod.SelectedIndex = 0;
+        }
+        private void NewWindowHandler(object sender, RoutedEventArgs e)
+        {
+            newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
+            newWindowThread.SetApartmentState(ApartmentState.STA);
+            newWindowThread.IsBackground = true;
+            newWindowThread.Start();
+        }
+        private void ThreadStartingPoint()
+        {
+            lg = new LogWindow();
+            lg.Show();
+            System.Windows.Threading.Dispatcher.Run();
         }
         private void make_csv_file(string dir_of_articles, string output_path)
         {
@@ -1539,7 +1555,6 @@ namespace WpfAArticleAnalysis
 
             MessageBox.Show("Program Finished");
         }
-<<<<<<< HEAD
 
         #region control_events&operations
         private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1567,9 +1582,8 @@ namespace WpfAArticleAnalysis
             else if (FreqWarning != null)
                 FreqWarning.Content = "Put a number between 0 to 0.9999";
         }
-=======
+
         #region Pages Events
->>>>>>> refs/remotes/origin/Yair
         private void UniGRams_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1925,31 +1939,6 @@ namespace WpfAArticleAnalysis
                     break;
             }
         }
-        private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void ArticleDir_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            dir_of_articles_folders = ArticleDir.Text;
-        }
-        private void Threshold_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (FirstTime)
-            {
-                return;
-
-            }
-            double t;
-            if (Double.TryParse(Threshold.Text.ToString(), out t) && t >= 0 && t <= 0.9999)
-            {
-                FreqWarning.Content = "";
-                Program.THRESHOLD = t;
-                THRESHOLD = t;
-            }
-            else if (FreqWarning != null)
-                FreqWarning.Content = "Put a number between 0 to 0.9999";
-        }
         private void ReducingUniGrams_DropDownClosed(object sender, EventArgs e)
         {
 
@@ -2081,6 +2070,7 @@ namespace WpfAArticleAnalysis
                     TrainingSetPres = 0;
                     break;
             }
+            changeSUBMITbuttonMode(true);
         }
         private void Tag_Articles_Click(object sender, RoutedEventArgs e)
         {
@@ -2102,7 +2092,7 @@ namespace WpfAArticleAnalysis
 
             var prcs = System.Diagnostics.Process.Start("Tag.bat");
             MessageBox.Show("This going to take a while\n");
-            Submit.IsEnabled = false;
+            changeSUBMITbuttonMode(false);
             prcs.EnableRaisingEvents = true;
             prcs.Exited += (s, e2) =>
             {
@@ -2120,11 +2110,7 @@ namespace WpfAArticleAnalysis
             count.Start();
 
         }
-<<<<<<< HEAD
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-=======
         private void Statistics_Click(object sender, RoutedEventArgs e)
->>>>>>> refs/remotes/origin/Yair
         {
             Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
             StatsThread.SetApartmentState(ApartmentState.STA);
@@ -2132,13 +2118,21 @@ namespace WpfAArticleAnalysis
             StatsThread.Start();
 
         }
+        private void OpenDir_Click(object sender, RoutedEventArgs e)
+        {
+            using (var folderDialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    ArticleDir.Text = folderDialog.SelectedPath;
+                    dir_of_articles_folders = folderDialog.SelectedPath;
+                }
+            }
+        }
         #endregion
-<<<<<<< HEAD
-
-=======
+        #endregion
         private void CreateLog()
         {
-
             lg = new LogWindow();
             lg.Show();
         }     
@@ -2268,7 +2262,6 @@ namespace WpfAArticleAnalysis
             Familes.IsEnabled = false;
 
         } 
->>>>>>> refs/remotes/origin/Yair
         private void CountDifferentWords()
         {
 
@@ -2322,16 +2315,9 @@ namespace WpfAArticleAnalysis
                 sw.Close();
                 MessageBox.Show("Finish counting");
             }));
-
-
-<<<<<<< HEAD
-        }
-=======
         }      
->>>>>>> refs/remotes/origin/Yair
         private void StatsCreator()
         {
-
             try
             {
                 this.Dispatcher.Invoke((Action)(() =>
@@ -2347,12 +2333,11 @@ namespace WpfAArticleAnalysis
         }
         private void image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            PHandler.NextPage();
+            nextPage();
         }
-
         private void image_Copy_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            PHandler.PreviousPage();
+            prevPage();
         }
 
         /******MadeByYAIR******/
@@ -2537,6 +2522,7 @@ namespace WpfAArticleAnalysis
             ReducingUniGrams.DropDownClosed += ReducingUniGrams_DropDownClosed;
             TakeOutStopWords.Checked += TakeOutStopWords_Checked;
             TakeOutStopWords.Unchecked += TakeOutStopWords_Unchecked;
+            openDir.Click += OpenDir_Click;
             #endregion
 
             #region FeaturesPage
@@ -2593,6 +2579,7 @@ namespace WpfAArticleAnalysis
             MakeLogFiles = currPage.MakeLogFiles;
             DomainsCounter = currPage.DomainsCounter;
             FreqWarning = currPage.FreqWarning;
+            openDir = currPage.openDir;
 
         }
         /// <summary>
@@ -2666,6 +2653,9 @@ namespace WpfAArticleAnalysis
             initFeaturesPageConrols();
             initTaggerPageControls();
             addEventsToControls();
+
+            //setting the Window title
+            frameTitle.Content = PHandler.getCurrentPage().name;
         }
         /// <summary>
         /// sets the windwos height and width
@@ -2673,11 +2663,32 @@ namespace WpfAArticleAnalysis
         private void setWindowSize()
         {
             Height = Public_Functions.FrameHeight;
-            Width = Public_Functions.FrameWidth;
+            Width = Public_Functions.FrameWidth+20;
+        }
+        /// <summary>
+        /// sets the next page on the frame
+        /// </summary>
+        private void nextPage()
+        {
+            frameTitle.Content = PHandler.NextPage().name;
+        }
+        /// <summary>
+        /// sets the previous page on the frame.
+        /// </summary>
+        private void prevPage()
+        {
+            frameTitle.Content = PHandler.PreviousPage().name;
+        }
+        /// <summary>
+        /// enables or disbales the SUBMIT button.
+        /// </summary>
+        /// <param name="mode">the mode to change the submit button to</param>
+        private void changeSUBMITbuttonMode(bool mode)
+        {
+            Submit.IsEnabled = mode;
         }
         #endregion
         /******MadeByYAIR******/
         #endregion
-
     }
 }

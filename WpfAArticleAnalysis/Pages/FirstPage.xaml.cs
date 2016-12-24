@@ -97,6 +97,5 @@ namespace WpfAArticleAnalysis.Pages
             Public_Functions.setPageSize(instance);
             return instance;
         }
-
     }
 }

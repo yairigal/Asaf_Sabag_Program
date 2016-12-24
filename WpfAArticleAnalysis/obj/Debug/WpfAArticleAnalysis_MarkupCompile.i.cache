@@ -4,35 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\
-=======
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\
->>>>>>> origin/master
 WpfAArticleAnalysis
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\App.xaml
 72076049319
 
-<<<<<<< HEAD
-10189767922
-161479949556
-=======
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\App.xaml
-2-13709700
-
-10508530941
-16-171228648
->>>>>>> origin/master
-LogWindow.xaml;MainWindow.xaml;
-=======
 19-1160703895
-15-178438579
+16952569980
 LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
->>>>>>> refs/remotes/origin/Yair
 
 True
 

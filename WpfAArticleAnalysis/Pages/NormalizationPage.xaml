@@ -8,13 +8,20 @@
       d:DesignHeight="453"
       Title="NormalizationPage" Width="482">
 
-    <Grid>
-        <GroupBox x:Name="groupBox" Header="Normalization" HorizontalAlignment="Left" Margin="37,37,0,0" VerticalAlignment="Top" Height="314" Width="140">
-            <Grid>
-                <CheckBox x:Name="PunRB" Content="RadioButton" Margin="0,10,0,258"/>
-                <CheckBox x:Name="HTMLRB" Content="RadioButton" Height="17" Margin="0,65,0,210"/>
-                <ComboBox x:Name="LettersCB" Width="120" Margin="0,142,8,121" />
-            </Grid>
-        </GroupBox>
-    </Grid>
+    <StackPanel>
+        <Grid>
+            <TextBlock x:Name="textBox"  HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Letters Size:" VerticalAlignment="Top"/>
+            <ComboBox x:Name="LettersCB" HorizontalAlignment="Left" Margin="275,10,50,10" Width="119"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove Punctuation?" VerticalAlignment="Top" Width="129"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove HTML Tags?" VerticalAlignment="Top"/>
+        </Grid>
+
+
+    </StackPanel>
 </Page>

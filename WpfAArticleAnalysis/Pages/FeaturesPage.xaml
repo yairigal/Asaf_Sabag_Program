@@ -6,15 +6,17 @@
       xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="453"
-      Title="FeaturesPage" Width="391">
+      WindowTitle="Features"
+      Title="FeaturesPage" Width="500">
 
     <Grid>
-        <ComboBox x:Name="TraningSetNum" HorizontalAlignment="Left" Margin="24,45,0,0" VerticalAlignment="Top" Width="127" Height="20"/>
-        <Label Content="%" HorizontalAlignment="Left" Margin="156,45,0,0" VerticalAlignment="Top" Height="32" Width="37"/>
-        <Label Content="Training set %" HorizontalAlignment="Left" Margin="24,21,0,0" VerticalAlignment="Top" Height="24" Width="127"/>
-        <Button x:Name="Tag_Articles" Content="Tag Articles" HorizontalAlignment="Left" Margin="209,45,0,0" VerticalAlignment="Top" Width="95" Height="20"/>
-        <Button x:Name="Count" Content="Count" HorizontalAlignment="Left" Margin="229,115,0,0" VerticalAlignment="Top" Width="75" Height="22" />
-        <Label Content="Get Numbner Of Different Words in each Domain" Margin="24,70,0,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="286"/>
-        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Margin="24,147,0,0" VerticalAlignment="Top" Width="109" Height="63" />
+        <ComboBox x:Name="TraningSetNum" HorizontalAlignment="Left" Margin="151,16,0,0" VerticalAlignment="Top" Width="153" Height="24"/>
+        <Label Content="%" HorizontalAlignment="Left" Margin="304,16,0,0" VerticalAlignment="Top" Height="24" Width="37"/>
+        <Label Content="Training set %" HorizontalAlignment="Left" Margin="24,16,0,0" VerticalAlignment="Top" Height="24" Width="127" FontWeight="Bold"/>
+        <Button x:Name="Tag_Articles" Content="Tag Articles" HorizontalAlignment="Left" Margin="341,16,0,0" VerticalAlignment="Top" Width="95" Height="25"/>
+        <Button x:Name="Count" Content="Count" HorizontalAlignment="Left" Margin="341,63,0,0" VerticalAlignment="Top" Width="95" Height="31" />
+        <Label Content="Get Numbner Of Different Words in each Domain" Margin="24,63,0,0" VerticalAlignment="Top" Height="31" HorizontalAlignment="Left" Width="317" FontWeight="Bold"/>
+        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Margin="341,121,0,0" VerticalAlignment="Top" Width="95" Height="25" />
+        <Label x:Name="label" Content="Get Statistics" HorizontalAlignment="Left" Margin="24,121,0,0" VerticalAlignment="Top" Width="317" Height="25"/>
     </Grid>
 </Page>

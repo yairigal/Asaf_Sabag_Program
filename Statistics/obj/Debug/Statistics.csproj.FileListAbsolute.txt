@@ -1,33 +1,3 @@
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Debug\Statistics.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Debug\Statistics.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Debug\ContentFamilies.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\bin\Debug\ContentFamilies.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\obj\Debug\Statistics.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Statistics\obj\Debug\Statistics.pdb
-C:\Users\yairi\Desktop\Reserach\code\Statistics\bin\Debug\Statistics.dll
-C:\Users\yairi\Desktop\Reserach\code\Statistics\bin\Debug\Statistics.pdb
-C:\Users\yairi\Desktop\Reserach\code\Statistics\bin\Debug\ContentFamilies.dll
-C:\Users\yairi\Desktop\Reserach\code\Statistics\bin\Debug\ContentFamilies.pdb
-C:\Users\yairi\Desktop\Reserach\code\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
-C:\Users\yairi\Desktop\Reserach\code\Statistics\obj\Debug\Statistics.dll
-C:\Users\yairi\Desktop\Reserach\code\Statistics\obj\Debug\Statistics.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.pdb
-<<<<<<< HEAD
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.dll
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\Statistics.pdb
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.dll
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Debug\ContentFamilies.pdb
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.dll
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Debug\Statistics.pdb
-=======
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\bin\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\bin\Debug\Statistics.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\bin\Debug\ContentFamilies.dll
@@ -35,4 +5,3 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\bin\Debug\ContentFamil
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.pdb
->>>>>>> refs/remotes/origin/Yair

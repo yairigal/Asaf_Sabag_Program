@@ -33,11 +33,11 @@ namespace WpfAArticleAnalysis
         private Frame frame;
         private static List<PageArgs> Pages = new List<PageArgs>
         {
-            new PageArgs(FeaturesPage.getThisPage(),"featuresPage",Pages_ENUM.FeaturesPage,true),
-            new PageArgs(FirstPage.getThisPage(),"firstPage",Pages_ENUM.firstPage,true),
-            new PageArgs(Ngrampage.getThisPage(),"ngramPage",Pages_ENUM.ngramPage,true),
-            new PageArgs(NormalizationPage.getThisPage(),"normaliztionPage",Pages_ENUM.NormaliztionPage,true),
-            new PageArgs(Tagger.getThisPage(),"taggerPage",Pages_ENUM.tagger,false)
+            new PageArgs(FeaturesPage.getThisPage(),"Features",Pages_ENUM.FeaturesPage,true),
+            new PageArgs(FirstPage.getThisPage(),"Initial Preferences",Pages_ENUM.firstPage,true),
+            new PageArgs(Ngrampage.getThisPage(),"N-Grams",Pages_ENUM.ngramPage,true),
+            new PageArgs(NormalizationPage.getThisPage(),"Normaliztion",Pages_ENUM.NormaliztionPage,true),
+            new PageArgs(Tagger.getThisPage(),"Tagger",Pages_ENUM.tagger,false)
         };
         private List<Pages_ENUM> pageOrder;
         private Pages_ENUM first, last, current;
@@ -67,7 +67,7 @@ namespace WpfAArticleAnalysis
             if (current == last)
                 throw new Exception("This is the last page");
             //if its not the last page -> move to the next page
-            int currentPageIndex = pageOrder.IndexOf(PageConvertor.convert(getCurrentPage()));
+            int currentPageIndex = pageOrder.IndexOf(getCurrentPage().Enum);
             var nextPage = pageOrder[currentPageIndex + 1];
             return nextPage;
         }
@@ -122,7 +122,8 @@ namespace WpfAArticleAnalysis
         /// </summary>
         /// <param name="p"></param>
         /// <param name="next">if failed , set to next or prev</param>
-        public void setPage(Pages_ENUM p, bool next = true)
+        /// <returns>returns the page that is currently in the frame</returns>
+        public PageArgs setPage(Pages_ENUM p, bool next = true)
         {
             try
             {
@@ -131,20 +132,25 @@ namespace WpfAArticleAnalysis
                 {
                     frame.Navigate(cp.page);
                     current = p;
+                    return cp;
                 }
                 //if failed to set the page , setting the next one.
                 else if (next)
                 {
                     Pages_ENUM nextP = nextPage(p);
-                    frame.Navigate(PageConvertor.convertToPage(nextP).page);
+                    PageArgs toNav = PageConvertor.convertToPage(nextP);
+                    frame.Navigate(toNav.page);
                     current = nextP;
+                    return toNav;
                 }
                 //if failed to set the page , setting to the previous one.
                 else
                 {
                     Pages_ENUM nextP = prevPage(p);
-                    frame.Navigate(PageConvertor.convertToPage(nextP).page);
+                    PageArgs toNav = PageConvertor.convertToPage(nextP);
+                    frame.Navigate(toNav.page);
                     current = nextP;
+                    return toNav;
                 }
             }
             catch (Exception e)
@@ -157,42 +163,42 @@ namespace WpfAArticleAnalysis
         /// returns the current page on the frame
         /// </summary>
         /// <returns></returns>
-        public Page getCurrentPage()
+        public PageArgs getCurrentPage()
         {
-            return PageConvertor.convertToPage(current).page;
+            return PageConvertor.convertToPage(current);
         }
         /// <summary>
         /// Sets the next page on the Frame
         /// </summary>
         /// <returns> returns the next page that has set, - else returns null</returns>
-        public Page NextPage()
+        public PageArgs NextPage()
         {
             try
             {
                 Pages_ENUM aNextPage = nextPage();
-                setPage(aNextPage);
-                return PageConvertor.convertToPage(aNextPage).page;
+                PageArgs currentP = setPage(aNextPage);
+                return currentP;
             }
             catch (Exception)
             {
-                return null;
+                return PageConvertor.convertToPage(last);
             }
         }
         /// <summary>
         /// sets the pre page on the fram
         /// </summary>
         /// <returns>The prev page , is the first page is current returns null</returns>
-        public Page PreviousPage()
+        public PageArgs PreviousPage()
         {
             try
             {
                 Pages_ENUM aPrevPage = prevPage();
-                setPage(aPrevPage, false);
-                return PageConvertor.convertToPage(aPrevPage).page;
+                PageArgs currP = setPage(aPrevPage, false);
+                return currP;
             }
             catch (Exception)
             {
-                return null;
+                return PageConvertor.convertToPage(first);
             }
 
 
@@ -210,13 +216,13 @@ namespace WpfAArticleAnalysis
         /// </summary>
         /// <param name="toDisable">the page to disable</param>
         /// <returns></returns>
-        public Page disablePage(Pages_ENUM toDisable)
+        public PageArgs disablePage(Pages_ENUM toDisable)
         {
             foreach (var item in Pages)
                 if (item.Enum == toDisable)
                 {
                     item.show = false;
-                    return item.page;
+                    return item;
                 }
             return null;
         }
@@ -225,13 +231,13 @@ namespace WpfAArticleAnalysis
         /// </summary>
         /// <param name="toEnable">the page to enable</param>
         /// <returns></returns>
-        public Page enablePage(Pages_ENUM toEnable)
+        public PageArgs enablePage(Pages_ENUM toEnable)
         {
             foreach (var item in Pages)
                 if (item.Enum == toEnable)
                 {
                     item.show = true;
-                    return item.page;
+                    return item;
                 }
             return null;
         }
