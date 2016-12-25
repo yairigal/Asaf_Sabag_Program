@@ -63,39 +63,53 @@ namespace Normalization
             {
                 foreach (string file in Directory.GetFiles(dirToBeNormal))
                 {
+                    if (flags[NormaliztionMethods.No_Punctuation])
+                    {
+                        changes += "_RP_";
+                    }
+                    if (flags[NormaliztionMethods.No_HTML_Tags])
+                    {
+                        changes += "_RH_";
+                    }
+                    if (flags[NormaliztionMethods.All_Capitals])
+                    {
+                        changes += "_TU_";
+                    }
+                    if (flags[NormaliztionMethods.All_Lowercase])
+                    {
+                        changes += "_TL_";
+                    }
                     foreach (string tweet in TextRW.fileToTweets(file, "", 0))
                     {
                         normalTweet = tweet;
                         if (flags[NormaliztionMethods.No_Punctuation])
                         {
                             normalTweet = removePunctuation(normalTweet);
-                            //changes += "RP_";
                         }
 
                         if (flags[NormaliztionMethods.No_HTML_Tags])
                         {
                             normalTweet = removeHTML(normalTweet);
-                            //changes += "RH_";
                         }
 
                         if (flags[NormaliztionMethods.All_Lowercase])
                         {
                             normalTweet = allToLowercase(normalTweet);
-                            //changes += "TL_";
                         }
 
                         if (flags[NormaliztionMethods.All_Capitals])
                         {
                             normalTweet = allToUppercase(normalTweet);
-                            //changes += "TU_";
                         }
                         tweets.Add(normalTweet);
                     }
                     string filename = Path.GetFileName(file);
+                    filename += changes;
                     if (Path.GetExtension(filename) == string.Empty)
                         filename += ".txt";
                     TextRW.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
                     tweets.Clear();
+                    changes = "";
                 }
             }
             catch (Exception ex)
