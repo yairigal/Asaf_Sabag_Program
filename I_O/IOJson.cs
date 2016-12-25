@@ -11,25 +11,13 @@ namespace I_O
 {
     public class IOJson : IOInterface<JObject>
     {
-        protected string filename;
-        protected string extension;
-
-        public IOJson(string filen)
+        public IOJson()
         {
-            if (filen.Length > 0)
-                changeFile(filen);
         }
 
-        public void changeFile(string filePath)
+        public IEnumerable<JObject> fileToTweets(string filename, string delim, int count)
         {
-            filename = Path.GetFileNameWithoutExtension(filePath);
-            extension = Path.GetExtension(filePath);
-        }
-
-
-        public IEnumerable<JObject> fileToTweets(string delim, int count)
-        {
-            using (StreamReader reader = File.OpenText(filename + extension))
+            using (StreamReader reader = File.OpenText(filename))
             {
                 while (!reader.EndOfStream)
                 {
@@ -42,7 +30,7 @@ namespace I_O
         public string tweetToFile(IEnumerable<JObject> tweets, string change, string delim, int count)
         {
             JsonSerializer serializer = new JsonSerializer();
-            string afterChange = filename + "_" + change + extension;
+            string afterChange = change;
             using (StreamWriter writer = File.CreateText(afterChange))
             {
                 foreach (JObject item in tweets)

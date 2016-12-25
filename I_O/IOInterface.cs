@@ -12,9 +12,7 @@ namespace I_O
     /// </summary>
     public interface IOInterface<T>
     {
-        void changeFile(string filePath);
-
-        IEnumerable<T> fileToTweets(string delim, int count);
+        IEnumerable<T> fileToTweets(string filename, string delim, int count);
         string tweetToFile(IEnumerable<T> tweets, string change, string delim, int count);
 
     }

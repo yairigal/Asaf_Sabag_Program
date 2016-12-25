@@ -4,6 +4,7 @@ using System.Linq;
 using I_O;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace Normalization
 {
@@ -18,11 +19,8 @@ namespace Normalization
 
     public class normalizer
     {
-        //is the type json?
-        //it should be the interface, no?
-        //like this:
-        //I_O_Intefrace jFile;
-        IOInterface<T> jFile;
+        IOText TextRW;
+        IOJson JsonRW;
 
         //directory for the files that are not normalized
         string dirToBeNormal = "";
@@ -35,25 +33,102 @@ namespace Normalization
         {
             dirToBeNormal = dir;
             if (dst == "")
+            {
                 dirForTheNormal = dirToBeNormal + "normalaized";
+                Directory.CreateDirectory(dirForTheNormal);
+            }
+            TextRW = new IOText();
         }
+
 
         /// <summary>
-        /// return string without the punctuation chars.
+        /// this function will normalize the text by the user choice
+        /// its going to run on all the files in the dir its normalizing
+        /// for every tweet in every file, the appropriate normalizing function will be activated and the normalized tweet wiil be saved in the list
+        /// the list of normalized tweet will be wrriten into a text file in the directory for the normalized files.
         /// </summary>
-        /// <param name="str">string to filter</param>
-        /// <returns></returns>
-        public string PunctuationFilter(string str)
+        /// <param name="flags">
+        /// The flags dictionary is like that :
+        /// KEY:"No_Punctuation" - VALUE: true/flase
+        /// KEY:"All_Capitals" - VALUE: true/flase
+        /// KEY:"All_Lowercase" - VALUE: true/flase
+        /// KEY:"No_HTML_Tags" - VALUE: true/flase
+        /// </param>
+        public void Normalize(IDictionary<NormaliztionMethods,bool> flags)
         {
-            string newString = string.Empty;
-            foreach (var item in str)
+            List<string> tweets = new List<string>();
+            string normalTweet = "";
+            string changes = "";
+            try
             {
-                if (!punctuationString.Contains(item))
-                    newString += item;
-            }
-            return newString;
-        }
+                foreach (string file in Directory.GetFiles(dirToBeNormal))
+                {
+                    foreach (string tweet in TextRW.fileToTweets(file, "", 0))
+                    {
+                        normalTweet = tweet;
+                        if (flags[NormaliztionMethods.No_Punctuation])
+                        {
+                            normalTweet = removePunctuation(normalTweet);
+                            //changes += "RP_";
+                        }
 
+                        if (flags[NormaliztionMethods.No_HTML_Tags])
+                        {
+                            normalTweet = removeHTML(normalTweet);
+                            //changes += "RH_";
+                        }
+
+                        if (flags[NormaliztionMethods.All_Lowercase])
+                        {
+                            normalTweet = allToLowercase(normalTweet);
+                            //changes += "TL_";
+                        }
+
+                        if (flags[NormaliztionMethods.All_Capitals])
+                        {
+                            normalTweet = allToUppercase(normalTweet);
+                            //changes += "TU_";
+                        }
+                        tweets.Add(normalTweet);
+                    }
+                    string filename = Path.GetFileName(file);
+                    if (Path.GetExtension(filename) == string.Empty)
+                        filename += ".txt";
+                    TextRW.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
+                    tweets.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+       
+
+
+        /// <summary>
+        /// Transforming all text to uppercase letters
+        /// </summary>
+        private string allToUppercase(string tweet)
+        {
+            return tweet.ToUpper();
+        }
+        /// <summary>
+        /// Transforing all text to lowercase letters.
+        /// </summary>
+        private string allToLowercase(string tweet)
+        {
+            return tweet.ToLower();
+        }
+        
+        /// <summary>
+        /// Removing all HTML tags from the text
+        /// </summary>
+        private string removeHTML(string tweet)
+        {
+            return removeHTMLTags(tweet);
+        }
         /// <summary>
         /// returning the cStr without HTML tags.
         /// </summary>
@@ -72,91 +147,27 @@ namespace Normalization
         }
 
         /// <summary>
-        /// this function will normalize the text by the user choice
-        /// </summary>
-        /// <param name="flags">
-        /// The flags dictionary is like that :
-        /// KEY:"No_Punctuation" - VALUE: true/flase
-        /// KEY:"All_Capitals" - VALUE: true/flase
-        /// KEY:"All_Lowercase" - VALUE: true/flase
-        /// KEY:"No_HTML_Tags" - VALUE: true/flase
-        /// </param>
-        public void Normalize(IDictionary<NormaliztionMethods,bool> flags)
-        {
-            try
-            {
-                if (flags[NormaliztionMethods.No_Punctuation])
-                    removePunctuation();
-
-                if (flags[NormaliztionMethods.No_HTML_Tags])
-                    removeHTML();
-
-                if (flags[NormaliztionMethods.All_Lowercase])
-                    allToLowercase();
-
-                if (flags[NormaliztionMethods.All_Capitals])
-                    allToUppercase();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-        /// <summary>
-        /// Transforming all text to uppercase letters
-        /// </summary>
-        private void allToUppercase()
-        {
-            List<JObject> tweets = new List<JObject>();
-
-            //i inserted "" and 0 because i saw you dont use those parameters , you can change them if you need.
-            foreach (var item in jFile.fileToTweets("",0))          
-                tweets.Add(JObject.Parse(item.ToString().ToUpper()));
-            
-
-            jFile.tweetToFile(tweets, "UPPER", "", 0);
-        }
-        /// <summary>
-        /// Transforing all text to lowercase letters.
-        /// </summary>
-        private void allToLowercase()
-        {
-            List<JObject> tweets = new List<JObject>();
-
-            //i inserted "" and 0 because i saw you dont use those parameters , you can change them if you need.
-            foreach (var item in jFile.fileToTweets("", 0))          
-                tweets.Add(JObject.Parse(item.ToString().ToLower()));
-            
-
-            jFile.tweetToFile(tweets, "LOWER", "", 0);
-        }
-        /// <summary>
-        /// Removing all HTML tags from the text
-        /// </summary>
-        private void removeHTML()
-        {
-            List<JObject> tweets = new List<JObject>();
-
-            //i inserted "" and 0 because i saw you dont use those parameters , you can change them if you need.
-            foreach (var item in jFile.fileToTweets("", 0))          
-                tweets.Add(JObject.Parse(removeHTMLTags(item.ToString())));
-            
-
-            jFile.tweetToFile(tweets, "NO_HTML", "", 0);
-        }
-        /// <summary>
         /// removing punctuations from the text.
         /// </summary>
-        private void removePunctuation()
+        private string removePunctuation(string tweet)
         {
-            List<JObject> tweets = new List<JObject>();
-
-            //i inserted "" and 0 because i saw you dont use those parameters , you can change them if you need.
-            foreach (var item in jFile.fileToTweets("", 0))
-                tweets.Add(JObject.Parse(PunctuationFilter(item.ToString())));
-
-            jFile.tweetToFile(tweets, "NO_PUN", "", 0);
+            return PunctuationFilter(tweet);
         }
+        /// <summary>
+        /// return string without the punctuation chars.
+        /// </summary>
+        /// <param name="str">string to filter</param>
+        /// <returns></returns>
+        public string PunctuationFilter(string str)
+        {
+            string newString = string.Empty;
+            foreach (var item in str)
+            {
+                if (!punctuationString.Contains(item))
+                    newString += item;
+            }
+            return newString;
+        }
+
     }
 }

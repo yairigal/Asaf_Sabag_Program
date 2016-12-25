@@ -9,24 +9,13 @@ namespace I_O
 {
     public class IOText : IOInterface<string>
     {
-        protected string filename;
-        protected string extension;
-
-        public IOText(string filen)
+        public IOText()
         {
-            if (filen.Length > 0)
-                changeFile(filen);
         }
 
-        public void changeFile(string filePath)
+        public IEnumerable<string> fileToTweets(string filename, string delim, int count)
         {
-            filename = Path.GetFileNameWithoutExtension(filePath);
-            extension = Path.GetExtension(filePath);
-        }
-
-        public IEnumerable<string> fileToTweets(string delim, int count)
-        {
-            using (StreamReader reader = File.OpenText(filename+extension))
+            using (StreamReader reader = File.OpenText(filename))
             {
                 while(!reader.EndOfStream)
                 {
@@ -36,9 +25,17 @@ namespace I_O
             }
         }
 
-        public string tweetToFile(IEnumerable<string> tweets, string path, string delim, int count)
+        public string tweetToFile(IEnumerable<string> tweets, string change, string delim, int count)
         {
-            throw new NotImplementedException();
+            using (StreamWriter writer = File.CreateText(change))
+            {
+                foreach (string item in tweets)
+                {
+                    writer.Write(item);
+                    writer.Write("\n");
+                }
+            }
+            return change;
         }
     }
 }
