@@ -34,7 +34,7 @@ namespace Normalization
             dirToBeNormal = dir;
             if (dst == "")
             {
-                dirForTheNormal = dirToBeNormal + "normalaized";
+                dirForTheNormal = dirToBeNormal + "_normalaized";
                 Directory.CreateDirectory(dirForTheNormal);
             }
             TextRW = new IOText();
@@ -54,7 +54,7 @@ namespace Normalization
         /// KEY:"All_Lowercase" - VALUE: true/flase
         /// KEY:"No_HTML_Tags" - VALUE: true/flase
         /// </param>
-        public void Normalize(IDictionary<NormaliztionMethods,bool> flags)
+        public void Normalize(IDictionary<NormaliztionMethods,bool> flags) 
         {
             List<string> tweets = new List<string>();
             string normalTweet = "";
@@ -185,3 +185,30 @@ namespace Normalization
 
     }
 }
+
+
+/* for checking
+ * using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Normalization
+{
+    class app
+    {
+        public static void Main()
+        {
+            normalizer norm = new normalizer("C:\\Users\\user\\Desktop\\test\\alt.atheism", "");
+            IDictionary<NormaliztionMethods, bool> flags = new Dictionary<NormaliztionMethods, bool> ();
+            flags.Add(NormaliztionMethods.All_Capitals, true);
+            flags.Add(NormaliztionMethods.All_Lowercase, false);
+            flags.Add(NormaliztionMethods.No_HTML_Tags, false);
+            flags.Add(NormaliztionMethods.No_Punctuation, false);
+
+            norm.Normalize(flags);
+        }
+    }
+}
+*/
