@@ -1,0 +1,27 @@
+﻿<Page x:Class="WpfAArticleAnalysis.Pages.NormalizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="453"
+      Title="NormalizationPage" Width="482">
+
+    <StackPanel>
+        <Grid>
+            <TextBlock x:Name="textBox"  HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Letters Size:" VerticalAlignment="Top"/>
+            <ComboBox x:Name="LettersCB" HorizontalAlignment="Left" Margin="275,10,50,10" Width="119"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove Punctuation?" VerticalAlignment="Top" Width="129"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove HTML Tags?" VerticalAlignment="Top"/>
+        </Grid>
+
+
+    </StackPanel>
+</Page>

@@ -1,145 +1,32 @@
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\App.g.cs
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\Statistics.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\WpfAArticleAnalysis\bin\Debug\Statistics.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\Statistics.dll
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\bin\Debug\Statistics.pdb
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\yairi\Desktop\Reserach\code\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Statistics.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Statistics.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\App.g.cs
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Statistics.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\bin\Debug\Statistics.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\LogWindow.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\MainWindow.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\LogWindow.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\MainWindow.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FeaturesPage.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FirstPage.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Ngrampage.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\NormalizationPage.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Tagger.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\App.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis_MarkupCompile.lref
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FeaturesPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\FirstPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Ngrampage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\NormalizationPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\Pages\Tagger.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.g.resources
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.Properties.Resources.resources
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb
-C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.exe.config
-C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.exe
-C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.pdb

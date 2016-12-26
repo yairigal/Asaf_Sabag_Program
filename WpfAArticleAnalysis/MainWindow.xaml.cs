@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using Normalization;
+using System.Windows.Input;
 
 namespace WpfAArticleAnalysis
 {
@@ -69,53 +69,109 @@ namespace WpfAArticleAnalysis
         private bool TaggerChecked;
         int TrainingSetPres = 0;
         //added by Yair
-        Normalizer normalizer;
-        //added by Yair
+        PageHandler PHandler;
+
+        #region NgramPage
+        TextBox UniGRams;
+        TextBox BiGRams;
+        TextBox TriGRams;
+        TextBox QuadGrams;
+        TextBox RareUGRAMs;
+        TextBox RareBGRAMS;
+        TextBox RareTriGrams;
+        TextBox RareQuadGrams;
+
+        TextBox UniChars;
+        TextBox BiChars;
+        TextBox TriChars;
+        TextBox QuadChars;
+        TextBox RareUniChars;
+        TextBox RareBiChars;
+        TextBox RareTriChars;
+        TextBox RareQuadChars;
+        #endregion
+
+        #region FirstPage
+        ComboBox AnalysisMethod;
+        TextBox ArticleDir;
+        TextBox Threshold;
+        ComboBox ReducingUniGrams;
+        CheckBox TakeOutStopWords;
+        CheckBox MakeLogFiles;
+        CheckBox DomainsCounter;
+        Label FreqWarning;
+        Button openDir;
+        #endregion
+
+        #region NormalizationPage
+        CheckBox PunRB;
+        CheckBox HTMLRB;
+        ComboBox LettersCB;
+        #endregion
+
+        #region FeaturesPage
+        GroupBox Familes;
+        CheckBox OrthograficCheckBox;
+        CheckBox QuantitativeCheckBox;
+        CheckBox ReachnessLangCheckBox;
+        CheckBox StemmerCheckBox;
+        CheckBox TaggerCheckBox;
+        CheckBox SelectAllCheckBox;
+        ComboBox TraningSetNum;
+        Button Tag_Articles; // Tag Articles
+        Button Count; // Count
+        Button Statistics; // Statistics
+        #endregion
+
         #endregion
 
         #region Fucntions
-        private void NewWindowHandler(object sender, RoutedEventArgs e)
-        {
-            newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
-            newWindowThread.SetApartmentState(ApartmentState.STA);
-            newWindowThread.IsBackground = true;
-            newWindowThread.Start();
-        }
-        private void ThreadStartingPoint()
-        {
-            lg = new LogWindow();
-            lg.Show();
-            System.Windows.Threading.Dispatcher.Run();
-        }
         public MainWindow()
         {
             float tr = (float)(1.0 / 888888.0);
             InitializeComponent();
-
+            //added by Yair
+            setWindowSize();
+            pageFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
+            initPages();
+            changeSUBMITbuttonMode(false);
+            //added by Yair
             NewWindowHandler(this, null);
 
-
-            AnalysisMethod.Items.Add("Only Ngrams");
-            AnalysisMethod.Items.Add("Only Stylistis and Tagger");
-            AnalysisMethod.Items.Add("Both Ngrams and Other Families");
-            AnalysisMethod.SelectedIndex = 0;
+            setUpAnalysisCombobox();
 
             ArticleDir.Text = @"TXT\BOOKS";
 
             Threshold.Text = "0";
 
+            setUpReducingUnigramsCombobox();
 
+            setUpTrainingSets();
+
+            setUpNGrams();
+
+            FirstTime = false;
+
+            //added By Yair
+            initNormalUI();
+        }
+
+        private void setUpReducingUnigramsCombobox()
+        {
             ReducingUniGrams.Items.Add("None of those");
             ReducingUniGrams.Items.Add("All of them");
             ReducingUniGrams.Items.Add("Each Article");
             ReducingUniGrams.SelectedIndex = 0;
-
-
+        }
+        private void setUpTrainingSets()
+        {
             string[] strs = new string[] { "None", "10", "15", "20", "30", "33", "40", "50" };
             TraningSetNum.ItemsSource = strs;
             TraningSetNum.SelectedIndex = 0;
             TrainingSetPres = 0;
-
+        }
+        private void setUpNGrams()
+        {
             UniGRams.Text = "500";
             Program.NUM_OF_ONE = 500;
 
@@ -163,12 +219,26 @@ namespace WpfAArticleAnalysis
 
             RareQuadChars.Text = "0";
             Program.RareQuadChars = 0;
-
-            FirstTime = false;
-
-            //added By Yair
-            initNormalUI();
-            normalizer = new Normalizer();
+        }
+        private void setUpAnalysisCombobox()
+        {
+            AnalysisMethod.Items.Add("Only Ngrams");
+            AnalysisMethod.Items.Add("Only Stylistis and Tagger");
+            AnalysisMethod.Items.Add("Both Ngrams and Other Families");
+            AnalysisMethod.SelectedIndex = 0;
+        }
+        private void NewWindowHandler(object sender, RoutedEventArgs e)
+        {
+            newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
+            newWindowThread.SetApartmentState(ApartmentState.STA);
+            newWindowThread.IsBackground = true;
+            newWindowThread.Start();
+        }
+        private void ThreadStartingPoint()
+        {
+            lg = new LogWindow();
+            lg.Show();
+            System.Windows.Threading.Dispatcher.Run();
         }
         private void make_csv_file(string dir_of_articles, string output_path)
         {
@@ -245,7 +315,7 @@ namespace WpfAArticleAnalysis
         }
         private void MakeTxtLogNgramsAndNChars(P_family[] arr, bool all = true)
         {
-            return;
+            return; // what does that soppose to mean?
             newLogThread = new Thread(new ThreadStart(ThreadLog));
             newLogThread.SetApartmentState(ApartmentState.STA);
             newLogThread.IsBackground = true;
@@ -381,7 +451,7 @@ namespace WpfAArticleAnalysis
 
             //SaveData = P_family.GetTmpCopy(p_arr[0]);
 
-            return;
+            return; // what does that soppose to mean?
             P_family.Serialize(p_arr.ToList());
         }
         private static string[] GetFilesInDir(string path)
@@ -1512,6 +1582,8 @@ namespace WpfAArticleAnalysis
             else if (FreqWarning != null)
                 FreqWarning.Content = "Put a number between 0 to 0.9999";
         }
+
+        #region Pages Events
         private void UniGRams_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1675,147 +1747,6 @@ namespace WpfAArticleAnalysis
             else
                 MessageBox.Show("Please Enter a natural number");
         }
-        private void CreateLog()
-        {
-
-            lg = new LogWindow();
-            lg.Show();
-        }
-        private void AnalysisMethod_DropDownClosed(object sender, EventArgs e)
-        {
-            if (FirstTime)
-            {
-                return;
-
-            }
-            switch (AnalysisMethod.Text.ToString())
-            {
-                case "Only Ngrams":
-                    chooseMethod = 1;
-                    ResetGramsAndChars();
-
-                    Familes.IsEnabled = false;
-                    break;
-                case "Only Stylistis and Tagger":
-                    DisableNgramsAndChars();
-                    chooseMethod = 2;
-                    Familes.IsEnabled = true;
-                    break;
-                case "Both Ngrams and Other Families":
-                    ResetGramsAndChars();
-                    chooseMethod = 3;
-                    Familes.IsEnabled = true;
-                    break;
-            }
-        }
-        private void ResetGramsAndChars()
-        {
-            Threshold.IsEnabled = true;
-            ReducingUniGrams.IsEnabled = true;
-            UniGRams.IsEnabled = true;
-            UniGRams.Text = "500";
-            Program.NUM_OF_ONE = 500;
-            BiGRams.IsEnabled = true;
-            BiGRams.Text = "500";
-            Program.NUM_OF_TWO = 500;
-            TriGRams.IsEnabled = true;
-            TriGRams.Text = "500";
-            Program.NUM_OF_THREE = 500;
-            QuadGrams.IsEnabled = true;
-            QuadGrams.Text = "500";
-            Program.NUM_OF_FOUR = 500;
-            RareUGRAMs.IsEnabled = true;
-            RareUGRAMs.Text = "0";
-            Program.RareUniGrams = 0;
-            RareBGRAMS.IsEnabled = true;
-            RareBGRAMS.Text = "0";
-            Program.RareBiGrams = 0;
-            RareTriGrams.IsEnabled = true;
-            RareTriGrams.Text = "0";
-            Program.RareTriGrams = 0;
-            RareQuadGrams.IsEnabled = true;
-            RareQuadGrams.Text = "0";
-            Program.RareQuadGrams = 0;
-            UniChars.IsEnabled = true;
-            UniChars.Text = "0";
-            Program.UniChars = 0;
-            BiChars.IsEnabled = true;
-            BiChars.Text = "0";
-            Program.BiChars = 0;
-            TriChars.IsEnabled = true;
-            TriChars.Text = "0";
-            Program.TriChars = 0;
-            QuadChars.IsEnabled = true;
-            QuadChars.Text = "0";
-            Program.QuadChars = 0;
-            RareUniChars.IsEnabled = true;
-            RareUniChars.Text = "0";
-            Program.RareUniChars = 0;
-            RareBiChars.IsEnabled = true;
-            RareBiChars.Text = "0";
-            Program.RareBiChars = 0;
-            RareTriChars.IsEnabled = true;
-            RareTriChars.Text = "0";
-            Program.RareTriChars = 0;
-            RareQuadChars.IsEnabled = true;
-            RareQuadChars.Text = "0";
-            Program.RareQuadChars = 0;
-            TakeOutStopWords.IsEnabled = true;
-        }
-        private void DisableNgramsAndChars()
-        {
-            TakeOutStopWords.IsEnabled = false; ;
-            Threshold.IsEnabled = false;
-            ReducingUniGrams.IsEnabled = false;
-            UniGRams.IsEnabled = false;
-            UniGRams.Text = "0";
-            Program.NUM_OF_ONE = 0;
-            BiGRams.IsEnabled = false;
-            BiGRams.Text = "0";
-            Program.NUM_OF_TWO = 0;
-            TriGRams.IsEnabled = false;
-            TriGRams.Text = "0";
-            Program.NUM_OF_THREE = 0;
-            QuadGrams.IsEnabled = false;
-            QuadGrams.Text = "0";
-            Program.NUM_OF_FOUR = 0;
-            RareUGRAMs.IsEnabled = false;
-            RareUGRAMs.Text = "0";
-            Program.RareUniGrams = 0;
-            RareBGRAMS.IsEnabled = false;
-            RareBGRAMS.Text = "0";
-            Program.RareBiGrams = 0;
-            RareTriGrams.IsEnabled = false;
-            RareTriGrams.Text = "0";
-            Program.RareTriGrams = 0;
-            RareQuadGrams.IsEnabled = false;
-            RareQuadGrams.Text = "0";
-            Program.RareQuadGrams = 0;
-            UniChars.IsEnabled = false;
-            UniChars.Text = "0";
-            Program.UniChars = 0;
-            BiChars.IsEnabled = false;
-            BiChars.Text = "0";
-            Program.BiChars = 0;
-            TriChars.IsEnabled = false;
-            TriChars.Text = "0";
-            Program.TriChars = 0;
-            QuadChars.IsEnabled = false;
-            QuadChars.Text = "0";
-            Program.QuadChars = 0;
-            RareUniChars.IsEnabled = false;
-            RareUniChars.Text = "0";
-            Program.RareUniChars = 0;
-            RareBiChars.IsEnabled = false;
-            RareBiChars.Text = "0";
-            Program.RareBiChars = 0;
-            RareTriChars.IsEnabled = false;
-            RareTriChars.Text = "0";
-            Program.RareTriChars = 0;
-            RareQuadChars.IsEnabled = false;
-            RareQuadChars.Text = "0";
-            Program.RareQuadChars = 0;
-        }
         private void UniChars_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (FirstTime)
@@ -1976,13 +1907,58 @@ namespace WpfAArticleAnalysis
             else
                 MessageBox.Show("Please Enter a natural number");
         }
-        private void Window_Closed(object sender, EventArgs e)
+        private void AnalysisMethod_DropDownClosed(object sender, EventArgs e)
         {
-            if (myThread != null)
-                myThread.Abort();
-            if (newWindowThread != null)
+            if (FirstTime)
             {
-                newWindowThread.Abort();
+                return;
+
+            }
+            switch (AnalysisMethod.Text.ToString())
+            {
+                case "Only Ngrams":
+                    chooseMethod = 1;
+                    ResetGramsAndChars();
+                    Familes.IsEnabled = false;
+                    PHandler.disablePage(Pages_ENUM.tagger);
+                    PHandler.enablePage(Pages_ENUM.ngramPage);
+                    break;
+                case "Only Stylistis and Tagger":
+                    DisableNgramsAndChars();
+                    chooseMethod = 2;
+                    Familes.IsEnabled = true;
+                    PHandler.disablePage(Pages_ENUM.ngramPage);
+                    PHandler.enablePage(Pages_ENUM.tagger);
+                    break;
+                case "Both Ngrams and Other Families":
+                    ResetGramsAndChars();
+                    chooseMethod = 3;
+                    Familes.IsEnabled = true;
+                    PHandler.enablePage(Pages_ENUM.ngramPage);
+                    PHandler.enablePage(Pages_ENUM.tagger);
+                    break;
+            }
+        }
+        private void ReducingUniGrams_DropDownClosed(object sender, EventArgs e)
+        {
+
+            if (FirstTime)
+            {
+                return;
+
+            }
+
+            switch (ReducingUniGrams.Text.ToString())
+            {
+                case ("Each Articles"):
+                    Program.ForOneArticle = "E";
+                    break;
+                case ("All of them"):
+                    Program.ForOneArticle = "A";
+                    break;
+                case ("None of those"):
+                    Program.ForOneArticle = "N";
+                    break;
             }
         }
         private void TakeOutStopWords_Checked(object sender, RoutedEventArgs e)
@@ -1993,15 +1969,6 @@ namespace WpfAArticleAnalysis
         private void TakeOutStopWords_Unchecked(object sender, RoutedEventArgs e)
         {
             Program.RemoveStopWords = false;
-        }
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Familes.IsEnabled = false;
-
         }
         private void SelectAllCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -2103,30 +2070,9 @@ namespace WpfAArticleAnalysis
                     TrainingSetPres = 0;
                     break;
             }
+            changeSUBMITbuttonMode(true);
         }
-        private void ReducingUniGrams_DropDownClosed(object sender, EventArgs e)
-        {
-
-            if (FirstTime)
-            {
-                return;
-
-            }
-
-            switch (ReducingUniGrams.Text.ToString())
-            {
-                case ("Each Articles"):
-                    Program.ForOneArticle = "E";
-                    break;
-                case ("All of them"):
-                    Program.ForOneArticle = "A";
-                    break;
-                case ("None of those"):
-                    Program.ForOneArticle = "N";
-                    break;
-            }
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Tag_Articles_Click(object sender, RoutedEventArgs e)
         {
             StreamWriter sw = new StreamWriter("Tag.bat");
 
@@ -2146,7 +2092,7 @@ namespace WpfAArticleAnalysis
 
             var prcs = System.Diagnostics.Process.Start("Tag.bat");
             MessageBox.Show("This going to take a while\n");
-            Submit.IsEnabled = false;
+            changeSUBMITbuttonMode(false);
             prcs.EnableRaisingEvents = true;
             prcs.Exited += (s, e2) =>
             {
@@ -2158,13 +2104,13 @@ namespace WpfAArticleAnalysis
             };
 
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Count_Click(object sender, RoutedEventArgs e)
         {
             Thread count = new Thread(new ThreadStart(CountDifferentWords));
             count.Start();
 
         }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Statistics_Click(object sender, RoutedEventArgs e)
         {
             Thread StatsThread = new Thread(new ThreadStart(StatsCreator));
             StatsThread.SetApartmentState(ApartmentState.STA);
@@ -2172,8 +2118,150 @@ namespace WpfAArticleAnalysis
             StatsThread.Start();
 
         }
+        private void OpenDir_Click(object sender, RoutedEventArgs e)
+        {
+            using (var folderDialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    ArticleDir.Text = folderDialog.SelectedPath;
+                    dir_of_articles_folders = folderDialog.SelectedPath;
+                }
+            }
+        }
         #endregion
+        #endregion
+        private void CreateLog()
+        {
+            lg = new LogWindow();
+            lg.Show();
+        }     
+        private void ResetGramsAndChars()
+        {
+            Threshold.IsEnabled = true;
+            ReducingUniGrams.IsEnabled = true;
+            UniGRams.IsEnabled = true;
+            UniGRams.Text = "500";
+            Program.NUM_OF_ONE = 500;
+            BiGRams.IsEnabled = true;
+            BiGRams.Text = "500";
+            Program.NUM_OF_TWO = 500;
+            TriGRams.IsEnabled = true;
+            TriGRams.Text = "500";
+            Program.NUM_OF_THREE = 500;
+            QuadGrams.IsEnabled = true;
+            QuadGrams.Text = "500";
+            Program.NUM_OF_FOUR = 500;
+            RareUGRAMs.IsEnabled = true;
+            RareUGRAMs.Text = "0";
+            Program.RareUniGrams = 0;
+            RareBGRAMS.IsEnabled = true;
+            RareBGRAMS.Text = "0";
+            Program.RareBiGrams = 0;
+            RareTriGrams.IsEnabled = true;
+            RareTriGrams.Text = "0";
+            Program.RareTriGrams = 0;
+            RareQuadGrams.IsEnabled = true;
+            RareQuadGrams.Text = "0";
+            Program.RareQuadGrams = 0;
+            UniChars.IsEnabled = true;
+            UniChars.Text = "0";
+            Program.UniChars = 0;
+            BiChars.IsEnabled = true;
+            BiChars.Text = "0";
+            Program.BiChars = 0;
+            TriChars.IsEnabled = true;
+            TriChars.Text = "0";
+            Program.TriChars = 0;
+            QuadChars.IsEnabled = true;
+            QuadChars.Text = "0";
+            Program.QuadChars = 0;
+            RareUniChars.IsEnabled = true;
+            RareUniChars.Text = "0";
+            Program.RareUniChars = 0;
+            RareBiChars.IsEnabled = true;
+            RareBiChars.Text = "0";
+            Program.RareBiChars = 0;
+            RareTriChars.IsEnabled = true;
+            RareTriChars.Text = "0";
+            Program.RareTriChars = 0;
+            RareQuadChars.IsEnabled = true;
+            RareQuadChars.Text = "0";
+            Program.RareQuadChars = 0;
+            TakeOutStopWords.IsEnabled = true;
+        }
+        private void DisableNgramsAndChars()
+        {
+            TakeOutStopWords.IsEnabled = false; ;
+            Threshold.IsEnabled = false;
+            ReducingUniGrams.IsEnabled = false;
+            UniGRams.IsEnabled = false;
+            UniGRams.Text = "0";
+            Program.NUM_OF_ONE = 0;
+            BiGRams.IsEnabled = false;
+            BiGRams.Text = "0";
+            Program.NUM_OF_TWO = 0;
+            TriGRams.IsEnabled = false;
+            TriGRams.Text = "0";
+            Program.NUM_OF_THREE = 0;
+            QuadGrams.IsEnabled = false;
+            QuadGrams.Text = "0";
+            Program.NUM_OF_FOUR = 0;
+            RareUGRAMs.IsEnabled = false;
+            RareUGRAMs.Text = "0";
+            Program.RareUniGrams = 0;
+            RareBGRAMS.IsEnabled = false;
+            RareBGRAMS.Text = "0";
+            Program.RareBiGrams = 0;
+            RareTriGrams.IsEnabled = false;
+            RareTriGrams.Text = "0";
+            Program.RareTriGrams = 0;
+            RareQuadGrams.IsEnabled = false;
+            RareQuadGrams.Text = "0";
+            Program.RareQuadGrams = 0;
+            UniChars.IsEnabled = false;
+            UniChars.Text = "0";
+            Program.UniChars = 0;
+            BiChars.IsEnabled = false;
+            BiChars.Text = "0";
+            Program.BiChars = 0;
+            TriChars.IsEnabled = false;
+            TriChars.Text = "0";
+            Program.TriChars = 0;
+            QuadChars.IsEnabled = false;
+            QuadChars.Text = "0";
+            Program.QuadChars = 0;
+            RareUniChars.IsEnabled = false;
+            RareUniChars.Text = "0";
+            Program.RareUniChars = 0;
+            RareBiChars.IsEnabled = false;
+            RareBiChars.Text = "0";
+            Program.RareBiChars = 0;
+            RareTriChars.IsEnabled = false;
+            RareTriChars.Text = "0";
+            Program.RareTriChars = 0;
+            RareQuadChars.IsEnabled = false;
+            RareQuadChars.Text = "0";
+            Program.RareQuadChars = 0;
+        }    
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (myThread != null)
+                myThread.Abort();
+            if (newWindowThread != null)
+            {
+                newWindowThread.Abort();
+            }
+        }
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Familes.IsEnabled = false;
+
+        } 
         private void CountDifferentWords()
         {
 
@@ -2227,12 +2315,9 @@ namespace WpfAArticleAnalysis
                 sw.Close();
                 MessageBox.Show("Finish counting");
             }));
-
-
-        }
+        }      
         private void StatsCreator()
         {
-
             try
             {
                 this.Dispatcher.Invoke((Action)(() =>
@@ -2246,8 +2331,17 @@ namespace WpfAArticleAnalysis
                 MessageBox.Show(ex.Message);
             }
         }
+        private void image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            nextPage();
+        }
+        private void image_Copy_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            prevPage();
+        }
 
         /******MadeByYAIR******/
+        #region Coded By Yair Yigal
         public enum NormaliztionMethods
         {
             No_Punctuation = 0,
@@ -2306,11 +2400,11 @@ namespace WpfAArticleAnalysis
             {
                 if (html)
                 {
-                    if(lower)
+                    if (lower)
                     {
                         return 1;
                     }
-                    else if(upper)
+                    else if (upper)
                     {
                         return 2;
                     }
@@ -2371,32 +2465,230 @@ namespace WpfAArticleAnalysis
 
 
         }
-        //still working on this VV
-        private void normalize(Normalizer nrmlz, params string[] dirToNormal)
-        {
-            StreamReader read;
-            StreamWriter wrt;
-            try
-            {
-                foreach (var file in dirToNormal)
-                {
-                    read = new StreamReader(file);
-                    while (!read.EndOfStream)
-                    {
-                        read.ReadLine();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Cannot retrieve data to normalize");
-                return;
-            }
+        //old normalize function
+        //private void normalize(Normalizer nrmlz, params string[] dirToNormal)
+        //{
+        //    StreamReader read;
+        //    StreamWriter wrt;
+        //    try
+        //    {
+        //        foreach (var file in dirToNormal)
+        //        {
+        //            read = new StreamReader(file);
+        //            while (!read.EndOfStream)
+        //            {
+        //                read.ReadLine();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Cannot retrieve data to normalize");
+        //        return;
+        //    }
 
+
+        //}
+        /// <summary>
+        /// linking the events from here to the contols on the pages.
+        /// </summary>
+        private void addEventsToControls()
+        {
+            #region ngrampage
+            UniGRams.TextChanged += UniGRams_TextChanged;
+            BiGRams.TextChanged += BiGRams_TextChanged;
+            TriGRams.TextChanged += TriGRams_TextChanged;
+            QuadGrams.TextChanged += QuadGrams_TextChanged;
+            RareUGRAMs.TextChanged += RareUGRAMs_TextChanged;
+            RareBGRAMS.TextChanged += RareBGRAMS_TextChanged;
+            RareTriGrams.TextChanged += RareTriGrams_TextChanged;
+            RareQuadGrams.TextChanged += RareQuadGrams_TextChanged;
+
+            UniChars.TextChanged += UniChars_TextChanged;
+            BiChars.TextChanged += BiChars_TextChanged;
+            TriChars.TextChanged += TriChars_TextChanged;
+            QuadChars.TextChanged += QuadChars_TextChanged;
+            RareUniChars.TextChanged += RareUniChars_TextChanged;
+            RareBiChars.TextChanged += RareBiChars_TextChanged;
+            RareTriChars.TextChanged += RareTriChars_TextChanged;
+            RareQuadChars.TextChanged += RareQuadChars_TextChanged;
+            #endregion
+
+            #region firstpage
+            AnalysisMethod.DropDownClosed += AnalysisMethod_DropDownClosed;
+            AnalysisMethod.SelectionChanged += AnalysisMethod_SelectionChanged;
+            ArticleDir.TextChanged += ArticleDir_TextChanged;
+            Threshold.TextChanged += Threshold_TextChanged;
+            ReducingUniGrams.DropDownClosed += ReducingUniGrams_DropDownClosed;
+            TakeOutStopWords.Checked += TakeOutStopWords_Checked;
+            TakeOutStopWords.Unchecked += TakeOutStopWords_Unchecked;
+            openDir.Click += OpenDir_Click;
+            #endregion
+
+            #region FeaturesPage
+            OrthograficCheckBox.Click += OrthograficCheckBox_Click;
+            QuantitativeCheckBox.Click += QuantitativeCheckBox_Click;
+            ReachnessLangCheckBox.Click += ReachnessLangCheckBox_Click;
+            StemmerCheckBox.Click += StemmerCheckBox_Click;
+            TaggerCheckBox.Click += TaggerCheckBox_Click;
+            SelectAllCheckBox.Click += SelectAllCheckBox_Click;
+            TraningSetNum.DropDownClosed += TraningSetNum_DropDownClosed;
+            Tag_Articles.Click += Tag_Articles_Click;
+            Count.Click += Count_Click;
+            Statistics.Click += Statistics_Click;
+            #endregion
 
         }
+        /// <summary>
+        /// initialized the controls from the ngrampage to those variable here.
+        /// </summary>
+        private void initngramPageControls()
+        {
+            Pages.Ngrampage currPage = Pages.Ngrampage.getThisPage();
+            UniGRams = currPage.getUniGrams;
+            BiGRams = currPage.getBiGrams;
+            TriGRams = currPage.getTriGrams;
+            QuadGrams = currPage.getQuadGrams;
+
+            RareUGRAMs = currPage.getRareUniGrams;
+            RareTriGrams = currPage.getRareTriGrams;
+            RareBGRAMS = currPage.getRareBiGrams;
+            RareQuadGrams = currPage.getRareQuadGrams;
+
+            UniChars = currPage.getUniChars;
+            BiChars = currPage.getBiChars;
+            TriChars = currPage.getTriChars;
+            QuadChars = currPage.getQuadChars;
+
+            RareUniChars = currPage.getRareUniChars;
+            RareTriChars = currPage.getRareTriChars;
+            RareBiChars = currPage.getRareBiChars;
+            RareQuadChars = currPage.getRareQuadChars;
+        }
+        /// <summary>
+        /// initializes the variables here to the controls from FirstPage.
+        /// </summary>
+        private void initFirstPageControls()
+        {
+            var currPage = Pages.FirstPage.getThisPage();
+            AnalysisMethod = currPage.AnalysisMethod;
+            ArticleDir = currPage.ArticleDir;
+            Threshold = currPage.Threshold;
+            ReducingUniGrams = currPage.ReducingUniGrams;
+            TakeOutStopWords = currPage.TakeOutStopWords;
+            MakeLogFiles = currPage.MakeLogFiles;
+            DomainsCounter = currPage.DomainsCounter;
+            FreqWarning = currPage.FreqWarning;
+            openDir = currPage.openDir;
+
+        }
+        /// <summary>
+        /// initialized the variable here to the conrols from NormalizationPage
+        /// </summary>
+        private void initNormaliztionPageControls()
+        {
+            var currPage = Pages.NormalizationPage.getThisPage();
+            PunRB = currPage.PunRB;
+            HTMLRB = currPage.HTMLRB;
+            LettersCB = currPage.LettersCB;
+        }
+        /// <summary>
+        /// initialized the variable here to the conrols from FeatursPage.
+        /// </summary>
+        private void initFeaturesPageConrols()
+        {
+            var currPage = Pages.FeaturesPage.getThisPage();
+            TraningSetNum = currPage.TraningSetNum;
+            Tag_Articles = currPage.Tag_Articles;
+            Count = currPage.Count;
+            Statistics = currPage.Statistics;
+        }
+        /// <summary>
+        /// initialized the variable here to the conrols from Tagger.
+        /// </summary>
+        private void initTaggerPageControls()
+        {
+            var currPage = Pages.Tagger.getThisPage();
+
+            Familes = currPage.Familes;
+            OrthograficCheckBox = currPage.OrthograficCheckBox;
+            QuantitativeCheckBox = currPage.QuantitativeCheckBox;
+            ReachnessLangCheckBox = currPage.ReachnessLangCheckBox;
+            StemmerCheckBox = currPage.StemmerCheckBox;
+            TaggerCheckBox = currPage.TaggerCheckBox;
+            SelectAllCheckBox = currPage.SelectAllCheckBox;
+        }
+        ///// <summary>
+        ///// enables or disables specific pages from showing.
+        ///// </summary>
+        //private void setPageOrder()
+        //{
+        //    //not tagger
+        //    if (chooseMethod == 1)
+        //    {
+        //        //PHandler.disablePage(Pages_ENUM.tagger);
+        //        PHandler.enablePage(Pages_ENUM.ngramPage);
+        //    }
+        //    //not ngram
+        //    if (chooseMethod == 2)
+        //        PHandler.disablePage(Pages_ENUM.ngramPage);
+        //    //PHandler.enablePage(Pages.ENUM.tagger)
+        //    //show both
+        //    if (chooseMethod == 3)
+        //    {
+        //        PHandler.enablePage(Pages_ENUM.ngramPage);
+        //        //PHandler.enablePage(Pages.ENUM.tagger)
+        //    }
+        //}
+        /// <summary>
+        /// initializes all the things that are linked to Pages,
+        /// Variables , new instance etc...
+        /// </summary>
+        private void initPages()
+        {
+            PHandler = new PageHandler(pageFrame);
+            initngramPageControls();
+            initFirstPageControls();
+            initNormaliztionPageControls();
+            initFeaturesPageConrols();
+            initTaggerPageControls();
+            addEventsToControls();
+
+            //setting the Window title
+            frameTitle.Content = PHandler.getCurrentPage().name;
+        }
+        /// <summary>
+        /// sets the windwos height and width
+        /// </summary>
+        private void setWindowSize()
+        {
+            Height = Public_Functions.FrameHeight;
+            Width = Public_Functions.FrameWidth+20;
+        }
+        /// <summary>
+        /// sets the next page on the frame
+        /// </summary>
+        private void nextPage()
+        {
+            frameTitle.Content = PHandler.NextPage().name;
+        }
+        /// <summary>
+        /// sets the previous page on the frame.
+        /// </summary>
+        private void prevPage()
+        {
+            frameTitle.Content = PHandler.PreviousPage().name;
+        }
+        /// <summary>
+        /// enables or disbales the SUBMIT button.
+        /// </summary>
+        /// <param name="mode">the mode to change the submit button to</param>
+        private void changeSUBMITbuttonMode(bool mode)
+        {
+            Submit.IsEnabled = mode;
+        }
+        #endregion
         /******MadeByYAIR******/
         #endregion
-
     }
 }

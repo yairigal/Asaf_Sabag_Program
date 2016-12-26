@@ -18,3 +18,8 @@ C:\Users\yairi\Desktop\Reserach\code\HtmlLib\bin\Debug\HtmlLib.pdb
 C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
 C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.dll
 C:\Users\yairi\Desktop\Reserach\code\HtmlLib\obj\Debug\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\HtmlLib\bin\Debug\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\HtmlLib\obj\Debug\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\HtmlLib\obj\Debug\HtmlLib.pdb

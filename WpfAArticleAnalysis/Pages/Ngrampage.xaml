@@ -1,0 +1,63 @@
+﻿<Page x:Class="WpfAArticleAnalysis.Pages.Ngrampage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAArticleAnalysis.Pages"
+      mc:Ignorable="d"
+      Title="Ngrampage" Height="590" Width="500">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="# of UniGrams" Margin="0"/>
+        <Label Content="# of BiGrams" Margin="0" Grid.Row="1"/>
+        <Label Content="# of TriGrams" Margin="0" Grid.Row="2"/>
+        <Label Content="# of QuadGrams" Margin="0" Grid.Row="3"/>
+        <Label Content="# of Rare UniGrams" Margin="0" Grid.Column="2"/>
+        <Label Content="# of Rare BiGrams" Margin="0" Grid.Column="2" Grid.Row="1"/>
+        <Label Content="# of Rare TriGrams" Margin="0" Grid.Column="2" Grid.Row="2"/>
+        <Label Content="# of Rare QuadGrams" Margin="0" Grid.Column="2" Grid.Row="3"/>
+        <TextBox x:Name="UniGRams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="1"/>
+        <TextBox x:Name="BiGRams"  TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="1" />
+        <TextBox x:Name="RareQuadGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="3" />
+        <TextBox x:Name="RareTriGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="2" />
+        <TextBox x:Name="RareBGRAMS" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="1" />
+        <TextBox x:Name="RareUGRAMs" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" />
+        <TextBox x:Name="QuadGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Row="3" Grid.Column="1" />
+        <TextBox x:Name="TriGRams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Row="2" Grid.Column="1"/>
+        <Label Content="# of RareQuadChars" Margin="0,0,0,236" Grid.Column="2" Grid.Row="8"/>
+        <Label Content="# of RareTriChars" Margin="0,39,0,0" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2"/>
+        <Label Content="# of RareBiChars" Margin="0,0,0,1" Grid.Column="2" Grid.Row="6"/>
+        <Label Content="# of RareUniChars" Margin="0,39,0,0" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2"/>
+        <Label Content="# of TriChars" Margin="0,39,0,0" Grid.Row="6" Grid.RowSpan="2"/>
+        <Label Content="# of BiChars" Margin="0,0,0,1" Grid.Row="6"/>
+        <Label Content="# of UniChars" Margin="0,39,0,0" Grid.Row="4" Grid.RowSpan="2"/>
+        <Label x:Name="label" Content="# of QuadChars" Margin="0,0,0,236" Grid.Row="8"/>
+        <TextBox x:Name="UniChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" />
+        <TextBox x:Name="RareQuadChars" Margin="0,0,0,236" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="8" />
+        <TextBox x:Name="RareTriChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="6" Grid.RowSpan="2" />
+        <TextBox x:Name="RareBiChars" Margin="0,0,0,1" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="6" />
+        <TextBox x:Name="QuadChars" Margin="0,0,0,236" TextWrapping="Wrap" Text="TextBox" Grid.Row="8" Grid.Column="1" />
+        <TextBox x:Name="TriChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" />
+        <TextBox x:Name="BiChars" Margin="0,0,0,1" TextWrapping="Wrap" Text="TextBox" Grid.Row="6" Grid.Column="1" />
+        <TextBox x:Name="RareUniChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2"/>
+
+    </Grid>
+</Page>
