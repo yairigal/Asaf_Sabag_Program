@@ -46,3 +46,8 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\Content
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.pdb
 >>>>>>> refs/remotes/origin/Yair
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.pdb
