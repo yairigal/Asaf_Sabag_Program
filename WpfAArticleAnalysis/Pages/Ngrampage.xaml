@@ -20,10 +20,10 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="136*"/>
+            <ColumnDefinition Width="125*"/>
         </Grid.ColumnDefinitions>
 
         <Label Content="# of UniGrams" Margin="0"/>

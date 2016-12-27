@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAArticleAnalysis", "WpfA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statistics", "Statistics\Statistics.csproj", "{2F230740-092A-4E1B-93E0-764C2D175115}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "..\Asaf_Sabag_Program-adding-normalization\I_O\IO.csproj", "{9A12DD2D-C509-4A48-A20C-F09AD11019ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Normalization", "..\Asaf_Sabag_Program-adding-normalization\Normalization\Normalization.csproj", "{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F230740-092A-4E1B-93E0-764C2D175115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A12DD2D-C509-4A48-A20C-F09AD11019ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A12DD2D-C509-4A48-A20C-F09AD11019ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A12DD2D-C509-4A48-A20C-F09AD11019ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A12DD2D-C509-4A48-A20C-F09AD11019ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6B20BA-3C15-4739-8FFD-FC7D9FA04C9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

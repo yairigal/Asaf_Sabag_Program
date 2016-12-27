@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\obj\Debug\
+C:\Users\Yair\Source\Repos\MasterProject\WpfAArticleAnalysis\obj\Debug\
 WpfAArticleAnalysis
 none
 false
 DEBUG;TRACE
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\WpfAArticleAnalysis\App.xaml
+C:\Users\Yair\Source\Repos\MasterProject\WpfAArticleAnalysis\App.xaml
 72076049319
 
 15-1880461713
-16952569980
+161180189437
 LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
 
 False
