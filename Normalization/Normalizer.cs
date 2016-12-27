@@ -1,135 +1,200 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using I_O;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace Normalization
 {
-    public class Normalizer
+    public enum NormaliztionMethods
     {
-        //the dictionarys
-        //const string missplellingPath = @"../../../misspelling.txt";
-        //const string abbrevationsPath = @"../../../abbrevations-lexicon.txt";
-        //const string slangPath = @"../../../slang.txt";
-        //const string stopWordsPath = @"../../../StopWords.txt";
-        //const string onomatopoeia = @"../../../onomatopoeia.txt";
+        No_Punctuation = 0,
+        All_Capitals,
+        All_Lowercase,
+        No_HTML_Tags,
+        NONE
+    }
 
-        //new directories
+    public class normalizer
+    {
+        IOText TextRW;
+        IOJson JsonRW;
 
-        #region New Directories
-        const string missplellingPath = @"misspelling.txt";
-        const string abbrevationsPath = @"abbrevations-lexicon.txt";
-        const string slangPath = @"slang.txt";
-        const string stopWordsPath = @"StopWords.txt";
-        const string onomatopoeia = @"onomatopoeia.txt";
-        #endregion
-
-        #region Dictionaries
-        IDictionary<string, string> slangDictionary = new Dictionary<string, string>();
-        IDictionary<string, string> abbrevationDictionary = new Dictionary<string, string>();
-        IDictionary<string, string> misspellingDictionary = new Dictionary<string, string>();
-
-        List<string> stopWords = new List<string>();
+        //directory for the files that are not normalized
+        string dirToBeNormal = "";
+        //directory for the files that are normalized
+        string dirForTheNormal = "";
 
         string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~";
-        #endregion
 
-        #region Normalization Functions
-        /// <summary>
-        /// translate some common misspelled words in a string to their real meaning
-        /// </summary>
-        /// <param name="str">string to translate</param>
-        /// <returns></returns>
-        //public string MisspellingNormalization(string str)
-        //{
-        //    string newStr = string.Empty; // newStr="";
-        //    string[] lines = str.Split('\n');
-        //    string[] words;
-        //    foreach (var line in lines)
-        //    {
-        //        words = line.Split(' ');
-        //        foreach (var item in words)
-        //        {
-        //            if (misspellingDictionary.Exists((X) => (X.Key == item)))
-        //                newStr += (misspellingDictionary.Find((X) => (X.Key
-        //                  == item)).Value + " "); // add the vallue that match the key
-        //            else
-        //                newStr += (item + " ");
-        //        }
-        //        newStr += "\n";
-        //    }
-        //    return newStr;
-        //}
+        public normalizer(string dir, string type, string dst = "")
+        {
+            dirToBeNormal = dir;
+            if (dst == "")
+            {
+                dirForTheNormal = dirToBeNormal + "_normalaized";
+                Directory.CreateDirectory(dirForTheNormal);
+            }
+            TextRW = new IOText();
+        }
+
 
         /// <summary>
-        /// translate any slang in a string to its real meaning
+        /// this function will normalize the text by the user choice
+        /// its going to run on all the files in the dir its normalizing
+        /// for every tweet in every file, the appropriate normalizing function will be activated and the normalized tweet wiil be saved in the list
+        /// the list of normalized tweet will be wrriten into a text file in the directory for the normalized files.
         /// </summary>
-        /// <param name="str">string to translate</param>
-        /// <returns></returns>
-        //public string SlangNormalization(string str)
-        //{
-        //    string newStr = string.Empty; // newStr="";
-        //    string[] lines = str.Split('\n');
-        //    string[] words;
-        //    foreach (var line in lines)
-        //    {
-        //        words = line.Split(' ');
-        //        foreach (var item in words)
-        //        {
-        //            if (slangDictionary.Exists((X) => (X.Key == item)))
-        //                newStr += (slangDictionary.Find((X) => (X.Key
-        //                  == item)).Value + " "); // add the vallue that match the key
-        //            else
-        //                newStr += (item + " ");
-        //        }
-        //        newStr += "\n";
-        //    }
-        //    return newStr;
-        //}
+        /// <param name="flags">
+        /// The flags dictionary is like that :
+        /// KEY:"No_Punctuation" - VALUE: true/flase
+        /// KEY:"All_Capitals" - VALUE: true/flase
+        /// KEY:"All_Lowercase" - VALUE: true/flase
+        /// KEY:"No_HTML_Tags" - VALUE: true/flase
+        /// </param>
+        public void Normalize(IDictionary<NormaliztionMethods,bool> flags) 
+        {
+            List<string> tweets = new List<string>();
+            string normalTweet = "";
+            string changes = "";
+            try
+            {
+                foreach (string file in Directory.GetFiles(dirToBeNormal))
+                {
+                    changes = getNormalizaionsExtansions(flags, changes);
+
+                    foreach (string tweet in TextRW.fileToTweets(file, "", 0))
+                    {
+                        normalTweet = tweet;
+                        normalTweet = NormalizeTweet(flags, normalTweet);
+                        tweets.Add(normalTweet);
+                    }
+                    string filename = Path.GetFileName(file);
+                    filename += changes;
+                    if (Path.GetExtension(filename) == string.Empty)
+                        filename += ".txt";
+                    TextRW.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
+                    tweets.Clear();
+                    changes = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
-        /// translate any abbravation in a string to its real meaning
+        /// Normalizes the current string based on the flags given
         /// </summary>
-        /// <param name="str">string to translate</param>
-        /// <returns></returns>
-        //public string AbbrevationNormalization(string str)
-        //{
-        //    string newStr = string.Empty; // newStr="";
-        //    string[] lines = str.Split('\n');
-        //    string[] words;
-        //    foreach (var line in lines)
-        //    {
-        //        words = line.Split(' ');
-        //        foreach (var item in words)
-        //        {
-        //            if (abbrevationDictionary.Exists((X) => (X.Key == item)))
-        //                newStr += (abbrevationDictionary.Find((X) => (X.Key
-        //                  == item)).Value + " "); // add the vallue that match the key
-        //            else
-        //                newStr += (item + " ");
-        //        }
-        //        newStr += "\n";
-        //    }
-        //    return newStr;
-        //}
+        /// <param name="flags">The normalization methods used to normalize the string.</param>
+        /// <param name="normalTweet">the tweet to be normalized</param>
+        /// <returns>The normalized tweet</returns>
+        private string NormalizeTweet(IDictionary<NormaliztionMethods, bool> flags, string normalTweet)
+        {
+            if (flags[NormaliztionMethods.No_Punctuation])
+            {
+                normalTweet = removePunctuation(normalTweet);
+            }
+
+            if (flags[NormaliztionMethods.No_HTML_Tags])
+            {
+                normalTweet = removeHTML(normalTweet);
+            }
+
+            if (flags[NormaliztionMethods.All_Lowercase])
+            {
+                normalTweet = allToLowercase(normalTweet);
+            }
+
+            if (flags[NormaliztionMethods.All_Capitals])
+            {
+                normalTweet = allToUppercase(normalTweet);
+            }
+
+            return normalTweet;
+        }
+        /// <summary>
+        /// Returns the file extansion based on his normalizaion
+        /// </summary>
+        /// <param name="flags">the normalizaions flags(which normalization methods will be applied)</param>
+        /// <param name="changes">the extension appended</param>
+        /// <returns>
+        /// _RP_ = Remove Punctuation.
+        /// _RH_ = Remove Html tags.
+        /// _TU_ = To upper.
+        /// _TL_ = To lower
+        /// </returns>
+        private static string getNormalizaionsExtansions(IDictionary<NormaliztionMethods, bool> flags,string changes)
+        {
+            if (flags[NormaliztionMethods.No_Punctuation])
+            {
+                changes += "_RP_";
+            }
+            if (flags[NormaliztionMethods.No_HTML_Tags])
+            {
+                changes += "_RH_";
+            }
+            if (flags[NormaliztionMethods.All_Capitals])
+            {
+                changes += "_TU_";
+            }
+            if (flags[NormaliztionMethods.All_Lowercase])
+            {
+                changes += "_TL_";
+            }
+
+            return changes;
+        }
 
         /// <summary>
-        /// filter out all the stop words from a givenn string
+        /// Transforming all text to uppercase letters
         /// </summary>
-        /// <param name="str">string to filter</param>
+        private string allToUppercase(string tweet)
+        {
+            return tweet.ToUpper();
+        }
+        /// <summary>
+        /// Transforing all text to lowercase letters.
+        /// </summary>
+        private string allToLowercase(string tweet)
+        {
+            return tweet.ToLower();
+        }
+        
+        /// <summary>
+        /// Removing all HTML tags from the text
+        /// </summary>
+        private string removeHTML(string tweet)
+        {
+            return removeHTMLTags(tweet);
+        }
+        /// <summary>
+        /// returning the cStr without HTML tags.
+        /// </summary>
+        /// <param name="cStr"></param>
         /// <returns></returns>
-        //public string StopWordsFilter(string str)
-        //{
-        //    string newStr = string.Empty;
-        //    string[] words = str.Split(' ');
-        //    foreach (var item in words)
-        //    {
-        //        if (!stopWords.Contains(item))
-        //            newStr += (item + " ");
-        //    }
-        //    return newStr;
-        //}
+        public string removeHTMLTags(string cStr)
+        {
+            //splitting all the words.
+            var words = cStr.Split(' ');
+            string newStr = string.Empty;
+            foreach (var item in words)
+                if (!(item.StartsWith("<") &&
+                     (item.EndsWith(">") || item.EndsWith("/>"))))
+                    newStr += item + " ";
+            return newStr;
+        }
 
+        /// <summary>
+        /// removing punctuations from the text.
+        /// </summary>
+        private string removePunctuation(string tweet)
+        {
+            return PunctuationFilter(tweet);
+        }
         /// <summary>
         /// return string without the punctuation chars.
         /// </summary>
@@ -146,99 +211,32 @@ namespace Normalization
             return newString;
         }
 
-        /// <summary>
-        /// make regular string to uncapital string
-        /// </summary>
-        /// <param name="cStr">ref argument to make uncapital</param>
-        public void UnCapital(ref string cStr)
-        {
-            cStr = cStr.ToLower();
-        }
-
-        /// <summary>
-        /// makes the referenced string in the paramter to upper case.
-        /// </summary>
-        /// <param name="cStr">this string will be all upper case after the fuction call</param>
-        public void AllCapital(ref string cStr)
-        {
-            cStr = cStr.ToUpper();
-        }
-
-        /// <summary>
-        /// returns cStr all upper case.
-        /// </summary>
-        /// <param name="cStr"></param>
-        /// <returns>returns the parametered string all capital</returns>
-        public string AllCapital(string cStr)
-        {
-            return cStr.ToUpper();
-        }
-
-        /// <summary>
-        /// return the  argument as uncapital string from
-        /// </summary>
-        /// <param name="cStr">string to uncapital</param>
-        /// <returns></returns>
-        public string UnCapital(string cStr)
-        {
-            return cStr.ToLower();
-        }
-
-        /// <summary>
-        /// returning the cStr without HTML tags.
-        /// </summary>
-        /// <param name="cStr"></param>
-        /// <returns></returns>
-        public string removeHTMLTags(string cStr)
-        {
-            //splitting all the words.
-            var words = cStr.Split(' ');
-            string newStr = string.Empty;
-            foreach (var item in words) 
-                if (!(item.StartsWith("<") && 
-                     (item.EndsWith(">") || item.EndsWith("/>"))))
-                    newStr += item+" ";
-            return newStr;     
-        }
-        #endregion
-
-        /// <summary>
-        /// constructor that build the lists that act like a dictionary
-        /// </summary>
-        public Normalizer()
-        {
-            try
-            {
-                string[] buffer = System.IO.File.ReadAllLines(slangPath);
-                string[] splitter;
-                foreach (var item in buffer)
-                {
-                    splitter = item.Split('=');
-                    slangDictionary.Add(splitter[0], splitter[1]);
-                }
-                buffer = System.IO.File.ReadAllLines(missplellingPath);
-                foreach (var item in buffer)
-                {
-                    splitter = item.Split('=');
-                    misspellingDictionary.Add(splitter[0], splitter[1]);
-                }
-                buffer = System.IO.File.ReadAllLines(abbrevationsPath);
-                foreach (var item in buffer)
-                {
-                    splitter = item.Split('=');
-                    abbrevationDictionary.Add(splitter[0], splitter[1]);
-                }
-                buffer = System.IO.File.ReadAllLines(stopWordsPath);
-                foreach (var item in buffer)
-                {
-                    stopWords.Add(item);
-                }
-            }
-            catch
-            {
-                Console.WriteLine("couldnt open one of the dictionary's file's");
-            }
-        }
-
     }
 }
+
+
+/* for checking
+ * using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Normalization
+{
+    class app
+    {
+        public static void Main()
+        {
+            normalizer norm = new normalizer("C:\\Users\\user\\Desktop\\test\\alt.atheism", "");
+            IDictionary<NormaliztionMethods, bool> flags = new Dictionary<NormaliztionMethods, bool> ();
+            flags.Add(NormaliztionMethods.All_Capitals, true);
+            flags.Add(NormaliztionMethods.All_Lowercase, false);
+            flags.Add(NormaliztionMethods.No_HTML_Tags, false);
+            flags.Add(NormaliztionMethods.No_Punctuation, false);
+
+            norm.Normalize(flags);
+        }
+    }
+}
+*/

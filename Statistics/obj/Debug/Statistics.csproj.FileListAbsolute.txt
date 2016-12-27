@@ -5,3 +5,9 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\bin\Debug\ContentFamil
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\Statistics\obj\Debug\Statistics.pdb
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\bin\Debug\Statistics.dll
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\bin\Debug\Statistics.pdb
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\obj\Debug\Statistics.dll
+C:\Users\Yair\Source\Repos\MasterProject\Statistics\obj\Debug\Statistics.pdb
