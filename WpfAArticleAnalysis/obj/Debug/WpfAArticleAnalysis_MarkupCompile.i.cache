@@ -16,5 +16,5 @@ C:\Users\Yair\Source\Repos\MasterProject\WpfAArticleAnalysis\App.xaml
 161180189437
 LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
 
-True
+False
 
