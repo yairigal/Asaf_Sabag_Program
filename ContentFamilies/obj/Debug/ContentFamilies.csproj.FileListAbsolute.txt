@@ -1,48 +1,4 @@
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\Asaf_Sabag\Desktop\articles\תוכנה להרצה\Research5774\ContentFamilies\obj\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\Maor\Documents\Projects\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.dll
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\bin\Debug\ContentFamilies.pdb
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.dll
-D:\Torrent Downloads\Dropbox\Kerner Project\SABAG\Research5774\ContentFamilies\obj\Debug\ContentFamilies.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\ContentFamilies\obj\Debug\ContentFamilies.pdb
-C:\Users\yairi\Desktop\Reserach\code\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\yairi\Desktop\Reserach\code\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\yairi\Desktop\Reserach\code\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\yairi\Desktop\Reserach\code\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\yairi\Desktop\Reserach\code\ContentFamilies\obj\Debug\ContentFamilies.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.pdb
-<<<<<<< HEAD
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\sefel\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Debug\ContentFamilies.pdb
-=======
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\bin\Debug\ContentFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\bin\Debug\ContentFamilies.pdb
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.csprojResolveAssemblyReference.cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program2\ContentFamilies\obj\Debug\ContentFamilies.pdb
->>>>>>> refs/remotes/origin/Yair

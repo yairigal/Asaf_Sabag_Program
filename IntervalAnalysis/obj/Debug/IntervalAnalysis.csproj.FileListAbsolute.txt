@@ -64,3 +64,14 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\IntervalAnalysis\obj\Debug\Interva
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\IntervalAnalysis\obj\Debug\IntervalAnalysis.csproj.GenerateResource.Cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\IntervalAnalysis\obj\Debug\IntervalAnalysis.exe
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\IntervalAnalysis\obj\Debug\IntervalAnalysis.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\bin\Debug\IntervalAnalysis.exe.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\bin\Debug\IntervalAnalysis.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\bin\Debug\IntervalAnalysis.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.Form1.resources
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.Properties.Resources.resources
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.csproj.GenerateResource.Cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\IntervalAnalysis\obj\Debug\IntervalAnalysis.pdb

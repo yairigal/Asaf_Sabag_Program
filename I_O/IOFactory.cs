@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Enums;
 
 namespace I_O
 {
     /// <summary>
     /// singleton factory for the different IOInterface implementation.
     /// </summary>
-    class IOFactory
+    public class IOFactory
     {
-        private static IOFactory factory;
+        private static IOInterface factory;
 
         private IOFactory() { }
-        public IOFactory getFacotry()
+        public static IOInterface getFacotry(IO_DataType type)
         {
             if (factory == null)
-                factory = new IOFactory();
+                if (type == IO_DataType.Json)
+                    factory = new IOJson();
+                else
+                    factory = new IOText();
+
             return factory;
         }
     }

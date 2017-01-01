@@ -2,34 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using I_O;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.IO;
+using Enums;
 
 namespace Normalization
 {
-    public enum NormaliztionMethods
-    {
-        No_Punctuation = 0,
-        All_Capitals,
-        All_Lowercase,
-        No_HTML_Tags,
-        NONE
-    }
 
     public class normalizer
     {
-        IOText TextRW;
-        IOJson JsonRW;
+        IOInterface ReadWrt;
+        /*IOText TextRW;
+        IOJson JsonRW;*/
 
         //directory for the files that are not normalized
-        string dirToBeNormal = "";
+        static string dirToBeNormal = Directory.GetCurrentDirectory();
         //directory for the files that are normalized
-        string dirForTheNormal = "";
+        static string dirForTheNormal = "";
 
         string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~";
 
-        public normalizer(string dir, string type, string dst = "")
+        public static string AfterNormalDir { get { return dirForTheNormal; } }
+
+        public static string BeforeNormalDir
+        {
+            get
+            {
+                return dirToBeNormal;
+            }
+        }
+
+        public normalizer(string dir, IO_DataType type, string dst = "")
         {
             dirToBeNormal = dir;
             if (dst == "")
@@ -37,7 +39,8 @@ namespace Normalization
                 dirForTheNormal = dirToBeNormal + "_normalaized";
                 Directory.CreateDirectory(dirForTheNormal);
             }
-            TextRW = new IOText();
+
+            ReadWrt = IOFactory.getFacotry(type);
         }
 
 
@@ -65,7 +68,7 @@ namespace Normalization
                 {
                     changes = getNormalizaionsExtansions(flags, changes);
 
-                    foreach (string tweet in TextRW.fileToTweets(file, "", 0))
+                    foreach (string tweet in ReadWrt.fileToTweets(file, "", 0))
                     {
                         normalTweet = tweet;
                         normalTweet = NormalizeTweet(flags, normalTweet);
@@ -75,7 +78,7 @@ namespace Normalization
                     filename += changes;
                     if (Path.GetExtension(filename) == string.Empty)
                         filename += ".txt";
-                    TextRW.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
+                    ReadWrt.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
                     tweets.Clear();
                     changes = "";
                 }

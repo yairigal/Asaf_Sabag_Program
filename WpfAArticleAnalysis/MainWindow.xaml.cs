@@ -47,31 +47,31 @@ namespace WpfAArticleAnalysis
         private static HashSet<SeqString> rare_quad_chars;
         private static bool FirstTime = true;
         private static string output_path;
-        public delegate void LogDelegate(string str);
         public static event LogDelegate LogChanged;
-        private string AritclePath;
-        private Thread newLogThread;
-        private Thread PercentUpdateThread;
-        private bool MakingLog = false;
+        public static LogWindow lg = null;
         private static string[] FILES_NAMES;
-
         #endregion
 
         #region Declerations
-        public static LogWindow lg = null;
+        private string AritclePath;
+        public delegate void LogDelegate(string str);
+        private Thread newLogThread;
+        private Thread PercentUpdateThread;
         private Thread newWindowThread = null;
         private Thread myThread = null;
+        private bool MakingLog = false;
         private bool OrthograficChecked;
         private bool QuantitativeChecked;
         private bool ReachnessLangChecked;
         private bool StemmerChecked;
         private bool TaggerChecked;
         private bool saveNormalDir = true;
-        private bool stopRefreshingThread=false;
+        private bool PercentUpdateThreadFlag = false;
         int TrainingSetPres = 0;
 
+
         //added by Yair
-        DataType TextType = DataType.Text;
+        IO_DataType TextType = IO_DataType.Text;
         PageHandler PHandler;
         normalizer Normalizer;
 
@@ -134,7 +134,7 @@ namespace WpfAArticleAnalysis
         public MainWindow()
         {
             float tr = (float)(1.0 / 888888.0);
-            
+
             InitializeComponent();
             //added by Yair
             setWindowSize();
@@ -161,16 +161,14 @@ namespace WpfAArticleAnalysis
             //added By Yair
             initNormalUI();
         }
-        ~MainWindow()
-        {
-            //Delete The files for the normalitions
-            DeleteNormalizationDirectoryIfNeeded();
-        }
-
         private void DeleteNormalizationDirectoryIfNeeded()
         {
             if (!saveNormalDir)
-                Directory.Delete(Normalizer.DirForTheNormal);
+            {
+                foreach (var file in Directory.GetFiles(normalizer.AfterNormalDir))             
+                    File.Delete(file);
+                Directory.Delete(normalizer.AfterNormalDir);
+            }
         }
         private void setUpReducingUnigramsCombobox()
         {
@@ -252,7 +250,7 @@ namespace WpfAArticleAnalysis
         }
         private void ThreadStartingPoint()
         {
-            lg = new LogWindow();
+            lg = new LogWindow(this);
             lg.Show();
             System.Windows.Threading.Dispatcher.Run();
         }
@@ -618,16 +616,20 @@ namespace WpfAArticleAnalysis
             int count = 0;
             int currentRun = 0;
 
-
+            #region SettingUpTheThread
             //percentage for the log window.
-            if (PercentUpdateThread != null &&PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running)
-            {
-                stopRefreshingThread = true;
-                Thread.Sleep(1010);
-            }
-            stopRefreshingThread = false;
-            PercentUpdateThread = new Thread(new ThreadStart(() => setLogPercentage(ref currentRun,ref title, overallSize, ref count)));
-            PercentUpdateThread.Start();
+            if (PercentUpdateThread != null)
+                if ((PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running))
+                {
+                    PercentUpdateThreadFlag = false;
+                    PercentUpdateThread.Join();
+                }
+
+            PercentUpdateThreadFlag = true;
+
+            if (PercentUpdateThread == null || !(PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running))
+                PercentUpdateThread = new Thread(new ThreadStart(() => setLogPercentage(ref currentRun, ref title, overallSize, ref count)));
+            #endregion
 
             switch (table)
             {
@@ -639,6 +641,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting uni gram words");
                     title = "counting uni gram words";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_one)
@@ -660,6 +663,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting BI gram words");
                     title = "counting BI gram words";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_two)
@@ -681,6 +685,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting TRI gram words");
                     title = "counting TRI gram words";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_three)
@@ -702,6 +707,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting QUAD gram words");
                     title = "counting QUAD gram words";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_four)
@@ -723,6 +729,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting UNI gram CHARS");
                     title = "counting UNI gram CHARS";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.unichar)
@@ -744,6 +751,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting BI gram CHARS");
                     title = "counting BI gram CHARS";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.bichar)
@@ -765,6 +773,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting TRI gram CHARS");
                     title = "counting TRI gram CHARS";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.trichar)
@@ -786,6 +795,7 @@ namespace WpfAArticleAnalysis
                     lg.ClearText();
                     lg.SetText("counting QUAD gram CHARS");
                     title = "counting QUAD gram CHARS";
+                    PercentUpdateThread.Start();
                     foreach (var item in arr)
                     {
                         foreach (var w in item.quadchar)
@@ -801,21 +811,29 @@ namespace WpfAArticleAnalysis
                     }
                     break;
             }
-            stopRefreshingThread = true;
+
+            PercentUpdateThreadFlag = false;
             return tmp;
         }
 
-        private void setLogPercentage(ref int currentRun,ref string v,int overallSize,ref int count)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="currentRun"></param>
+        /// <param name="v"></param>
+        /// <param name="overallSize"></param>
+        /// <param name="count"></param>
+        private void setLogPercentage(ref int currentRun, ref string v, int overallSize, ref int count)
         {
-            while(!stopRefreshingThread)
+            while (PercentUpdateThreadFlag)
             {
+                //Thread.Sleep(1000);
                 string a = v;
                 double percent = 0;
-                if (overallSize != 0 )
-                    percent = Math.Round(((float)count / overallSize)*100,2);
+                if (overallSize != 0)
+                    percent = Math.Round(((float)count / overallSize) * 100, 2);
 
-                Dispatcher.Invoke(()=>lg.SetText(a+"\n"+percent + " %"));
-                Thread.Sleep(1000);
+                Dispatcher.Invoke(() => lg.SetText(a + "\n" + percent + " %"));
             }
         }
 
@@ -834,13 +852,13 @@ namespace WpfAArticleAnalysis
         ///  quadchar
         /// </param>
         /// <returns></returns>
-        private int getOverallSize(P_family[] arr,string i)
+        private int getOverallSize(P_family[] arr, string i)
         {
             int count = 0;
             switch (i)
             {
                 case "table_of_one":
-                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;                  
+                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;
                     break;
                 case "table_of_two":
                     foreach (var item in arr) foreach (var w in item.table_of_two) count++;
@@ -1642,7 +1660,7 @@ namespace WpfAArticleAnalysis
             ArticleDir.IsEnabled = false;
             AritclePath = ArticleDir.Text.ToString();
 
-            this.Visibility = Visibility.Hidden;
+            //this.Visibility = Visibility.Hidden;
 
             try
             {
@@ -2275,9 +2293,9 @@ namespace WpfAArticleAnalysis
         #endregion
         private void CreateLog()
         {
-            lg = new LogWindow();
+            lg = new LogWindow(this);
             lg.Show();
-        }     
+        }
         private void ResetGramsAndChars()
         {
             Threshold.IsEnabled = true;
@@ -2385,15 +2403,17 @@ namespace WpfAArticleAnalysis
             RareQuadChars.IsEnabled = false;
             RareQuadChars.Text = "0";
             Program.RareQuadChars = 0;
-        }    
+        }
         private void Window_Closed(object sender, EventArgs e)
         {
+            DeleteNormalizationDirectoryIfNeeded();
+
             if (myThread != null)
                 myThread.Abort();
+
             if (newWindowThread != null)
-            {
                 newWindowThread.Abort();
-            }
+
         }
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
@@ -2403,7 +2423,7 @@ namespace WpfAArticleAnalysis
         {
             Familes.IsEnabled = false;
 
-        } 
+        }
         private void CountDifferentWords()
         {
 
@@ -2457,7 +2477,7 @@ namespace WpfAArticleAnalysis
                 sw.Close();
                 MessageBox.Show("Finish counting");
             }));
-        }      
+        }
         private void StatsCreator()
         {
             try
@@ -2804,7 +2824,7 @@ namespace WpfAArticleAnalysis
         private void setWindowSize()
         {
             Height = Public_Functions.FrameHeight;
-            Width = Public_Functions.FrameWidth+20;
+            Width = Public_Functions.FrameWidth + 20;
         }
         /// <summary>
         /// sets the next page on the frame
@@ -2834,26 +2854,27 @@ namespace WpfAArticleAnalysis
         private void NormalizeText()
         {
             IDictionary<NormaliztionMethods, bool> flags = getNormalizationFlags();
-            new Thread(new ThreadStart(() => NormalThreadfunction(flags))).Start();
+            //new Thread(new ThreadStart(() => NormalThreadfunction(flags))).Start();
+            NormalThreadfunction(flags);
         }
         /// <summary>
         /// Returns the flags for the normalizaion proccess
         /// </summary>
         /// <returns></returns>
-        private IDictionary<NormaliztionMethods,bool> getNormalizationFlags()
+        private IDictionary<NormaliztionMethods, bool> getNormalizationFlags()
         {
             bool cap = false, low = false, html = false, punc = false;
 
             if (LettersCB.SelectedIndex == 0)
                 low = true;
-            else if(LettersCB.SelectedIndex == 1)
+            else if (LettersCB.SelectedIndex == 1)
                 cap = true;
 
             html = (bool)HTMLRB.IsChecked;
             punc = (bool)PunRB.IsChecked;
 
             IDictionary<NormaliztionMethods, bool> flags = new Dictionary<NormaliztionMethods, bool>();
-            flags.Add(NormaliztionMethods.All_Capitals,cap);
+            flags.Add(NormaliztionMethods.All_Capitals, cap);
             flags.Add(NormaliztionMethods.All_Lowercase, low);
             flags.Add(NormaliztionMethods.No_HTML_Tags, html);
             flags.Add(NormaliztionMethods.No_Punctuation, punc);
@@ -2864,12 +2885,22 @@ namespace WpfAArticleAnalysis
         /// Function that will be executed inside a thread
         /// </summary>
         /// <param name="flags"></param>
-        private void NormalThreadfunction(IDictionary<NormaliztionMethods,bool> flags)
+        private void NormalThreadfunction(IDictionary<NormaliztionMethods, bool> flags)
         {
             Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
             //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
             Normalizer.Normalize(flags);
-            dir_of_articles_folders = Normalizer.DirForTheNormal;
+            dir_of_articles_folders = normalizer.AfterNormalDir;
+            output_path = normalizer.BeforeNormalDir+"\\"+output_path;
+        }
+        /// <summary>
+        /// killing all thread that are left.
+        /// </summary>
+        public void killAllRunningThreads()
+        {
+            if (PercentUpdateThread != null)
+                if (!(PercentUpdateThread.ThreadState == System.Threading.ThreadState.Stopped))
+                    PercentUpdateThreadFlag = false;
         }
         #endregion
         /******MadeByYAIR******/

@@ -94,3 +94,15 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\Research5774\bin\Debug\PatternFami
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\Research5774\obj\Debug\ArticleAnalysis.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\Research5774\obj\Debug\Research5774.exe
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\Research5774\obj\Debug\Research5774.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\Research5774.exe.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\Research5774.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\Research5774.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Debug\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Debug\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Debug\Research5774.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Debug\Research5774.pdb

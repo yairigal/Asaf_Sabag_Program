@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class IOText : IOInterface<string>
+    public class IOText : IOInterface
     {
         public IOText()
         {
         }
 
-        public IEnumerable<string> fileToTweets(string filename, string delim, int count)
+        public IEnumerable<object> fileToTweets(string filename, string delim, int count)
         {
             if (count < 1)
                 count = -1;
@@ -39,7 +39,7 @@ namespace I_O
             }
         }
 
-        public string tweetToFile(IEnumerable<string> tweets, string change, string delim, int count)
+        public string tweetToFile(IEnumerable<object> tweets, string change, string delim, int count)
         {
             if (count < 1)
                 count = -1;

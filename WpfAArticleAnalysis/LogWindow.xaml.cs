@@ -20,12 +20,13 @@ namespace WpfAArticleAnalysis
     public partial class LogWindow : Window
     {
         public static string text;
-        public LogWindow()
+        MainWindow mainWindow;
+        public LogWindow(MainWindow mainWindow)
         {
             InitializeComponent();
             MainWindow.LogChanged += addText;
+            this.mainWindow = mainWindow;
         }
-
 
         public void addText(string str)
         {
@@ -50,6 +51,12 @@ namespace WpfAArticleAnalysis
              {
                  LogBlock.Text = str;
              }));
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (mainWindow != null)
+                mainWindow.killAllRunningThreads();
         }
     }
 }

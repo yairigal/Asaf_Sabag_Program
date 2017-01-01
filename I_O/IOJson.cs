@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace I_O
 {
-    public class IOJson : IOInterface<JObject>
+    public class IOJson : IOInterface
     {
         public IOJson()
         {
         }
 
-        public IEnumerable<JObject> fileToTweets(string filename, string delim, int count)
+        public IEnumerable<object> fileToTweets(string filename, string delim, int count)
         {
             using (StreamReader reader = File.OpenText(filename))
             {
@@ -26,8 +26,7 @@ namespace I_O
 
             }
         }
-
-        public string tweetToFile(IEnumerable<JObject> tweets, string change, string delim, int count)
+        public string tweetToFile(IEnumerable<object> tweets, string change, string delim, int count)
         {
             JsonSerializer serializer = new JsonSerializer();
             string afterChange = change;

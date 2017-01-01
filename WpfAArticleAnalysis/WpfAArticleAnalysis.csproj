@@ -147,10 +147,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Asaf_Sabag_Program-adding-normalization\Normalization\Normalization.csproj">
-      <Project>{7d6b20ba-3c15-4739-8ffd-fc7d9fa04c9c}</Project>
-      <Name>Normalization</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ContentFamilies\ContentFamilies.csproj">
       <Project>{f5f62bd3-87cb-4a3d-b6cb-655b9ade77e9}</Project>
       <Name>ContentFamilies</Name>
@@ -158,6 +154,10 @@
     <ProjectReference Include="..\Enums\Enums.csproj">
       <Project>{a8d7d679-424c-4afe-a4b9-849e293592f6}</Project>
       <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Normalization\Normalization.csproj">
+      <Project>{6caa8a44-6671-4849-b90e-b0e571aad226}</Project>
+      <Name>Normalization</Name>
     </ProjectReference>
     <ProjectReference Include="..\PatternFamilies\PatternFamilies.csproj">
       <Project>{d0323fc3-b453-4235-901f-67e3c9a3469d}</Project>

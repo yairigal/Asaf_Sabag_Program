@@ -1,0 +1,16 @@
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll.config
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.pdb
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll
+C:\Users\user\Desktop\עוזר מחקר\תכנה של אסף סבג\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\I_O.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\I_O.pdb
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll.config
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll
+C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll
