@@ -10,7 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using Normalization;
+using Enums;
 
 namespace WpfAArticleAnalysis
 {
@@ -26,7 +27,7 @@ namespace WpfAArticleAnalysis
         static int numberOfRemoved;
         static public List<string> allGramsWords;
         static int startYear = 1998;
-        static string dir_of_articles_folders = @"TXT\BOOKS";
+        static string dir_of_articles_folders = Directory.GetCurrentDirectory();
         static int INTERVAL_OF_YEAR_A = 3, INTERVAL_OF_YEAR_B = 5;
         static int TotalWords = 0;
         static double THRESHOLD = 0;
@@ -50,12 +51,10 @@ namespace WpfAArticleAnalysis
         public static event LogDelegate LogChanged;
         private string AritclePath;
         private Thread newLogThread;
+        private Thread PercentUpdateThread;
         private bool MakingLog = false;
         private static string[] FILES_NAMES;
 
-        //added by Yair
-        private static string normalFilesPath = @"\NormalFiles\";
-        //added by Yair
         #endregion
 
         #region Declerations
@@ -67,9 +66,14 @@ namespace WpfAArticleAnalysis
         private bool ReachnessLangChecked;
         private bool StemmerChecked;
         private bool TaggerChecked;
+        private bool saveNormalDir = true;
+        private bool stopRefreshingThread=false;
         int TrainingSetPres = 0;
+
         //added by Yair
+        DataType TextType = DataType.Text;
         PageHandler PHandler;
+        normalizer Normalizer;
 
         #region NgramPage
         TextBox UniGRams;
@@ -107,6 +111,7 @@ namespace WpfAArticleAnalysis
         CheckBox PunRB;
         CheckBox HTMLRB;
         ComboBox LettersCB;
+        CheckBox saveNormaledFiles;
         #endregion
 
         #region FeaturesPage
@@ -129,6 +134,7 @@ namespace WpfAArticleAnalysis
         public MainWindow()
         {
             float tr = (float)(1.0 / 888888.0);
+            
             InitializeComponent();
             //added by Yair
             setWindowSize();
@@ -140,7 +146,7 @@ namespace WpfAArticleAnalysis
 
             setUpAnalysisCombobox();
 
-            ArticleDir.Text = @"TXT\BOOKS";
+            ArticleDir.Text = Directory.GetCurrentDirectory();
 
             Threshold.Text = "0";
 
@@ -155,7 +161,17 @@ namespace WpfAArticleAnalysis
             //added By Yair
             initNormalUI();
         }
+        ~MainWindow()
+        {
+            //Delete The files for the normalitions
+            DeleteNormalizationDirectoryIfNeeded();
+        }
 
+        private void DeleteNormalizationDirectoryIfNeeded()
+        {
+            if (!saveNormalDir)
+                Directory.Delete(Normalizer.DirForTheNormal);
+        }
         private void setUpReducingUnigramsCombobox()
         {
             ReducingUniGrams.Items.Add("None of those");
@@ -597,18 +613,37 @@ namespace WpfAArticleAnalysis
         {
 
             HashSet<SeqString> tmp = new HashSet<SeqString>();
+            int overallSize = getOverallSize(arr, table);
+            string title = "";
+            int count = 0;
+            int currentRun = 0;
+
+
+            //percentage for the log window.
+            if (PercentUpdateThread != null &&PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running)
+            {
+                stopRefreshingThread = true;
+                Thread.Sleep(1010);
+            }
+            stopRefreshingThread = false;
+            PercentUpdateThread = new Thread(new ThreadStart(() => setLogPercentage(ref currentRun,ref title, overallSize, ref count)));
+            PercentUpdateThread.Start();
 
             switch (table)
             {
                 case "table_of_one":
+                    currentRun = 0;
+                    count = 0;
                     if (Program.NUM_OF_ONE == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting uni gram words");
+                    title = "counting uni gram words";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_one)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -619,14 +654,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "table_of_two":
+                    currentRun = 1;
                     if (Program.NUM_OF_TWO == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting BI gram words");
+                    title = "counting BI gram words";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_two)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -637,14 +675,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "table_of_three":
+                    currentRun = 2;
                     if (Program.NUM_OF_THREE == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting TRI gram words");
+                    title = "counting TRI gram words";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_three)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -655,14 +696,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "table_of_four":
+                    currentRun = 3;
                     if (Program.NUM_OF_FOUR == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting QUAD gram words");
+                    title = "counting QUAD gram words";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.table_of_four)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -673,14 +717,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "unichar":
+                    currentRun = 4;
                     if (Program.UniChars == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting UNI gram CHARS");
+                    title = "counting UNI gram CHARS";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.unichar)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -691,14 +738,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "bichar":
+                    currentRun = 5;
                     if (Program.BiChars == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting BI gram CHARS");
+                    title = "counting BI gram CHARS";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.bichar)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -709,14 +759,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "trichar":
+                    currentRun = 6;
                     if (Program.TriChars == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting TRI gram CHARS");
+                    title = "counting TRI gram CHARS";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.trichar)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -727,14 +780,17 @@ namespace WpfAArticleAnalysis
                     }
                     break;
                 case "quadchar":
+                    currentRun = 7;
                     if (Program.QuadChars == 0)
                         return tmp;
                     lg.ClearText();
                     lg.SetText("counting QUAD gram CHARS");
+                    title = "counting QUAD gram CHARS";
                     foreach (var item in arr)
                     {
                         foreach (var w in item.quadchar)
                         {
+                            count++;
                             if (tmp.Contains(w))
                             {
                                 tmp.LastOrDefault(x => x.Equals(w)).freq += w.freq;
@@ -745,9 +801,75 @@ namespace WpfAArticleAnalysis
                     }
                     break;
             }
-
+            stopRefreshingThread = true;
             return tmp;
         }
+
+        private void setLogPercentage(ref int currentRun,ref string v,int overallSize,ref int count)
+        {
+            while(!stopRefreshingThread)
+            {
+                string a = v;
+                double percent = 0;
+                if (overallSize != 0 )
+                    percent = Math.Round(((float)count / overallSize)*100,2);
+
+                Dispatcher.Invoke(()=>lg.SetText(a+"\n"+percent + " %"));
+                Thread.Sleep(1000);
+            }
+        }
+
+        /// <summary>
+        /// returns the overall size of the running loop above
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="i">
+        ///  table one
+        ///  table two
+        ///  table three
+        ///  table four
+        /// unichar
+        ///  bichar
+        ///  trichar
+        ///  quadchar
+        /// </param>
+        /// <returns></returns>
+        private int getOverallSize(P_family[] arr,string i)
+        {
+            int count = 0;
+            switch (i)
+            {
+                case "table_of_one":
+                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;                  
+                    break;
+                case "table_of_two":
+                    foreach (var item in arr) foreach (var w in item.table_of_two) count++;
+                    break;
+                case "table_of_three":
+                    foreach (var item in arr) foreach (var w in item.table_of_three) count++;
+                    break;
+                case "table_of_four":
+                    foreach (var item in arr) foreach (var w in item.table_of_four) count++;
+                    break;
+                case "unichar":
+                    foreach (var item in arr) foreach (var w in item.unichar) count++;
+                    break;
+                case "bichar":
+                    foreach (var item in arr) foreach (var w in item.bichar) count++;
+                    break;
+                case "trichar":
+                    foreach (var item in arr) foreach (var w in item.trichar) count++;
+                    break;
+                case "quadchar":
+                    foreach (var item in arr) foreach (var w in item.quadchar) count++;
+                    break;
+                default:
+                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;
+                    break;
+            }
+            return count;
+        }
+
         private void MakeNGRAMWords()
         {
             P_family[] arr = null;
@@ -1520,6 +1642,17 @@ namespace WpfAArticleAnalysis
             ArticleDir.IsEnabled = false;
             AritclePath = ArticleDir.Text.ToString();
 
+            this.Visibility = Visibility.Hidden;
+
+            try
+            {
+                NormalizeText();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             myThread = new Thread(new ThreadStart(make_csv_file));
             myThread.Start();
 
@@ -1555,7 +1688,6 @@ namespace WpfAArticleAnalysis
 
             MessageBox.Show("Program Finished");
         }
-
         #region control_events&operations
         private void AnalysisMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -1582,7 +1714,17 @@ namespace WpfAArticleAnalysis
             else if (FreqWarning != null)
                 FreqWarning.Content = "Put a number between 0 to 0.9999";
         }
-
+        private void SaveNormaledFiles_Unchecked(object sender, RoutedEventArgs e)
+        {
+            saveNormalDir = false;
+        }
+        private void SaveNormaledFiles_Checked(object sender, RoutedEventArgs e)
+        {
+            saveNormalDir = true;
+        }
+        private void ArticleDir_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+        }
         #region Pages Events
         private void UniGRams_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -2342,14 +2484,6 @@ namespace WpfAArticleAnalysis
 
         /******MadeByYAIR******/
         #region Coded By Yair Yigal
-        public enum NormaliztionMethods
-        {
-            No_Punctuation = 0,
-            All_Capitals,
-            All_Lowercase,
-            No_HTML_Tags,
-            NONE
-        }
         /// <summary>
         /// initialzies the Normalizaion UI components (checkboxes)
         /// </summary>
@@ -2518,10 +2652,9 @@ namespace WpfAArticleAnalysis
             AnalysisMethod.DropDownClosed += AnalysisMethod_DropDownClosed;
             AnalysisMethod.SelectionChanged += AnalysisMethod_SelectionChanged;
             ArticleDir.TextChanged += ArticleDir_TextChanged;
+            ArticleDir.MouseEnter += ArticleDir_MouseEnter;
             Threshold.TextChanged += Threshold_TextChanged;
             ReducingUniGrams.DropDownClosed += ReducingUniGrams_DropDownClosed;
-            TakeOutStopWords.Checked += TakeOutStopWords_Checked;
-            TakeOutStopWords.Unchecked += TakeOutStopWords_Unchecked;
             openDir.Click += OpenDir_Click;
             #endregion
 
@@ -2536,6 +2669,13 @@ namespace WpfAArticleAnalysis
             Tag_Articles.Click += Tag_Articles_Click;
             Count.Click += Count_Click;
             Statistics.Click += Statistics_Click;
+            #endregion
+
+            #region NormalizationPage
+            TakeOutStopWords.Checked += TakeOutStopWords_Checked;
+            TakeOutStopWords.Unchecked += TakeOutStopWords_Unchecked;
+            saveNormaledFiles.Checked += SaveNormaledFiles_Checked;
+            saveNormaledFiles.Unchecked += SaveNormaledFiles_Unchecked;
             #endregion
 
         }
@@ -2575,7 +2715,6 @@ namespace WpfAArticleAnalysis
             ArticleDir = currPage.ArticleDir;
             Threshold = currPage.Threshold;
             ReducingUniGrams = currPage.ReducingUniGrams;
-            TakeOutStopWords = currPage.TakeOutStopWords;
             MakeLogFiles = currPage.MakeLogFiles;
             DomainsCounter = currPage.DomainsCounter;
             FreqWarning = currPage.FreqWarning;
@@ -2591,6 +2730,8 @@ namespace WpfAArticleAnalysis
             PunRB = currPage.PunRB;
             HTMLRB = currPage.HTMLRB;
             LettersCB = currPage.LettersCB;
+            TakeOutStopWords = currPage.TakeOutStopWords;
+            saveNormaledFiles = currPage.SaveNormalizations;
         }
         /// <summary>
         /// initialized the variable here to the conrols from FeatursPage.
@@ -2686,6 +2827,49 @@ namespace WpfAArticleAnalysis
         private void changeSUBMITbuttonMode(bool mode)
         {
             Submit.IsEnabled = mode;
+        }
+        /// <summary>
+        /// This functions Normalizes the Text
+        /// </summary>
+        private void NormalizeText()
+        {
+            IDictionary<NormaliztionMethods, bool> flags = getNormalizationFlags();
+            new Thread(new ThreadStart(() => NormalThreadfunction(flags))).Start();
+        }
+        /// <summary>
+        /// Returns the flags for the normalizaion proccess
+        /// </summary>
+        /// <returns></returns>
+        private IDictionary<NormaliztionMethods,bool> getNormalizationFlags()
+        {
+            bool cap = false, low = false, html = false, punc = false;
+
+            if (LettersCB.SelectedIndex == 0)
+                low = true;
+            else if(LettersCB.SelectedIndex == 1)
+                cap = true;
+
+            html = (bool)HTMLRB.IsChecked;
+            punc = (bool)PunRB.IsChecked;
+
+            IDictionary<NormaliztionMethods, bool> flags = new Dictionary<NormaliztionMethods, bool>();
+            flags.Add(NormaliztionMethods.All_Capitals,cap);
+            flags.Add(NormaliztionMethods.All_Lowercase, low);
+            flags.Add(NormaliztionMethods.No_HTML_Tags, html);
+            flags.Add(NormaliztionMethods.No_Punctuation, punc);
+
+            return flags;
+        }
+        /// <summary>
+        /// Function that will be executed inside a thread
+        /// </summary>
+        /// <param name="flags"></param>
+        private void NormalThreadfunction(IDictionary<NormaliztionMethods,bool> flags)
+        {
+            Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
+            //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
+            Normalizer.Normalize(flags);
+            dir_of_articles_folders = Normalizer.DirForTheNormal;
         }
         #endregion
         /******MadeByYAIR******/

@@ -11,22 +11,18 @@
 
     <Grid>
         <Label Content="Select Analysis Method" HorizontalAlignment="Left" Margin="14,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.071,-0.387" Height="24" Width="169"/>
-        <Label Content="Directory Of The Articles" HorizontalAlignment="Left" Margin="14,46,0,0" VerticalAlignment="Top" Height="42" Width="169"/>
-        <Label Content="Freq. Threshold" HorizontalAlignment="Left" Margin="14,93,0,0" VerticalAlignment="Top" Height="23" Width="169"/>
-        <Label Content="Reducing UniGrams with freq. of 3 and less" Margin="14,148,199,278"/>
-
-        <Label Content="Take out the stop words" HorizontalAlignment="Left" Margin="14,195,0,0" VerticalAlignment="Top" Height="24" Width="139"/>
+        <Label Content="Directory Of The Articles" HorizontalAlignment="Left" Margin="14,46,0,0" VerticalAlignment="Top" Height="56" Width="169"/>
+        <Label Content="Freq. Threshold" HorizontalAlignment="Left" Margin="14,107,0,0" VerticalAlignment="Top" Height="23" Width="169"/>
+        <Label Content="Reducing UniGrams with freq. of 3 and less" Margin="14,165,199,261"/>
         <ComboBox x:Name="AnalysisMethod" HorizontalAlignment="Left" Margin="183,17,0,0" VerticalAlignment="Top" Width="252" Height="24"/>
-        <TextBox x:Name="ArticleDir" HorizontalAlignment="Left" IsEnabled="False" Height="42" Margin="183,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="Threshold" HorizontalAlignment="Left" Height="23" Margin="183,93,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="252" />
-        <ComboBox x:Name="ReducingUniGrams" HorizontalAlignment="Left" Margin="260,148,0,0" VerticalAlignment="Top" Width="175" Height="27" />
-        <Label x:Name="FreqWarning" Foreground="#E80000" Content="" HorizontalAlignment="Left" Margin="183,121,0,0" VerticalAlignment="Top" Height="24" Width="252"/>
-
-        <CheckBox x:Name="TakeOutStopWords" Content="" Height="14" Width="17" Margin="175,205,262,234" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox x:Name="ArticleDir" HorizontalAlignment="Left" IsEnabled="False" Height="56" Margin="183,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="189"/>
+        <TextBox x:Name="Threshold" HorizontalAlignment="Left" Height="23" Margin="183,107,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="252" />
+        <ComboBox x:Name="ReducingUniGrams" HorizontalAlignment="Left" Margin="260,165,0,0" VerticalAlignment="Top" Width="175" Height="27" />
+        <Label x:Name="FreqWarning" Foreground="#E80000" Content="" HorizontalAlignment="Left" Margin="183,135,0,0" VerticalAlignment="Top" Height="24" Width="252"/>
         <Label Content="Make Log files" HorizontalAlignment="Left" Margin="14,224,0,0" VerticalAlignment="Top" Height="27" Width="139"/>
         <CheckBox x:Name="MakeLogFiles" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="175,237,0,0" VerticalAlignment="Top" Height="14" Width="17"/>
         <Label Content="Tranings set by Domains" HorizontalAlignment="Left" Margin="14,256,0,0" VerticalAlignment="Top" Height="24" Width="156"/>
         <CheckBox x:Name="DomainsCounter" Content="" HorizontalAlignment="Left" Margin="175,266,0,0" VerticalAlignment="Top" Height="14" Width="17" />
-        <Button x:Name="openDir" Content="Open" HorizontalAlignment="Left" Margin="377,46,0,0" VerticalAlignment="Top" Width="58" Height="42"/>
+        <Button x:Name="openDir" Content="Open" HorizontalAlignment="Left" Margin="377,46,0,0" VerticalAlignment="Top" Width="58" Height="56"/>
     </Grid>
 </Page>
