@@ -11,15 +11,23 @@
     <StackPanel>
         <Grid>
             <TextBlock x:Name="textBox"  HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Letters Size:" VerticalAlignment="Top"/>
-            <ComboBox x:Name="LettersCB" HorizontalAlignment="Left" Margin="275,10,50,10" Width="119"/>
+            <ComboBox x:Name="LettersCB" HorizontalAlignment="Left" Margin="275,10,50,10" Width="119" SelectedIndex="2"/>
         </Grid>
         <Grid>
-            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
+            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,121,10"/>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove Punctuation?" VerticalAlignment="Top" Width="129"/>
         </Grid>
         <Grid>
-            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Center" Margin="275,10,121,10"/>
-            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove HTML Tags?" VerticalAlignment="Top"/>
+            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,121,10"/>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove HTML Tags?" VerticalAlignment="Top" Width="129"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="TakeOutStopWords" Content="No Stop Words" HorizontalAlignment="Left" Margin="275,10,0,10" Width="207" />
+            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove Stop Words?" VerticalAlignment="Top" Width="129"/>
+        </Grid>
+        <Grid>
+            <CheckBox x:Name="SaveNormalizations" HorizontalAlignment="Left" Margin="275,10,0,10" Width="207" IsChecked="True" />
+            <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Save Normalized File For Next Runs?" VerticalAlignment="Top" Width="129"/>
         </Grid>
 
 

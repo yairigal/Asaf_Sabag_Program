@@ -56,14 +56,6 @@ namespace WpfAArticleAnalysis.Pages
                 return ReducingUniGrams;
             }
         }
-        public CheckBox TakeOutStopWords_code
-        {
-            get
-            {
-                return TakeOutStopWords;
-            }
-
-        }
         public CheckBox MakeLogFiles_code
         {
             get
