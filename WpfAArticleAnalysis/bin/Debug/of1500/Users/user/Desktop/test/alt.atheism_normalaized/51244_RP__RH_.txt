@@ -1,0 +1,22 @@
+Path cantaloupesrvcscmueducrabapplesrvcscmuedufs7ececmuedueuropaenggtefsdcomhowlandrestonansnetwupostuunetpipexibmpcugmantisnews 
+From mathew 
+Newsgroups altatheism 
+Subject Re <Political Atheists 
+MessageID 
+Date Tue 6 Apr 1993 102649 GMT 
+References 
+Organization Mantis Consultants Cambridge UK 
+XNewsreader rusnews v101 
+Lines 11 
+ 
+mccullousnake2cswiscedu Mark McCullough writes 
+> I think you mean circular not recursive but that is semantics 
+> Recursiveness has no problems it is just horribly inefficient just ask 
+> any assembly programmer 
+ 
+Tailrecursive functions in Scheme are at least as efficient as iterative 
+loops  Anyone who doesnt program in assembler will have heard of optimizing 
+compilers 
+ 
+ 
+mathew 

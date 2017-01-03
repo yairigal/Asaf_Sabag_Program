@@ -88,7 +88,6 @@ namespace Normalization
                 throw ex;
             }
         }
-
         /// <summary>
         /// Normalizes the current string based on the flags given
         /// </summary>

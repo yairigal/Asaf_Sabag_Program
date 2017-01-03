@@ -1,0 +1,56 @@
+Xref cantaloupesrvcscmuedu altatheism53461 talkreligionmisc83850 talkorigins40974 
+Path cantaloupesrvcscmuedumagnesiumclubcccmuedupitteduuunetzaphodmpsohiostateedusaimiriprimatewisceduamesnsisrvnews1gsfcnasagovleprssgsfcnasagovschinder 
+From schinderleprssgsfcnasagov Paul J Schinder 
+Newsgroups altatheismtalkreligionmisctalkorigins 
+Subject Re The Universe and Black Holes was Re 2000 years 
+MessageID 
+Date 21 Apr 93 032555 GMT 
+References 
+Sender usenetskatesgsfcnasagov 
+ReplyTo schinderleprssgsfcnasagov 
+Organization NASA Goddard Space Flight Center  Greenbelt MD USA 
+Lines 43 
+ 
+In kv07IASTATEEDU Warren Vonroeschlaub writes 
+ 
+>In article emarshhernessunEngSunCOM 
+>Eric Marsh writes 
+>>In article salempangeaStanfordEDU Bruce 
+>Salem writes 
+>>>	I wonder if the Universe would look like a Black Hole 
+>>>from outside How could we posit an Outside whether called 
+>>>DeSitter space hyperspace parallel universes whatever 
+>>  
+>>I dont think that the universe would look like a black hole from 
+>>the outside because that would imply that similar to a black hole we 
+>>would see stuff coming in from the outside 
+ 
+>  Now that has always confused me  Once a black hole forms I dont see how 
+>anything could pass the event horizon perhaps including the original mass that 
+>formed is forming the black hole in the first place 
+ 
+>  Lets say that we drop a marble into the black hole  It races ever faster 
+>towards the even horizon  But thanks to the curving of space caused by the 
+>excessive gravity as the object approaches the event horizon it has further to 
+>travel  Integrating the curve gives a time to reach the event horizon of    
+>infinity  So the math says that nothing can enter a black hole 
+ 
+No it doesnt  Check again in any of the popular GR texts Misner 
+Thorne and Wheeler for example  It takes a finite proper time for 
+anything near the horizon to cross it if its going to in the first 
+place and a finite proper time for anything crossing the horizon to 
+reach r=0 
+ 
+> |  L 
+>|    Warren Kurt vonRoeschlaub 
+> |  | o | kv07iastateedu 
+> |  Iowa State University 
+>|     Math Department 
+> |  || 400 Carver Hall 
+> |  || Ames IA  50011 
+> J   
+ 
+ 
+Paul J Schinder 
+NASA Goddard Space Flight Center 
+schinderleprssgsfcnasagov 

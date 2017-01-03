@@ -827,7 +827,7 @@ namespace WpfAArticleAnalysis
         {
             while (PercentUpdateThreadFlag)
             {
-                //Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 string a = v;
                 double percent = 0;
                 if (overallSize != 0)
@@ -1665,6 +1665,8 @@ namespace WpfAArticleAnalysis
             try
             {
                 NormalizeText();
+                MessageBox.Show("The normalizer has finished his work \nmoving to properties extraction",
+                    "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

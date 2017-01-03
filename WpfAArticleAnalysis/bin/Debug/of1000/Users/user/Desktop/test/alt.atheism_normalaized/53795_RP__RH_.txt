@@ -1,0 +1,125 @@
+Path cantaloupesrvcscmuedumagnesiumclubcccmuedunewsseicmueducisohiostateeduzaphodmpsohiostateeducsutexaseduuunetmcsunGermanyEUnetthothmchpsnidehorusapmchpsnideD012S658frank 
+From frankD012S658uucp Frank ODwyer 
+Newsgroups altatheism 
+Subject Re Bayesian Statistics theism and atheism 
+Date 25 Apr 1993 002005 GMT 
+Organization SiemensNixdorf AG 
+Lines 192 
+MessageID 
+References 
+NNTPPostingHost d012s658apmchpsnide 
+ 
+In article simondcswarwickacuk Simon Clippingdale writes 
+In article frankD012S658uucp Frank ODwyer writes 
+>In article simondcswarwickacuk Simon Clippingdale writes 
+I write 
+>>> Imagine that 1000000 Alterian dollars turn up in your bank account every 
+>>> month Suppose further that this money is being paid to you by a your  
+>>> bighearted Alterian benefactor or b a bug in an Alterian ATM  Lets 
+>>> suppose that this is a true dichotomy so Pa+Pb=1 Trouble is Alterius  
+>>> is in a different universe so that no observations of Alterius are possible 
+>>> except for the banks  you couldnt possibly afford it  
+>>>  
+>>> Now lets examine the case for a  There is no evidence whatsoever that 
+>>> there is any such thing as a bighearted Alterian benefactor However 
+>>> Pexistsbh A b + Pnotexistsbh A b = 1 On the grounds that  
+>>> lackofevidencefor is evidenceagainst when we have a partition like 
+>>> that we dismiss hypothesis a 
+>>> 
+>>> Turning therefore to b we also find no evidence to support that 
+>>> hypothesis  On the same grounds as before we dismiss hypothesis b 
+>>> 
+>>> The problem with this is that we have dismissed *all* of the possible 
+>>> hypotheses and even though we know by construction that the money  
+>>> arrives every month we have proven that it cant because we 
+>>> have dismissed all of its potential causes 
+ 
+>> Thats an *extremely* poor argument and heres why 
+>> 
+>> Premise 1 this money is being paid to you by either a your big 
+>>             hearted Alterian benefactor or b a bug in an Alterian ATM 
+>>  
+>> Thus each monthly appearance of the bucks should it happen is an 
+>> observation on Alterius and by construction is evidence for the 
+>> existence of either the benefactor or the bug in the ATM 
+>>  
+>> Premise 2 no observations on Alterius are possible 
+ 
+>     > except for the banks  you couldnt possibly afford it  
+> 
+> You forgot to include this  My premise is actually 
+> 
+> Premise 2  The cardinality of the set of possible observations on Alterius 
+>             is one 
+ 
+>> This is clearly contradictory to the first 
+ 
+> Not if you state it properly 
+ 
+>> Trouble is on the basis of premise 2 you say that there can be no evidence 
+>> of either the benefactor or the bug but the first premise leads to the 
+>> conclusion that the appearance of the bucks should it happen is evidence 
+>> for the existence of either the benefactor or the bug 
+>>  
+>> Voila a screaming contradiction 
+ 
+with my highlights  SC 
+> But in a strawman argument There is only evidence for OneOfBenefactorBug 
+> No observation to distinguish Benefactor from Bug is possible That is 
+>  
+> not evidence for Bug and neither is it evidence for Benefactor Nor 
+>  
+> is true to say that this hypothetical universe appears exactly as 
+> if there were no BenefactorBug two statements both would be false 
+ 
+This is still contradictory It reduces to 
+ 
+  1 Alterian dosh arriving in my account is due to benefactor or bug 
+ 
+  2 this is not evidence for benefactor neither is it evidence for 
+       bug meaning that it doesnt lend more weight to one than to the 
+       other 
+ 
+  3 therefore no evidence can exist for benefactor and no evidence 
+       can exist for bug 
+ 
+But 3 relies on a shift in meaning from 2 When you say paraphrased 
+in 2 that this is not evidence for benefactor for example what you 
+mean is that its no *more* evidence for benefactor than it is for bug 
+ 
+Yes thats what I mean 
+ 
+In 3 however youve shifted the meaning of evidence for benefactor 
+so that it now means absolute evidence for benefactor rather than 
+relative evidence for benefactor wrt bug 
+ 
+Not really I meant evidence that would tend to one over the other  I 
+think this is just a communications problem   What I am trying to say 
+in my clumsy way is that while I buy your theory as far as it relates 
+to theism making predictions prayer your Rapture example I dont 
+buy your use of Occams razor in all cases where A=0 
+ 
+In my example one couldnt dismiss 
+benefactor or bug on the grounds of simplicity  one of these is necessary 
+to explain the dosh  I brought up the onebyone dismissal process to 
+show that it would be wrong to do so  From what youre saying in this 
+post it seems you agree and were talking at crosspurposes 
+ 
+3 is still in contradiction to 1 
+ 
+Some sums may help With B = benefactor b = bug d = dosh arrives in account 
+ 
+  1 implies  PB+b | d = 1 
+ 
+Assuming that PBb | d = 0 so its either the benefactor *or* a bug 
+which is responsible if the bucks arrive but not both then 
+ 
+   PB+b | d   =   PB | d + Pb | d 
+ 
+so 
+ 
+   PB | d + Pb | d  =  1 
+ 
+but 3 implies that 
+ 
+   PB | d  =  0  and  Pb | d  
