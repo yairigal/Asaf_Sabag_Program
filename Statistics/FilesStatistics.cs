@@ -97,8 +97,8 @@ namespace Statistics
         }
         public void GetStatisticsForDir(string path, StreamWriter writer)
         {
-            int WordsSum = 0;
-            int CharactersSum = 0;
+            //int WordsSum = 0;
+            //int CharactersSum = 0;
             int NumOfFiles = 0;
             List<double> AllWordsMedian = new List<double>();
             List<double> AllCharsMedian = new List<double>();

@@ -165,9 +165,9 @@ namespace WpfAArticleAnalysis
         {
             if (!saveNormalDir)
             {
-                foreach (var file in Directory.GetFiles(normalizer.AfterNormalDir))             
+                foreach (var file in Directory.GetFiles(Normalizer.AfterNormalDir))             
                     File.Delete(file);
-                Directory.Delete(normalizer.AfterNormalDir);
+                Directory.Delete(Normalizer.AfterNormalDir);
             }
         }
         private void setUpReducingUnigramsCombobox()
@@ -1665,7 +1665,7 @@ namespace WpfAArticleAnalysis
             try
             {
                 NormalizeText();
-                MessageBox.Show("The normalizer has finished his work \nmoving to properties extraction",
+                MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
                     "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -2892,8 +2892,11 @@ namespace WpfAArticleAnalysis
             Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
             //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
             Normalizer.Normalize(flags);
-            dir_of_articles_folders = normalizer.AfterNormalDir;
-            output_path = normalizer.BeforeNormalDir+"\\"+output_path;
+            dir_of_articles_folders = Normalizer.AfterNormalDir;
+            string stop = "";
+            if (Program.RemoveStopWords == true)
+                stop = "_S";
+            output_path = Normalizer.BeforeNormalDir + "\\" + Normalizer.Changes + stop + "__" + output_path;
         }
         /// <summary>
         /// killing all thread that are left.
