@@ -34,8 +34,7 @@ namespace Normalization
             dirToBeNormal = dir;
             if (dst == "")
             {
-                dirForTheNormal = dirToBeNormal + "_normalaized";
-                Directory.CreateDirectory(dirForTheNormal);
+                dirForTheNormal = dirToBeNormal;
             }
 
             ReadWrt = IOFactory.getFacotry(type);
@@ -61,7 +60,8 @@ namespace Normalization
             string normalTweet = "";
 
             changes = getNormalizaionsExtansions(flags);
-            dirForTheNormal += changes;
+            dirForTheNormal += "_normalaized" + changes;
+            Directory.CreateDirectory(dirForTheNormal);
 
             try
             {
@@ -73,8 +73,7 @@ namespace Normalization
                         normalTweet = NormalizeTweet(flags, normalTweet);
                         tweets.Add(normalTweet);
                     }
-                    string filename = Path.GetFileName(file);
-                    filename += changes;
+                    string filename = Path.GetFileNameWithoutExtension(file) + changes + Path.GetExtension(file);
                     if (Path.GetExtension(filename) == string.Empty)
                         filename += ".txt";
                     ReadWrt.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);

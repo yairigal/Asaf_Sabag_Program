@@ -1650,10 +1650,9 @@ namespace WpfAArticleAnalysis
             output_path += ((ReachnessLangChecked) ? "_ReachnessLang" : "");
             output_path += ((StemmerChecked) ? "_Stemmer" : "");
             output_path += ((TaggerChecked) ? "_Tagger" : "");
-            output_path += ".csv";
 
 
-            lg.SetText("The OutPut Path is: \n\n" + output_path);
+            //lg.SetText("The OutPut Path is: \n\n" + output_path);
             Submit.IsEnabled = false;
             TakeOutStopWords.IsEnabled = false;
             AnalysisMethod.IsEnabled = false;
@@ -1667,6 +1666,18 @@ namespace WpfAArticleAnalysis
                 NormalizeText();
                 MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
                     "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
+                dir_of_articles_folders = Normalizer.AfterNormalDir;
+                string stop = "";
+                if (Program.RemoveStopWords == true)
+                    stop = "_S";
+                if(!Directory.Exists(Normalizer.BeforeNormalDir + "\\excels"))
+                    Directory.CreateDirectory(Normalizer.BeforeNormalDir + "\\excels");
+                output_path = Normalizer.BeforeNormalDir + "\\excels\\" + output_path + Normalizer.Changes + stop + "__0";
+                if(File.Exists(output_path + ".csv"))
+                {
+                    output_path = fixEnding(output_path);
+                }
+                output_path += ".csv";
             }
             catch (Exception ex)
             {
@@ -2892,11 +2903,6 @@ namespace WpfAArticleAnalysis
             Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
             //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
             Normalizer.Normalize(flags);
-            dir_of_articles_folders = Normalizer.AfterNormalDir;
-            string stop = "";
-            if (Program.RemoveStopWords == true)
-                stop = "_S";
-            output_path = Normalizer.BeforeNormalDir + "\\" + Normalizer.Changes + stop + "__" + output_path;
         }
         /// <summary>
         /// killing all thread that are left.
@@ -2909,6 +2915,23 @@ namespace WpfAArticleAnalysis
         }
         #endregion
         /******MadeByYAIR******/
+
+        /*****MadeByElroi******/
+        private string fixEnding(string path)
+        {
+            int i = 1;
+            do
+            {
+                do
+                {
+                    path = path.Substring(0, path.Length - 1);
+                } while (!path.EndsWith("_"));
+
+                path += i.ToString();
+
+            } while (File.Exists(path));
+            return path;
+        }
         #endregion
     }
 }
