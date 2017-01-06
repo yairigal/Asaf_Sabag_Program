@@ -1,0 +1,45 @@
+abstract concept is treated as a concrete thing 
+ 
+SHIFTING THE BURDEN OF PROOF 
+ 
+The burden of proof is always on the person making an assertion or 
+proposition  Shifting the burden of proof a special case of argumentum ad 
+ignorantium is the fallacy of putting the burden of proof on the person who 
+denies or questions the assertion being made  The source of the fallacy is 
+the assumption that something is true unless proven otherwise 
+ 
+STRAW MAN 
+ 
+The straw man fallacy is to misrepresent someone elses position so that it 
+can be attacked more easily then to knock down that misrepresented position 
+then to conclude that the original position has been demolished  It is a 
+fallacy because it fails to deal with the actual arguments that have been 
+made 
+ 
+THE EXTENDED ANALOGY 
+ 
+The fallacy of the Extended Analogy often occurs when some suggested general 
+rule is being argued over  The fallacy is to assume that mentioning two  
+different situations in an argument about a general rule constitutes a  
+claim that those situations are analogous to each other 
+ 
+This fallacy is best explained using a real example from a debate about  
+anticryptography legislation 
+ 
+I believe it is always wrong to oppose the law by breaking it 
+ 
+Such a position is odious it implies that you would not have supported 
+ Martin Luther King 
+ 
+Are you saying that cryptography legislation is as important as the 
+ struggle for Black liberation  How dare you 
+ 
+TU QUOQUE 
+ 
+This is the famous you too fallacy  It occurs when an action is argued to 
+be acceptable because the other party has performed it  For instance 
+ 
+Youre just being randomly abusive 
+So  Youve been abusive too 
+ 
+� 

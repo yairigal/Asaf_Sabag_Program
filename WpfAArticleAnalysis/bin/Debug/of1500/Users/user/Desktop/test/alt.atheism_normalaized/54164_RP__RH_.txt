@@ -1,0 +1,163 @@
+Xref cantaloupesrvcscmuedu altatheism54164 altatheismmoderated786 newsanswers7924 altanswers228 
+Path cantaloupesrvcscmuedurochesterudeldarwinsuranetzaphodmpsohiostateeducsutexaseduuunetpipexibmpcugmantismathew 
+From mathew 
+Newsgroups altatheismaltatheismmoderatednewsanswersaltanswers 
+Subject AltAtheism FAQ Overview for New Readers 
+Summary Hi  Please read this before you post 
+Keywords FAQ atheism 
+MessageID 
+Date Mon 26 Apr 1993 140803 GMT 
+Expires Thu 27 May 1993 140803 GMT 
+FollowupTo altatheism 
+Distribution world 
+Organization Mantis Consultants Cambridge UK 
+Approved newsanswersrequestmitedu 
+Supersedes 
+Lines 146 
+ 
+Archivename atheismoverview 
+Altatheismarchivename overview 
+Lastmodified 20 April 1993 
+Version 13 
+ 
+                                   Overview 
+ 
+Welcome to altatheism and altatheismmoderated 
+ 
+This is the first in a series of regular postings aimed at new readers of the 
+newsgroups 
+ 
+Many groups of a controversial nature have noticed that new readers often 
+come up with the same questions misstatements or misconceptions and post 
+them to the net  In addition people often request information which has 
+been posted time and time again  In order to try and cut down on this the 
+altatheism groups have a series of five regular postings under the following 
+titles 
+ 
+   1  AltAtheism FAQ Overview for New Readers 
+   2  AltAtheism FAQ Introduction to Atheism 
+   3  AltAtheism FAQ Frequently Asked Questions FAQ 
+   4  AltAtheism FAQ Constructing a Logical Argument 
+   5  AltAtheism FAQ Atheist Resources 
+ 
+This is article number 1  Please read numbers 2 and 3 before posting  The 
+others are entirely optional 
+ 
+If you are new to Usenet you may also find it helpful to read the newsgroup 
+newsannouncenewusers  The articles titled A Primer on How to Work With 
+the Usenet Community Answers to Frequently Asked Questions about Usenet 
+and Hints on writing style for Usenet are particularly relevant  Questions 
+concerning how news works are best asked in newsnewusersquestions 
+ 
+If you are unable to find any of the articles listed above see the Finding 
+Stuff section below 
+ 
+ 
+                                   Credits 
+ 
+These files could not have been written without the assistance of the many 
+readers of altatheism and altatheismmoderated  In particular Id like to 
+thank the following people 
+ 
+kck+cscmuedu Karl Kluge 
+perrydsinccom Jim Perry 
+NETOPRWAncsuvmccncsuedu Wayne Aiken 
+chpetkgdrbathacuk Toby Kelsey 
+jkpcsHUTFI Jyrki Kuoppala 
+geoffarnoldEastSunCOM Geoff Arnold 
+torkelsicsse Torkel Franzen 
+kmldorfutdallasedu George Kimeldorf 
+roe2quadsuchicagoedu Greg Roelofs 
+arromdeejyusenkyoucsjhuedu Ken Arromdee 
+madhausnetcomcom Maddi Hausmann 
+J5Jpsuvmpsuedu John A Johnson 
+dgrahambmers30bnrca Douglas Graham 
+mayneopencsfsuedu William Mayne 
+ajrbigbirdhricom Andy Rosen 
+stoesseriraukade Achim Stoesser 
+bosullvnunix1tcdie Bryan OSullivan 
+lippardccitarizonaedu James J Lippard 
+s1b3832rigeltamuedu S Baum 
+ydobynsphoenixprincetonedu York H Dobyns 
+schroedesdscedu Wayne Schroeder 
+baldwincsserverausnanavymil JD Baldwin 
+DNIBBYunhhunhedu Dana Nibby 
+dempseyKodakCOM Richard C Dempsey 
+jmunchhertzeleecalpolyedu John David Munch 
+pdcdcsedacuk Paul Crowley 
+rzmipscomplangtuwienacat Richard Zach 
+tycchowmathmitedu Tim Chow 
+simondcswarwickacuk Simon Clippingdale 
+PHIMANENcchelsinkifi Pekka Himanen 
+ 
+and countless others Ive forgotten 
+ 
+These articles are free  Truly free  You may copy them and distribute them 
+to anyone you wish  However please send any changes or corrections to the 
+author and please do not repost copies of the articles to altatheism it 
+does nobody any good to have multiple versions of the same document floating 
+around the network 
+ 
+ 
+                                Finding Stuff 
+ 
+All of the FAQ files *should* be somewhere on your news system  Here are 
+some suggestions on what to do if you cant find them 
+ 
+1 Check the newsgroup altatheism  Look for subject lines starting with 
+   AltAtheism FAQ 
+ 
+2 Check the newsgroup newsanswers for the same subject lines 
+ 
+   If you dont find anything in steps 1 or 2 your news system isnt set up 
+   correctly and you may wish to tell your system administrator about the 
+   problem 
+ 
+3 If you have anonymous FTP access connect to rtfmmitedu 18700226 
+   Go to the directory pubusenetaltatheism and youll find the latest 
+   versions of the FAQ files there 
+ 
+   FTP is a a way of copying files between networked computers  If you 
+   need help in using or getting started with FTP send email to 
+   mailserverrtfmmitedu with 
+ 
+      send usenetnewsanswersftplistfaq 
+ 
+   in the body 
+ 
+4 There are other sites which also carry newsanswers postings  The article 
+   Introduction to the newsanswers newsgroup carries a list of these 
+   sites the article is posted regularly to newsanswers 
+ 
+5 If you dont have FTP send mail to mailserverrtfmmitedu 
+   consisting of the following lines 
+ 
+      send usenetnewsanswersfindingsources 
+      send usenetaltatheismfaq 
+      send usenetaltatheismintroduction 
+      send usenetaltatheismlogic 
+      send usenetaltatheismresources 
+ 
+5 Penultimate resort  Send mail to mailservermantiscouk consisting of 
+   the following lines 
+ 
+      send atheismfaqfaqtxt 
+      send atheismfaqlogictxt 
+      send atheismfaqintrotxt 
+      send atheismfaqresourcetxt 
+ 
+   and our poor overworked modems will try and send you a copy of the files 
+   Theres other stuff too interesting commands to try are help and 
+   send atheismindex 
+ 
+6 Last resort  Mail mathewmantiscouk or post an article to the 
+   newsgroup asking how you can get the FAQ files  You should only do this 
+   if youve tried the above methods and theyve failed its not nice to 
+   clutter the newsgroup or peoples mailboxes with requests for files 
+   its better than posting without reading the FAQ though  For instance 
+   people whose email addresses get mangled in transit and who dont have  
+   FTP will probably need assistance obtaining the FAQ files 
+ 
+ 
+mathew 
+� 

@@ -13,12 +13,15 @@ namespace Statistics
     {
         public FilesStatistics(String Path)
         {
-            string[] dirs = Directory.GetDirectories(Path);
-           
-            GetStatistics(dirs);
+
+            string path = Directory.GetCurrentDirectory();
+            StreamWriter writer = new StreamWriter("Statistics.txt");
+
+            GetStatisticsForSubDir(path, writer);
+            GetStatisticsForDir(path, writer);
         }
 
-        public void GetStatistics(string[] dirs)
+        public void GetStatisticsForSubDir(string path, StreamWriter writer)
         {
             int WordsSum = 0;
             int CharactersSum = 0;
@@ -31,9 +34,11 @@ namespace Statistics
             List<double> AvrgCharsMedianPer = new List<double>();
             List<double> WordsMedian = new List<double>();
             List<double> CharsMedian = new List<double>();
-            StreamWriter writer = new StreamWriter("Statistics.txt");
-            foreach (string dir in dirs)
+
+            bool subDir = false;
+            foreach (string dir in Directory.GetDirectories(path))
             {
+                subDir = true;
                 string[] files = Directory.GetFiles(dir);
                 WordsMedian.Clear();
                 CharsMedian.Clear();
@@ -69,23 +74,89 @@ namespace Statistics
                 writer.WriteLine("Standard Deviation For Number of Chars: " + GetStandartDeviation(CharsMedian.ToArray()));
                 writer.WriteLine();
             }
-            writer.WriteLine();
-            writer.WriteLine();
-            writer.WriteLine("Statistics for All domains: ");
-            writer.WriteLine("Number of Words Of all Domains: " + WordsSum);
-            writer.WriteLine("Number of Chars Of all Domains: " + CharactersSum);
-            writer.WriteLine("Avarage Words Per Document: " + WordsMedianPerFile.Average());
-            writer.WriteLine("Avarage Chars Per Document:  " + CharsMedianPerFile.Average());
-            writer.WriteLine("Median For Number of Words: " + GetMedian(WordsMedianPerFile.ToArray()));
-            writer.WriteLine("Median For Number of Chars: " + GetMedian(CharsMedianPerFile.ToArray()));
-            writer.WriteLine("Median For Number of Avarage Words: " + GetMedian(AvrgWordsMedianPer.ToArray()));
-            writer.WriteLine("Median For Number of Avarage Chars: " + GetMedian(AvrgCharsMedianPer.ToArray()));
-            writer.WriteLine("Standard Deviation For Number of Words:  " + GetStandartDeviation(WordsMedianPerFile.ToArray()));
-            writer.WriteLine("Standard Deviation For Number of Chars:  " + GetStandartDeviation(CharsMedianPerFile.ToArray()));
-            writer.WriteLine("Standard Deviation For Number of Avarage Words:  " + GetStandartDeviation(AvrgWordsMedianPer.ToArray()));
-            writer.WriteLine("Standard Deviation For Number of Avarage Chars:  " + GetStandartDeviation(AvrgCharsMedianPer.ToArray()));
-            writer.Close();
+            if (!subDir)
+                writer.WriteLine("There were no sub-directories");
+            else
+            {
+                writer.WriteLine();
+                writer.WriteLine();
+                writer.WriteLine("Statistics for All domains: ");
+                writer.WriteLine("Number of Words Of all Domains: " + WordsSum);
+                writer.WriteLine("Number of Chars Of all Domains: " + CharactersSum);
+                writer.WriteLine("Avarage Words Per Document: " + WordsMedianPerFile.Average());
+                writer.WriteLine("Avarage Chars Per Document:  " + CharsMedianPerFile.Average());
+                writer.WriteLine("Median For Number of Words: " + GetMedian(WordsMedianPerFile.ToArray()));
+                writer.WriteLine("Median For Number of Chars: " + GetMedian(CharsMedianPerFile.ToArray()));
+                writer.WriteLine("Median For Number of Avarage Words: " + GetMedian(AvrgWordsMedianPer.ToArray()));
+                writer.WriteLine("Median For Number of Avarage Chars: " + GetMedian(AvrgCharsMedianPer.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Words:  " + GetStandartDeviation(WordsMedianPerFile.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Chars:  " + GetStandartDeviation(CharsMedianPerFile.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Avarage Words:  " + GetStandartDeviation(AvrgWordsMedianPer.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Avarage Chars:  " + GetStandartDeviation(AvrgCharsMedianPer.ToArray()));
+            }
         }
+        public void GetStatisticsForDir(string path, StreamWriter writer)
+        {
+            //int WordsSum = 0;
+            //int CharactersSum = 0;
+            int NumOfFiles = 0;
+            List<double> AllWordsMedian = new List<double>();
+            List<double> AllCharsMedian = new List<double>();
+            //List<double> WordsMedianPerFile = new List<double>();
+            //List<double> CharsMedianPerFile = new List<double>();
+            //List<double> AvrgWordsMedianPer = new List<double>();
+            //List<double> AvrgCharsMedianPer = new List<double>();
+            List<double> WordsMedian = new List<double>();
+            List<double> CharsMedian = new List<double>();
+
+            string[] files = Directory.GetFiles(path);
+            WordsMedian.Clear();
+            CharsMedian.Clear();
+            int words = 0;
+            int chars = 0;
+
+            if (files.Length > 0)
+            {
+                foreach (var file in files)
+                {
+                    int wordCount = CountWords(file);
+                    words += wordCount;
+                    WordsMedian.Add(wordCount);
+                    int charCount = CountCharacter(file);
+                    chars += charCount;
+                    CharsMedian.Add(charCount);
+
+                    //WordsMedianPerFile.Add(wordCount);
+                    //CharsMedianPerFile.Add(charCount);
+                }
+
+                NumOfFiles += files.Length;
+                //WordsSum += words;
+                //CharactersSum += chars;
+                //AllWordsMedian.Add(words);
+                //AllCharsMedian.Add(chars);
+                //AvrgWordsMedianPer.Add(WordsMedian.Average());
+                //AvrgCharsMedianPer.Add(CharsMedian.Average());
+
+                writer.WriteLine();
+                writer.WriteLine();
+                writer.WriteLine("Statistics for files in current Directory: " + path);
+                writer.WriteLine("Number of Words Of all files: " + words);
+                writer.WriteLine("Number of Chars Of all files: " + chars);
+                writer.WriteLine("Avarage Words Per file: " + WordsMedian.Average());
+                writer.WriteLine("Avarage Chars Per file:  " + CharsMedian.Average());
+                writer.WriteLine("Median For Number of Words: " + GetMedian(WordsMedian.ToArray()));
+                writer.WriteLine("Median For Number of Chars: " + GetMedian(CharsMedian.ToArray()));
+                //writer.WriteLine("Median For Number of Avarage Words: " + GetMedian(AvrgWordsMedianPer.ToArray()));
+                //writer.WriteLine("Median For Number of Avarage Chars: " + GetMedian(AvrgCharsMedianPer.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Words:  " + GetStandartDeviation(WordsMedian.ToArray()));
+                writer.WriteLine("Standard Deviation For Number of Chars:  " + GetStandartDeviation(CharsMedian.ToArray()));
+                //writer.WriteLine("Standard Deviation For Number of Avarage Words:  " + GetStandartDeviation(AvrgWordsMedianPer.ToArray()));
+                //writer.WriteLine("Standard Deviation For Number of Avarage Chars:  " + GetStandartDeviation(AvrgCharsMedianPer.ToArray()));
+
+            }
+        }
+
         public int CountCharacter(string file)
         {
             StreamReader ReadFile = new StreamReader(file);
@@ -106,7 +177,6 @@ namespace Statistics
             char[] delimiters = new char[] { ' ', '\r', '\n' };
             return text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
         }
-
         public static double GetMedian(double[] sourceNumbers)
         {
             //Framework 2.0 version of this method. there is an easier way in F4        
@@ -123,7 +193,6 @@ namespace Statistics
             double median = (size % 2 != 0) ? (double)sortedPNumbers[mid] : ((double)sortedPNumbers[mid] + (double)sortedPNumbers[mid - 1]) / 2;
             return median;
         }
-
         public static double GetStandartDeviation(double[] someDoubles)
         {
             double average = someDoubles.Average();

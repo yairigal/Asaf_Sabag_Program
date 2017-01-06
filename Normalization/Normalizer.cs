@@ -15,29 +15,26 @@ namespace Normalization
         IOJson JsonRW;*/
 
         //directory for the files that are not normalized
-        static string dirToBeNormal = Directory.GetCurrentDirectory();
+        string dirToBeNormal = Directory.GetCurrentDirectory();
         //directory for the files that are normalized
-        static string dirForTheNormal = "";
+        string dirForTheNormal = "";
+        //string tha describes the type of normalizations that had been made
+        string changes = "";
 
         string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~";
 
-        public static string AfterNormalDir { get { return dirForTheNormal; } }
+        public string AfterNormalDir { get { return dirForTheNormal; } }
 
-        public static string BeforeNormalDir
-        {
-            get
-            {
-                return dirToBeNormal;
-            }
-        }
+        public string BeforeNormalDir { get { return dirToBeNormal; } }
+
+        public string Changes { get { return changes; } }
 
         public normalizer(string dir, IO_DataType type, string dst = "")
         {
             dirToBeNormal = dir;
             if (dst == "")
             {
-                dirForTheNormal = dirToBeNormal + "_normalaized";
-                Directory.CreateDirectory(dirForTheNormal);
+                dirForTheNormal = dirToBeNormal;
             }
 
             ReadWrt = IOFactory.getFacotry(type);
@@ -61,26 +58,26 @@ namespace Normalization
         {
             List<string> tweets = new List<string>();
             string normalTweet = "";
-            string changes = "";
+
+            changes = getNormalizaionsExtansions(flags);
+            dirForTheNormal += "_normalaized" + changes;
+            Directory.CreateDirectory(dirForTheNormal);
+
             try
             {
                 foreach (string file in Directory.GetFiles(dirToBeNormal))
                 {
-                    changes = getNormalizaionsExtansions(flags, changes);
-
                     foreach (string tweet in ReadWrt.fileToTweets(file, "", 0))
                     {
                         normalTweet = tweet;
                         normalTweet = NormalizeTweet(flags, normalTweet);
                         tweets.Add(normalTweet);
                     }
-                    string filename = Path.GetFileName(file);
-                    filename += changes;
+                    string filename = Path.GetFileNameWithoutExtension(file) + changes + Path.GetExtension(file);
                     if (Path.GetExtension(filename) == string.Empty)
                         filename += ".txt";
                     ReadWrt.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
                     tweets.Clear();
-                    changes = "";
                 }
             }
             catch (Exception ex)
@@ -88,7 +85,6 @@ namespace Normalization
                 throw ex;
             }
         }
-
         /// <summary>
         /// Normalizes the current string based on the flags given
         /// </summary>
@@ -130,26 +126,27 @@ namespace Normalization
         /// _TU_ = To upper.
         /// _TL_ = To lower
         /// </returns>
-        private static string getNormalizaionsExtansions(IDictionary<NormaliztionMethods, bool> flags,string changes)
+        private static string getNormalizaionsExtansions(IDictionary<NormaliztionMethods, bool> flags)
         {
+            string ch = "";
             if (flags[NormaliztionMethods.No_Punctuation])
             {
-                changes += "_RP_";
+                ch += "_P";
             }
             if (flags[NormaliztionMethods.No_HTML_Tags])
             {
-                changes += "_RH_";
+                ch += "_H";
             }
             if (flags[NormaliztionMethods.All_Capitals])
             {
-                changes += "_TU_";
+                ch += "_U";
             }
             if (flags[NormaliztionMethods.All_Lowercase])
             {
-                changes += "_TL_";
+                ch += "_L";
             }
 
-            return changes;
+            return ch;
         }
 
         /// <summary>
