@@ -10,15 +10,15 @@
 
     <StackPanel>
         <Grid>
-            <TextBlock x:Name="textBox"  HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Letters Size:" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textBox"  HorizontalAlignment="Left" Width="119" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Text Capitalization:" VerticalAlignment="Top"/>
             <ComboBox x:Name="LettersCB" HorizontalAlignment="Left" Margin="275,10,50,10" Width="119" SelectedIndex="2"/>
         </Grid>
         <Grid>
-            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,121,10"/>
+            <CheckBox x:Name="PunRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,0,10" Width="176"/>
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove Punctuation?" VerticalAlignment="Top" Width="129"/>
         </Grid>
         <Grid>
-            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,121,10"/>
+            <CheckBox x:Name="HTMLRB" Content="RadioButton" HorizontalAlignment="Left" Margin="275,10,0,10" Width="182"/>
             <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Remove HTML Tags?" VerticalAlignment="Top" Width="129"/>
         </Grid>
         <Grid>

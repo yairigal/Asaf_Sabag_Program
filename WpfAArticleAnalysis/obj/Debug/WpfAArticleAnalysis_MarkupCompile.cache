@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program - Copy\WpfAArticleAnalysis\obj\Debug\
 WpfAArticleAnalysis
 none
 false
 DEBUG;TRACE
-C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\App.xaml
-72076049319
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program - Copy\WpfAArticleAnalysis\App.xaml
+8-1806724008
 
-15-1880461713
-18-703725327
-LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
+16-166145320
+181330816997
+LogPage.xaml;LogWindow.xaml;MainWindow.xaml;Pages\FeaturesPage.xaml;Pages\FirstPage.xaml;Pages\Ngrampage.xaml;Pages\NormalizationPage.xaml;Pages\Tagger.xaml;
 
 False
 

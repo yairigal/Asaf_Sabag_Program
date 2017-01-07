@@ -1,28 +1,43 @@
 ﻿<Window x:Class="WpfAArticleAnalysis.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="590" Width="500" Closed="Window_Closed" Loaded="Window_Loaded">
+        Title="MainWindow" Height="889.852" Width="530" Closed="Window_Closed" Loaded="Window_Loaded">
 
+    <Window.Resources>
+        <Image x:Key="rightButton" Source="Images/rightButton.png"/>
+        <Image x:Key="leftButton" Source="Images/leftButton.png"/>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="470*"/>
-            <RowDefinition Height="64*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="590"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="147"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" x:Name="frameTitle" Content="Title"/>
-        <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="84" Click="Submit_Click" Height="26" Foreground="#FF0E0E0E" Grid.Row="2">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
-                    <GradientStop Color="#FFEBEBEB"/>
-                    <GradientStop Color="#FFDDDDDD"/>
-                    <GradientStop Color="#FF10369B" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Frame Name="pageFrame" Content="Frame" Grid.Row="1"/>
-        <Image x:Name="image" HorizontalAlignment="Right" Height="48" VerticalAlignment="Center" Width="54" MouseDown="image_MouseDown" Source="Images/rightButton.png" RenderTransformOrigin="0.5,0.5" Grid.Row="2" Margin="0,10,142,6"/>
-        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Center" Width="48" Source="Images/leftButton.png" MouseDown="image_Copy_MouseDown" Grid.Row="2" Margin="144,10,0,6"/>
+        <Label Grid.Row="0" x:Name="frameTitle" Content="Title" Background="#FFB9B9B9" FontWeight="Bold" Margin="0,0,0,589" Grid.RowSpan="2"/>
+        <Frame Name="pageFrame" Content="Frame" Grid.Row="1" Background="#FFF7EAEA" Margin="0,1,0,83" Grid.RowSpan="2"/>
+        <Grid Grid.Row="2" Background="#FF9C9595" Margin="0,2,0,0">
+            <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Width="84" Click="Submit_Click" Height="26" Foreground="#FF0E0E0E" Grid.Row="2">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                        <GradientStop Color="#FFEBEBEB"/>
+                        <GradientStop Color="#FFDDDDDD"/>
+                        <GradientStop Color="#FF10369B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Content="Next" Margin="420,29,52,29"/>
+            <Label Content="Previous" Margin="44,29,405,29"/>
+            <Image x:Name="image" HorizontalAlignment="Right" Height="48" VerticalAlignment="Center" Width="54" MouseDown="image_MouseDown" Source="Images/rightButton.png" Margin="0,18,102,18" />
+            <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Center" Width="48" Source="Images/leftButton.png" MouseDown="image_Copy_MouseDown" Margin="102,18,0,18"  />
+        </Grid>
+        <DockPanel Grid.Row="3" LastChildFill="True" Margin="0,3,0,2">
+            <Frame x:Name="logFrame" Grid.Row="3" Content="Log"/>
+        </DockPanel>
+
     </Grid>
 </Window>

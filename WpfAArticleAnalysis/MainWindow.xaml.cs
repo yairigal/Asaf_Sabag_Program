@@ -48,7 +48,7 @@ namespace WpfAArticleAnalysis
         private static bool FirstTime = true;
         private static string output_path;
         public static event LogDelegate LogChanged;
-        public static LogWindow lg = null;
+        public static LogPage lg = null;
         private static string[] FILES_NAMES;
         #endregion
 
@@ -160,6 +160,9 @@ namespace WpfAArticleAnalysis
 
             //added By Yair
             initNormalUI();
+
+            lg = new LogPage(this);
+            logFrame.Navigate(lg);
         }
         private void DeleteNormalizationDirectoryIfNeeded()
         {
@@ -250,9 +253,9 @@ namespace WpfAArticleAnalysis
         }
         private void ThreadStartingPoint()
         {
-            lg = new LogWindow(this);
-            lg.Show();
-            System.Windows.Threading.Dispatcher.Run();
+            //lg = new LogPage(this);
+
+            //System.Windows.Threading.Dispatcher.Run();
         }
         private void make_csv_file(string dir_of_articles, string output_path)
         {
@@ -619,7 +622,7 @@ namespace WpfAArticleAnalysis
             #region SettingUpTheThread
             //percentage for the log window.
             if (PercentUpdateThread != null)
-                if ((PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running))
+                if(PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running)
                 {
                     PercentUpdateThreadFlag = false;
                     PercentUpdateThread.Join();
@@ -813,6 +816,7 @@ namespace WpfAArticleAnalysis
             }
 
             PercentUpdateThreadFlag = false;
+            PercentUpdateThread.Join();
             return tmp;
         }
 
@@ -1666,18 +1670,8 @@ namespace WpfAArticleAnalysis
                 NormalizeText();
                 MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
                     "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
-                dir_of_articles_folders = Normalizer.AfterNormalDir;
-                string stop = "";
-                if (Program.RemoveStopWords == true)
-                    stop = "_S";
-                if(!Directory.Exists(Normalizer.BeforeNormalDir + "\\excels"))
-                    Directory.CreateDirectory(Normalizer.BeforeNormalDir + "\\excels");
-                output_path = Normalizer.BeforeNormalDir + "\\excels\\" + output_path + Normalizer.Changes + stop + "__0";
-                if(File.Exists(output_path + ".csv"))
-                {
-                    output_path = fixEnding(output_path);
-                }
-                output_path += ".csv";
+                //lg.SetText("=========\nThe normalizer has finished his work \nmoving to features extraction\n=========");
+                setOutputDirectories();
             }
             catch (Exception ex)
             {
@@ -1687,6 +1681,21 @@ namespace WpfAArticleAnalysis
             myThread = new Thread(new ThreadStart(make_csv_file));
             myThread.Start();
 
+        }
+        private void setOutputDirectories()
+        {
+            dir_of_articles_folders = Normalizer.AfterNormalDir;
+            string stop = "";
+            if (Program.RemoveStopWords == true)
+                stop = "_S";
+            if (!Directory.Exists(Normalizer.BeforeNormalDir + "\\excels"))
+                Directory.CreateDirectory(Normalizer.BeforeNormalDir + "\\excels");
+            output_path = Normalizer.BeforeNormalDir + "\\excels\\" + output_path + Normalizer.Changes + stop + "__0";
+            if (File.Exists(output_path + ".csv"))
+            {
+                output_path = fixEnding(output_path);
+            }
+            output_path += ".csv";
         }
         private DirectoryInfo[] GetDirsFromPath()
         {
@@ -2306,8 +2315,7 @@ namespace WpfAArticleAnalysis
         #endregion
         private void CreateLog()
         {
-            lg = new LogWindow(this);
-            lg.Show();
+            lg = new LogPage(this);
         }
         private void ResetGramsAndChars()
         {
@@ -2420,14 +2428,9 @@ namespace WpfAArticleAnalysis
         private void Window_Closed(object sender, EventArgs e)
         {
             DeleteNormalizationDirectoryIfNeeded();
-
-            if (myThread != null)
-                myThread.Abort();
-
-            if (newWindowThread != null)
-                newWindowThread.Abort();
-
+            killAllRunningThreads();
         }
+
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -2679,6 +2682,9 @@ namespace WpfAArticleAnalysis
             RareBiChars.TextChanged += RareBiChars_TextChanged;
             RareTriChars.TextChanged += RareTriChars_TextChanged;
             RareQuadChars.TextChanged += RareQuadChars_TextChanged;
+
+            Threshold.TextChanged += Threshold_TextChanged;
+            ReducingUniGrams.DropDownClosed += ReducingUniGrams_DropDownClosed;
             #endregion
 
             #region firstpage
@@ -2686,8 +2692,6 @@ namespace WpfAArticleAnalysis
             AnalysisMethod.SelectionChanged += AnalysisMethod_SelectionChanged;
             ArticleDir.TextChanged += ArticleDir_TextChanged;
             ArticleDir.MouseEnter += ArticleDir_MouseEnter;
-            Threshold.TextChanged += Threshold_TextChanged;
-            ReducingUniGrams.DropDownClosed += ReducingUniGrams_DropDownClosed;
             openDir.Click += OpenDir_Click;
             #endregion
 
@@ -2737,6 +2741,10 @@ namespace WpfAArticleAnalysis
             RareTriChars = currPage.getRareTriChars;
             RareBiChars = currPage.getRareBiChars;
             RareQuadChars = currPage.getRareQuadChars;
+
+            Threshold = currPage.Threshold;
+            ReducingUniGrams = currPage.ReducingUniGrams;
+            FreqWarning = currPage.FreqWarning;
         }
         /// <summary>
         /// initializes the variables here to the controls from FirstPage.
@@ -2746,11 +2754,8 @@ namespace WpfAArticleAnalysis
             var currPage = Pages.FirstPage.getThisPage();
             AnalysisMethod = currPage.AnalysisMethod;
             ArticleDir = currPage.ArticleDir;
-            Threshold = currPage.Threshold;
-            ReducingUniGrams = currPage.ReducingUniGrams;
             MakeLogFiles = currPage.MakeLogFiles;
             DomainsCounter = currPage.DomainsCounter;
-            FreqWarning = currPage.FreqWarning;
             openDir = currPage.openDir;
 
         }
@@ -2765,6 +2770,7 @@ namespace WpfAArticleAnalysis
             LettersCB = currPage.LettersCB;
             TakeOutStopWords = currPage.TakeOutStopWords;
             saveNormaledFiles = currPage.SaveNormalizations;
+
         }
         /// <summary>
         /// initialized the variable here to the conrols from FeatursPage.
@@ -2836,8 +2842,8 @@ namespace WpfAArticleAnalysis
         /// </summary>
         private void setWindowSize()
         {
-            Height = Public_Functions.FrameHeight;
-            Width = Public_Functions.FrameWidth + 20;
+            //Height = Public_Functions.WindowHeight;
+            //Width = Public_Functions.WindowWidth;
         }
         /// <summary>
         /// sets the next page on the frame
@@ -2866,9 +2872,16 @@ namespace WpfAArticleAnalysis
         /// </summary>
         private void NormalizeText()
         {
-            IDictionary<NormaliztionMethods, bool> flags = getNormalizationFlags();
+            var flags = getNormalizationFlags();
             //new Thread(new ThreadStart(() => NormalThreadfunction(flags))).Start();
-            NormalThreadfunction(flags);
+
+            //added here the function of the thread , since we are not using thread
+
+            Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
+            //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
+            MessageBox.Show("The Normalizer has started his work", "Normaliztion Started", MessageBoxButton.OK, MessageBoxImage.Information);
+            //lg.SetText("=========/nThe Normalizer has started his work/n=========");
+            Normalizer.Normalize(flags);
         }
         /// <summary>
         /// Returns the flags for the normalizaion proccess
@@ -2900,9 +2913,7 @@ namespace WpfAArticleAnalysis
         /// <param name="flags"></param>
         private void NormalThreadfunction(IDictionary<NormaliztionMethods, bool> flags)
         {
-            Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
-            //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
-            Normalizer.Normalize(flags);
+
         }
         /// <summary>
         /// killing all thread that are left.
@@ -2912,11 +2923,18 @@ namespace WpfAArticleAnalysis
             if (PercentUpdateThread != null)
                 if (!(PercentUpdateThread.ThreadState == System.Threading.ThreadState.Stopped))
                     PercentUpdateThreadFlag = false;
+
+            if (myThread != null)
+                myThread.Abort();
+
+            if (newWindowThread != null)
+                newWindowThread.Abort();
         }
         #endregion
         /******MadeByYAIR******/
 
         /*****MadeByElroi******/
+        #region Coded By Elroi Netzer
         private string fixEnding(string path)
         {
             int i = 1;
@@ -2932,6 +2950,8 @@ namespace WpfAArticleAnalysis
             } while (File.Exists(path));
             return path;
         }
+        #endregion
+        /*****MadeByElroi******/
         #endregion
     }
 }

@@ -7,57 +7,101 @@
       mc:Ignorable="d"
       Title="Ngrampage" Height="590" Width="500">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="7*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="108*"/>
-            <ColumnDefinition Width="131*"/>
-            <ColumnDefinition Width="136*"/>
-            <ColumnDefinition Width="125*"/>
-        </Grid.ColumnDefinitions>
+    <DockPanel LastChildFill="True">
 
-        <Label Content="# of UniGrams" Margin="0"/>
-        <Label Content="# of BiGrams" Margin="0" Grid.Row="1"/>
-        <Label Content="# of TriGrams" Margin="0" Grid.Row="2"/>
-        <Label Content="# of QuadGrams" Margin="0" Grid.Row="3"/>
-        <Label Content="# of Rare UniGrams" Margin="0" Grid.Column="2"/>
-        <Label Content="# of Rare BiGrams" Margin="0" Grid.Column="2" Grid.Row="1"/>
-        <Label Content="# of Rare TriGrams" Margin="0" Grid.Column="2" Grid.Row="2"/>
-        <Label Content="# of Rare QuadGrams" Margin="0" Grid.Column="2" Grid.Row="3"/>
-        <TextBox x:Name="UniGRams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="1"/>
-        <TextBox x:Name="BiGRams"  TextWrapping="Wrap" Text="TextBox" Grid.Row="1" Grid.Column="1" />
-        <TextBox x:Name="RareQuadGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="3" />
-        <TextBox x:Name="RareTriGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="2" />
-        <TextBox x:Name="RareBGRAMS" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="1" />
-        <TextBox x:Name="RareUGRAMs" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" />
-        <TextBox x:Name="QuadGrams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Row="3" Grid.Column="1" />
-        <TextBox x:Name="TriGRams" Margin="0" TextWrapping="Wrap" Text="TextBox" Grid.Row="2" Grid.Column="1"/>
-        <Label Content="# of RareQuadChars" Margin="0,0,0,236" Grid.Column="2" Grid.Row="8"/>
-        <Label Content="# of RareTriChars" Margin="0,39,0,0" Grid.Column="2" Grid.Row="6" Grid.RowSpan="2"/>
-        <Label Content="# of RareBiChars" Margin="0,0,0,1" Grid.Column="2" Grid.Row="6"/>
-        <Label Content="# of RareUniChars" Margin="0,39,0,0" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2"/>
-        <Label Content="# of TriChars" Margin="0,39,0,0" Grid.Row="6" Grid.RowSpan="2"/>
-        <Label Content="# of BiChars" Margin="0,0,0,1" Grid.Row="6"/>
-        <Label Content="# of UniChars" Margin="0,39,0,0" Grid.Row="4" Grid.RowSpan="2"/>
-        <Label x:Name="label" Content="# of QuadChars" Margin="0,0,0,236" Grid.Row="8"/>
-        <TextBox x:Name="UniChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" />
-        <TextBox x:Name="RareQuadChars" Margin="0,0,0,236" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="8" />
-        <TextBox x:Name="RareTriChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="6" Grid.RowSpan="2" />
-        <TextBox x:Name="RareBiChars" Margin="0,0,0,1" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="6" />
-        <TextBox x:Name="QuadChars" Margin="0,0,0,236" TextWrapping="Wrap" Text="TextBox" Grid.Row="8" Grid.Column="1" />
-        <TextBox x:Name="TriChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" />
-        <TextBox x:Name="BiChars" Margin="0,0,0,1" TextWrapping="Wrap" Text="TextBox" Grid.Row="6" Grid.Column="1" />
-        <TextBox x:Name="RareUniChars" Margin="0,39,0,0" TextWrapping="Wrap" Text="TextBox" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2"/>
+        <Grid DockPanel.Dock="Top">
+            <Label Content="Freq. Threshold" HorizontalAlignment="Left" Margin="6,11,0,0" VerticalAlignment="Top" Height="23" Width="208"/>
+            <Label Content="Reducing UniGrams with freq. of 3 and less" Margin="6,73,205,18"/>
+            <TextBox x:Name="Threshold" HorizontalAlignment="Left" Height="23" Margin="214,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="276" />
+            <ComboBox x:Name="ReducingUniGrams" HorizontalAlignment="Right" Margin="0,73,10,0" VerticalAlignment="Top" Width="192" Height="26" />
+            <Label x:Name="FreqWarning" Foreground="#E80000" Content="" HorizontalAlignment="Left" Margin="217,44,0,0" VerticalAlignment="Top" Height="24" Width="273"/>
+        </Grid>
 
-    </Grid>
+
+        <Grid x:Name="space" DockPanel.Dock="Bottom" Height="13" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+        </Grid>
+
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
+            <Label Content="Least Frequent Grams" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Grid DockPanel.Dock="Right" Width="250" Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="# of Rare UniGrams" Grid.Column="0" Grid.Row="0"/>
+                <TextBox x:Name="RareUGRAMs" Grid.Column="1" Grid.Row="0"/>
+                <Label Content="# of Rare BiGrams" Grid.Column="0" Grid.Row="1"/>
+                <TextBox x:Name="RareBGRAMS"  Grid.Column="1" Grid.Row="1"/>
+                <Label Content="# of Rare TriGrams" Grid.Column="0" Grid.Row="2"/>
+                <TextBox x:Name="RareTriGrams"  Grid.Column="1" Grid.Row="2"/>
+                <Label Content="# of Rare QuadGrams"  Grid.Column="0" Grid.Row="3"/>
+                <TextBox x:Name="RareQuadGrams" Grid.Column="1" Grid.Row="3"/>
+                <Label Content="# of RareUniChars" Grid.Column="0" Grid.Row="4"/>
+                <TextBox x:Name="RareUniChars"  Grid.Column="1" Grid.Row="4"/>
+                <Label Content="# of RareBiChars" Grid.Column="0" Grid.Row="5"/>
+                <TextBox x:Name="RareBiChars"  Grid.Column="1" Grid.Row="5"/>
+                <Label Content="# of RareTriChars" Grid.Column="0" Grid.Row="6"/>
+                <TextBox x:Name="RareTriChars"  Grid.Column="1" Grid.Row="6"/>
+                <Label Content="# of RareQuadChars" Grid.Column="0" Grid.Row="7"/>
+                <TextBox x:Name="RareQuadChars"  Grid.Column="1" Grid.Row="7"/>
+
+            </Grid>
+        </StackPanel>
+        
+
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
+            <Label Content="Most Frequent Grams" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="# of UniGrams" Grid.Column="0" Grid.Row="0"/>
+                <TextBox x:Name="UniGRams"  Grid.Column="1" Grid.Row="0"/>
+                <Label Content="# of BiGrams" Grid.Column="0" Grid.Row="1"/>
+                <TextBox x:Name="BiGRams"  Grid.Column="1" Grid.Row="1" />
+                <Label Content="# of TriGrams" Grid.Column="0" Grid.Row="2"/>
+                <TextBox x:Name="TriGRams" Grid.Column="1" Grid.Row="2"/>
+                <Label Content="# of QuadGrams" Grid.Column="0" Grid.Row="3"/>
+                <TextBox x:Name="QuadGrams" Grid.Column="1" Grid.Row="3"/>
+                <Label Content="# of UniChars" Grid.Column="0" Grid.Row="4"/>
+                <TextBox x:Name="UniChars" Grid.Column="1" Grid.Row="4"/>
+                <Label Content="# of BiChars" Grid.Column="0" Grid.Row="5"/>
+                <TextBox x:Name="BiChars" Grid.Column="1" Grid.Row="5"/>
+                <Label Content="# of TriChars" Grid.Column="0" Grid.Row="6"/>
+                <TextBox x:Name="TriChars" Grid.Column="1" Grid.Row="6"/>
+                <Label Content="# of QuadChars" Grid.Column="0" Grid.Row="7"/>
+                <TextBox x:Name="QuadChars" Grid.Column="1" Grid.Row="7"/>
+            </Grid>
+        </StackPanel>
+
+    </DockPanel>
 </Page>

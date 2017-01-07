@@ -18,10 +18,18 @@ namespace I_O
         public static IOInterface getFacotry(IO_DataType type)
         {
             if (factory == null)
-                if (type == IO_DataType.Json)
-                    factory = new IOJson();
-                else
-                    factory = new IOText();
+                switch (type)
+                {
+                    case IO_DataType.Text:
+                        factory = new IOText();
+                        break;
+                    case IO_DataType.Json:
+                        factory = new IOJson();
+                        break;
+                    default:
+                        factory = new IOText();
+                        break;
+                }
 
             return factory;
         }

@@ -1,0 +1,15 @@
+﻿<Page x:Class="WpfAArticleAnalysis.LogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfAArticleAnalysis"
+      mc:Ignorable="d" 
+      Height="140" Width="510"
+      Title="LogPage">
+
+    <Grid ScrollViewer.CanContentScroll="True">
+        <TextBox Name="logBlock" AcceptsReturn="True" TextWrapping="Wrap"
+                Text="- Log Window -" />
+    </Grid>
+</Page>

@@ -41,21 +41,6 @@ namespace WpfAArticleAnalysis.Pages
             }
 
         }
-        public TextBox Threshold_code
-        {
-            get
-            {
-                return Threshold;
-            }
-
-        }
-        public ComboBox ReducingUniGrams_code
-        {
-            get
-            {
-                return ReducingUniGrams;
-            }
-        }
         public CheckBox MakeLogFiles_code
         {
             get
@@ -70,13 +55,6 @@ namespace WpfAArticleAnalysis.Pages
                 return DomainsCounter;
             }
 
-        }
-        public Label FreqWarning_code
-        {
-            get
-            {
-                return FreqWarning;
-            }
         }
         #endregion
 
