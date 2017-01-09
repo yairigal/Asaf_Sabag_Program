@@ -1,0 +1,9 @@
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\I_O.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\I_O.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\Enums.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\Newtonsoft.Json.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\Enums.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\bin\Release\Newtonsoft.Json.xml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\obj\Release\I_O.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\obj\Release\I_O.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\I_O\obj\Release\I_O.pdb

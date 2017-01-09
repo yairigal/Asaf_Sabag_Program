@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I_O", "I_O\I_O.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Normalization", "Normalization\Normalization.csproj", "{6CAA8A44-6671-4849-B90E-B0E571AAD226}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installation", "Installation\Installation.vdproj", "{238973DA-AE70-4A48-AEAB-5A05542E92E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,8 @@ Global
 		{6CAA8A44-6671-4849-B90E-B0E571AAD226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAA8A44-6671-4849-B90E-B0E571AAD226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAA8A44-6671-4849-B90E-B0E571AAD226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{238973DA-AE70-4A48-AEAB-5A05542E92E3}.Debug|Any CPU.ActiveCfg = Debug
+		{238973DA-AE70-4A48-AEAB-5A05542E92E3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

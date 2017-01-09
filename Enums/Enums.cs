@@ -15,6 +15,7 @@ namespace Enums
         All_Capitals,
         All_Lowercase,
         No_HTML_Tags,
+        No_Stop_Words,
         NONE
     }
 }

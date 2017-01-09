@@ -450,7 +450,8 @@ namespace ArticleAnalysis
                 switch (tmp.Key)
                 {
                     case ConsoleKey.Y:
-                        Program.RemoveStopWords = true;
+                        //Program.RemoveStopWords = true;
+                        Program.RemoveStopWords = false;
                         break;
                     case ConsoleKey.N:
                         Program.RemoveStopWords = false;

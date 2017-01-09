@@ -1,0 +1,4 @@
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Release\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\bin\Release\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Release\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\ContentFamilies\obj\Release\ContentFamilies.pdb

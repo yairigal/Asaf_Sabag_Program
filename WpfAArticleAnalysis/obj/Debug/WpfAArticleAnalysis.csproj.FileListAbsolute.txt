@@ -226,3 +226,5 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program - Copy\WpfAArticleAnalysis\obj\Deb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program - Copy\WpfAArticleAnalysis\obj\Debug\WpfAArticleAnalysis.csproj.GenerateResource.Cache
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.g.cs
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.g.cs
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.baml

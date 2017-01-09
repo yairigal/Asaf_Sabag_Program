@@ -70,3 +70,15 @@ C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research57
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\Research5774.exe
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\Research5774\obj\Release\Research5774.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\Research5774.exe.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\Research5774.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\Research5774.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\PatternFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\bin\Release\PatternFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Release\ArticleAnalysis.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Release\Research5774.exe
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Research5774\obj\Release\Research5774.pdb

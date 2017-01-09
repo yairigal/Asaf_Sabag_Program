@@ -67,6 +67,7 @@ namespace WpfAArticleAnalysis
         private bool TaggerChecked;
         private bool saveNormalDir = true;
         private bool PercentUpdateThreadFlag = false;
+        private bool takeOutStopWords = false;
         int TrainingSetPres = 0;
 
 
@@ -2145,12 +2146,13 @@ namespace WpfAArticleAnalysis
         }
         private void TakeOutStopWords_Checked(object sender, RoutedEventArgs e)
         {
-            Program.RemoveStopWords = true;
-
+            //Program.RemoveStopWords = true;
+            takeOutStopWords = true;
         }
         private void TakeOutStopWords_Unchecked(object sender, RoutedEventArgs e)
         {
-            Program.RemoveStopWords = false;
+            //Program.RemoveStopWords = false;
+            takeOutStopWords = false;
         }
         private void SelectAllCheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -2896,6 +2898,7 @@ namespace WpfAArticleAnalysis
             else if (LettersCB.SelectedIndex == 1)
                 cap = true;
 
+
             html = (bool)HTMLRB.IsChecked;
             punc = (bool)PunRB.IsChecked;
 
@@ -2904,6 +2907,7 @@ namespace WpfAArticleAnalysis
             flags.Add(NormaliztionMethods.All_Lowercase, low);
             flags.Add(NormaliztionMethods.No_HTML_Tags, html);
             flags.Add(NormaliztionMethods.No_Punctuation, punc);
+            flags.Add(NormaliztionMethods.No_Stop_Words, takeOutStopWords);
 
             return flags;
         }

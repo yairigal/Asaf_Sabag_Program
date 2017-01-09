@@ -1,0 +1,5 @@
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Enums\bin\Release\Enums.dll.config
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Enums\bin\Release\Enums.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Enums\bin\Release\Enums.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Enums\obj\Release\Enums.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Enums\obj\Release\Enums.pdb

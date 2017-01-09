@@ -22,3 +22,7 @@ C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\HtmlLib\bi
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\HtmlLib\bin\Release\HtmlLib.pdb
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\HtmlLib\obj\Release\HtmlLib.dll
 C:\Users\ASAF_SABAG\Downloads\קוד של תוכניות\Research5774\HtmlLib\obj\Release\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\bin\Release\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\bin\Release\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\obj\Release\HtmlLib.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\obj\Release\HtmlLib.pdb

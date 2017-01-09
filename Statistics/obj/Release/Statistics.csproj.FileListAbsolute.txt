@@ -1,0 +1,7 @@
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Release\Statistics.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Release\Statistics.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Release\ContentFamilies.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\bin\Release\ContentFamilies.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Release\Statistics.csprojResolveAssemblyReference.cache
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Release\Statistics.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Statistics\obj\Release\Statistics.pdb
