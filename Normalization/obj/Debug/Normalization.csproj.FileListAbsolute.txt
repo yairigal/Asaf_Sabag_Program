@@ -1,7 +1,5 @@
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Enums.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\I_O.dll
@@ -20,3 +18,5 @@ C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Newtonsoft
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.csprojResolveAssemblyReference.cache
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\bin\Debug\Normalization.dll
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\Normalization\obj\Debug\Normalization.dll

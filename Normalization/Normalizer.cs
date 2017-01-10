@@ -21,7 +21,7 @@ namespace Normalization
         //string tha describes the type of normalizations that had been made
         string changes = "";
 
-        string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~";
+        static string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~";
 
         public string AfterNormalDir { get { return dirForTheNormal; } }
 
@@ -93,26 +93,24 @@ namespace Normalization
         /// <returns>The normalized tweet</returns>
         private string NormalizeTweet(IDictionary<NormaliztionMethods, bool> flags, string normalTweet)
         {
-            if (flags[NormaliztionMethods.No_Punctuation])
-                normalTweet = removePunctuation(normalTweet);
+            var normalTweetList = Parser(normalTweet);
 
+            if (flags[NormaliztionMethods.No_Punctuation])
+                removePunc(normalTweetList);
 
             if (flags[NormaliztionMethods.No_HTML_Tags])
-                normalTweet = removeHTML(normalTweet);
-
+                removeHTML(normalTweetList);
 
             if (flags[NormaliztionMethods.All_Lowercase])
-                normalTweet = allToLowercase(normalTweet);
-
+                toLower(normalTweetList);
 
             if (flags[NormaliztionMethods.All_Capitals])
-                normalTweet = allToUppercase(normalTweet);
-
+                toUpper(normalTweetList);
 
             if (flags[NormaliztionMethods.No_Stop_Words])
-                normalTweet = removeStopWords(normalTweet);
+                removeStopWord(normalTweetList);
 
-            return normalTweet;
+            return listToString(normalTweetList);
         }
         /// <summary>
         /// Returns the file extansion based on his normalizaion
@@ -144,10 +142,15 @@ namespace Normalization
             {
                 ch += "_L";
             }
+            if (flags[NormaliztionMethods.No_Stop_Words])
+            {
+                ch += "_S";
+            }
 
             return ch;
         }
 
+        #region String Functions
         /// <summary>
         /// Transforming all text to uppercase letters
         /// </summary>
@@ -221,6 +224,198 @@ namespace Normalization
             //    StringSplitOptions.RemoveEmptyEntries).Except(stopwords));
             return "";
         }
+        #endregion
+
+        #region Array Functions
+        /// <summary>
+        /// Parsing the string into an array of words and puncuations
+        /// </summary>
+        /// <param name="tweet"></param>
+        /// <returns></returns>
+        public static List<PartOfSentenec> Parser(string tweet)
+        {
+            char[] punctuationString = { ' ', '.', ',', ':', '\n', '\r', '(', ')', '=', '{', '}', '<', '>', '+', '-', '[', ']', '\t', '\"', '\\', '*', '@' };
+            //string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~ <>\n\r";
+            List<PartOfSentenec> toReturn = new List<PartOfSentenec>();
+            string wordAdder = string.Empty;
+            foreach (var letter in tweet)
+            {
+                //its a punc -> add the word before it , and then add the punc
+                if (punctuationString.Contains(letter))
+                {
+                    //if we already started - > add word first
+                    if(wordAdder != string.Empty)
+                    {
+                        toReturn.Add(new PartOfSentenec(type.word, wordAdder));
+                        wordAdder = string.Empty;
+                    }
+                    //add the punc
+                    toReturn.Add(new PartOfSentenec(type.puncuation, letter.ToString()));
+                }
+                else // its a letter - > continue
+                {
+                    wordAdder += letter;
+                }
+            }
+            //the last word in the line.
+            if(wordAdder != string.Empty)
+                toReturn.Add(new PartOfSentenec(type.word, wordAdder));
+
+            return toReturn;
+        }
+        //public static List<PartOfSentenec> removeHTML(List<PartOfSentenec> tweet)
+        //{
+        //    int startingPoint=-1, endingPoint=-1;
+        //    List<removeObject> toRemove = new List<removeObject>();
+        //    foreach (var item in tweet)
+        //    {
+        //        //if its a start of HTML
+        //        if (item.value == "<")
+        //            startingPoint = tweet.IndexOf(item);
+        //        else if (item.value == ">" && startingPoint != -1)
+        //        {
+        //            endingPoint = tweet.IndexOf(item)+1;
+        //            toRemove.Add(new removeObject() { startingPoint = startingPoint, endingPoint = endingPoint });
+        //            startingPoint = -1;
+        //        }
+        //    }
+        //    //removing
+        //    toRemove.Reverse();
+        //    foreach (var item in toRemove)           
+        //        tweet.RemoveRange(item.startingPoint, item.endingPoint - item.startingPoint);
+            
+        //    return tweet;
+        //}
+        ///// <summary>
+        ///// Removes all punctuations except from " "(space ) > and <
+        ///// </summary>
+        ///// <param name="tweet"></param>
+        ///// <returns></returns>
+        //public static List<PartOfSentenec> removePunc(List<PartOfSentenec> tweet)
+        //{
+        //    List<PartOfSentenec> toRemove = new List<PartOfSentenec>();
+        //    foreach (var item in tweet)         
+        //        if (item.type == type.puncuation && item.value != " " && item.value != ">" && item.value != "<")
+        //            toRemove.Add(item);
+
+        //    toRemove.Reverse();
+        //    foreach (var item in toRemove)           
+        //        tweet.Remove(item);
+
+
+        //    return tweet;  
+        //}
+        //public static List<PartOfSentenec> toLower(List<PartOfSentenec> tweet)
+        //{
+        //    foreach (var item in tweet)            
+        //        if (item.type == type.word)
+        //            item.value = item.value.ToLower();
+        //    return tweet;           
+        //}
+        //public static List<PartOfSentenec> toUpper(List<PartOfSentenec> tweet)
+        //{
+        //    foreach (var item in tweet)
+        //        if (item.type == type.word)
+        //            item.value = item.value.ToUpper();
+        //    return tweet;
+        //}
+        //public static List<PartOfSentenec> removeStopWord(List<PartOfSentenec> tweet)
+        //{
+        //    foreach (var item in tweet)
+        //    {
+        //        if (item.type == type.word)
+        //            if (stopwords.Contains(item.value))
+        //                item.value = "";
+        //    }
+        //    return tweet;
+        //}
+        public static void removeHTML(List<PartOfSentenec> tweet)
+        {
+            int startingPoint = -1, endingPoint = -1;
+            List<removeObject> toRemove = new List<removeObject>();
+            foreach (var item in tweet)
+            {
+                //if its a start of HTML
+                if (item.value == "<")
+                    startingPoint = tweet.IndexOf(item);
+                else if (item.value == ">" && startingPoint != -1)
+                {
+                    endingPoint = tweet.IndexOf(item) + 1;
+                    toRemove.Add(new removeObject() { startingPoint = startingPoint, endingPoint = endingPoint });
+                    startingPoint = -1;
+                }
+            }
+            //removing
+            toRemove.Reverse();
+            foreach (var item in toRemove)
+                tweet.RemoveRange(item.startingPoint, item.endingPoint - item.startingPoint);
+        }
+        /// <summary>
+        /// Removes all punctuations except from " "(space ) > and <
+        /// </summary>
+        /// <param name="tweet"></param>
+        /// <returns></returns>
+        public static void removePunc(List<PartOfSentenec> tweet)
+        {
+            List<PartOfSentenec> toRemove = new List<PartOfSentenec>();
+            foreach (var item in tweet)
+                if (item.type == type.puncuation && item.value != " " && item.value != ">" && item.value != "<")
+                    toRemove.Add(item);
+
+            toRemove.Reverse();
+            foreach (var item in toRemove)
+                tweet.Remove(item);
+        }
+        /// <summary>
+        /// Transforming all words into lowercase
+        /// </summary>
+        /// <param name="tweet"></param>
+        public static void toLower(List<PartOfSentenec> tweet)
+        {
+            foreach (var item in tweet)
+                if (item.type == type.word)
+                    item.value = item.value.ToLower();
+
+        }
+        /// <summary>
+        /// transforming all words into uppercase
+        /// </summary>
+        /// <param name="tweet"></param>
+        public static void toUpper(List<PartOfSentenec> tweet)
+        {
+            foreach (var item in tweet)
+                if (item.type == type.word)
+                    item.value = item.value.ToUpper();
+        }
+        /// <summary>
+        /// removing stop words from the list 
+        /// stop words are from the 421 chosen stop words
+        /// </summary>
+        /// <param name="tweet"></param>
+        public static void removeStopWord(List<PartOfSentenec> tweet)
+        {
+            foreach (var item in tweet)
+            {
+                if (item.type == type.word)
+                    if (stopwords.Contains(item.value.ToLower()))
+                        item.value = "";
+            }
+        }
+        /// <summary>
+        /// returns the list to a normal string.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static string listToString(List<PartOfSentenec> list)
+        {
+            string toReturn = "";
+            foreach (var item in list)
+            {
+                toReturn += item.value;
+            }
+            return toReturn;
+        }
+        #endregion
 
         #region stop words
         private static string[] stopwords = {
@@ -652,31 +847,45 @@ namespace Normalization
         #endregion
 
     }
-}
-
-
-/* for checking
- * using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Normalization
-{
-    class app
+    public enum type
     {
-        public static void Main()
+        word,
+        puncuation
+    }
+    public class PartOfSentenec
+    {
+        public type type;
+        public string value;
+        public PartOfSentenec(type type, string val)
         {
-            normalizer norm = new normalizer("C:\\Users\\user\\Desktop\\test\\alt.atheism", "");
-            IDictionary<NormaliztionMethods, bool> flags = new Dictionary<NormaliztionMethods, bool> ();
-            flags.Add(NormaliztionMethods.All_Capitals, true);
-            flags.Add(NormaliztionMethods.All_Lowercase, false);
-            flags.Add(NormaliztionMethods.No_HTML_Tags, false);
-            flags.Add(NormaliztionMethods.No_Punctuation, false);
-
-            norm.Normalize(flags);
+            this.type = type;
+            this.value = val;
         }
     }
+    public class removeObject
+    {
+        public int startingPoint = -1;
+        public int endingPoint = -1;
+    }
 }
-*/
+
+
+// for checking
+
+//namespace Normalization
+//{
+//    class app
+//    {
+//        public static void Main()
+//        {
+//            string test = "Hello,the my name is yair. i love to party: espically rock. <LOL> <LOL/>";
+//            List<PartOfSentenec> list = normalizer.getList(test);
+//            normalizer.removeStopWord(list);
+//            normalizer.removePunc(list);
+//            normalizer.removeHTML(list);
+//            normalizer.toUpper(list);
+//            string test2 = normalizer.listToString(list);
+//        }
+//    }
+//}
+
