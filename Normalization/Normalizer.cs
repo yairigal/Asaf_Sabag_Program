@@ -28,7 +28,12 @@ namespace Normalization
         public string BeforeNormalDir { get { return dirToBeNormal; } }
 
         public string Changes { get { return changes; } }
-
+        /// <summary>
+        /// CTOR
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="type"></param>
+        /// <param name="dst"></param>
         public normalizer(string dir, IO_DataType type, string dst = "")
         {
             dirToBeNormal = dir;
@@ -63,20 +68,31 @@ namespace Normalization
             dirForTheNormal += "_normalaized" + changes;
             Directory.CreateDirectory(dirForTheNormal);
 
+            var fileList = getFilesFromDirectory(dirToBeNormal);
+
             try
             {
-                foreach (string file in Directory.GetFiles(dirToBeNormal))
+                foreach (var file in fileList)
                 {
-                    foreach (string tweet in ReadWrt.fileToTweets(file, "", 0))
+                    foreach (string tweet in ReadWrt.fileToTweets(file.getPathFromRoot(dirToBeNormal), "", 0))
                     {
                         normalTweet = tweet;
                         normalTweet = NormalizeTweet(flags, normalTweet);
                         tweets.Add(normalTweet);
                     }
-                    string filename = Path.GetFileNameWithoutExtension(file) + changes + Path.GetExtension(file);
-                    if (Path.GetExtension(filename) == string.Empty)
-                        filename += ".txt";
-                    ReadWrt.tweetToFile(tweets, dirForTheNormal + "\\" + filename, "", 0);
+                    //string filename = file.filename + changes + Path.GetExtension(file.getPathFromRoot(dirToBeNormal));
+                    string dir = file.getPathDirectory(dirForTheNormal);
+
+                    if(dir != "")
+                        if (!Directory.Exists(dir))
+                            Directory.CreateDirectory(dir);
+                    string ext="";
+                    if (Path.GetExtension(file.getPathFromRoot(dirToBeNormal)) == string.Empty)
+                        if(ReadWrt is IOText)
+                            ext = ".txt";
+                        else if(ReadWrt is IOJson)
+                            ext = ".json";
+                    ReadWrt.tweetToFile(tweets, file.getPathFromRoot(dirForTheNormal)+changes+ext, "", 0);
                     tweets.Clear();
                 }
             }
@@ -148,6 +164,78 @@ namespace Normalization
             }
 
             return ch;
+        }
+        //yair notes :
+        //normalizer needs function get all files to run on -> getAllFiles : array<helperObject> - done
+        //the normalizer needs after every normal to save the file in his proper place. -> with the helper object he can do this - done
+        //the main window needs a function that will give him the list of files (number 1 ^^)
+        /// <summary>
+        /// This function returns a list of objects that each of them has a name of a file and and list of the directories he passed from the root.
+        /// </summary>
+        /// <param name="dir">the root directory</param>
+        /// <param name="subdir">for the recursian</param>
+        /// <param name="lst">for the recursian</param>
+        /// <returns></returns>
+        private static List<DirHelper> getFilesFromDirectory(string dir,List<string> subdir = null,List<DirHelper> lst = null)
+        {
+            List<DirHelper> toReturn;
+            List<string> subDir;
+            //first time
+            if (lst == null)
+                toReturn = new List<DirHelper>();
+            else
+                toReturn = lst;
+
+            subDir = new List<string>();
+            if(subdir != null)
+                if(subdir.Count != 0)
+                    subDir.AddRange(subdir);
+
+
+            var listOfFiles = Directory.GetFiles(dir);
+            var listOfDir = Directory.GetDirectories(dir);
+
+            //add all files
+            foreach (var file in listOfFiles)
+            {
+                var toAdd = new DirHelper(Path.GetFileName(file));
+                //sub folder
+                if (subDir.Count != 0)
+                    toAdd.fromRoot.AddRange(subDir);
+
+                toReturn.Add(toAdd);
+            }
+
+            //if there are sub-directories
+            if (listOfDir.Length != 0)
+                foreach (var directory in listOfDir)
+                {
+                    string lastFolder = Path.GetFileName(directory);
+                    //dont run on output path
+                    if (lastFolder != Path.GetFileName(Path.GetDirectoryName(Information.output_path)))
+                    {
+                        subDir.Add(lastFolder);
+                        getFilesFromDirectory(directory, subDir, toReturn);
+                        subDir.Remove(subDir.Last());
+                    }
+                }
+
+
+            return toReturn;
+
+        }
+        /// <summary>
+        /// Static function to get a list of the normalized file paths
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <returns></returns>
+        public static List<string> getFiles(string dir)
+        {
+            var list = getFilesFromDirectory(dir);
+            List<string> toReturn = new List<string>();
+            foreach (var file in list)           
+                toReturn.Add(file.getPathFromRoot(dir));
+            return toReturn;        
         }
 
         #region String Functions
@@ -232,11 +320,11 @@ namespace Normalization
         /// </summary>
         /// <param name="tweet"></param>
         /// <returns></returns>
-        public static List<PartOfSentenec> Parser(string tweet)
+        public static List<PartOfSentenece> Parser(string tweet)
         {
-            char[] punctuationString = { ' ', '.', ',', ':', '\n', '\r', '(', ')', '=', '{', '}', '<', '>', '+', '-', '[', ']', '\t', '\"', '\\', '*', '@' };
+            char[] punctuationString = { ' ', '.', ',', ':', '\n', '\r', '(', ')', '=', '{', '}','!', '<', '>', '+', '-', '[', ']', '\t', '\"', '\\', '*', '@' };
             //string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~ <>\n\r";
-            List<PartOfSentenec> toReturn = new List<PartOfSentenec>();
+            List<PartOfSentenece> toReturn = new List<PartOfSentenece>();
             string wordAdder = string.Empty;
             foreach (var letter in tweet)
             {
@@ -246,11 +334,11 @@ namespace Normalization
                     //if we already started - > add word first
                     if(wordAdder != string.Empty)
                     {
-                        toReturn.Add(new PartOfSentenec(type.word, wordAdder));
+                        toReturn.Add(new PartOfSentenece(type.word, wordAdder));
                         wordAdder = string.Empty;
                     }
                     //add the punc
-                    toReturn.Add(new PartOfSentenec(type.puncuation, letter.ToString()));
+                    toReturn.Add(new PartOfSentenece(type.puncuation, letter.ToString()));
                 }
                 else // its a letter - > continue
                 {
@@ -259,11 +347,11 @@ namespace Normalization
             }
             //the last word in the line.
             if(wordAdder != string.Empty)
-                toReturn.Add(new PartOfSentenec(type.word, wordAdder));
+                toReturn.Add(new PartOfSentenece(type.word, wordAdder));
 
             return toReturn;
         }
-        //public static List<PartOfSentenec> removeHTML(List<PartOfSentenec> tweet)
+        //public static List<PartOfSentenece> removeHTML(List<PartOfSentenece> tweet)
         //{
         //    int startingPoint=-1, endingPoint=-1;
         //    List<removeObject> toRemove = new List<removeObject>();
@@ -291,9 +379,9 @@ namespace Normalization
         ///// </summary>
         ///// <param name="tweet"></param>
         ///// <returns></returns>
-        //public static List<PartOfSentenec> removePunc(List<PartOfSentenec> tweet)
+        //public static List<PartOfSentenece> removePunc(List<PartOfSentenece> tweet)
         //{
-        //    List<PartOfSentenec> toRemove = new List<PartOfSentenec>();
+        //    List<PartOfSentenece> toRemove = new List<PartOfSentenece>();
         //    foreach (var item in tweet)         
         //        if (item.type == type.puncuation && item.value != " " && item.value != ">" && item.value != "<")
         //            toRemove.Add(item);
@@ -305,21 +393,21 @@ namespace Normalization
 
         //    return tweet;  
         //}
-        //public static List<PartOfSentenec> toLower(List<PartOfSentenec> tweet)
+        //public static List<PartOfSentenece> toLower(List<PartOfSentenece> tweet)
         //{
         //    foreach (var item in tweet)            
         //        if (item.type == type.word)
         //            item.value = item.value.ToLower();
         //    return tweet;           
         //}
-        //public static List<PartOfSentenec> toUpper(List<PartOfSentenec> tweet)
+        //public static List<PartOfSentenece> toUpper(List<PartOfSentenece> tweet)
         //{
         //    foreach (var item in tweet)
         //        if (item.type == type.word)
         //            item.value = item.value.ToUpper();
         //    return tweet;
         //}
-        //public static List<PartOfSentenec> removeStopWord(List<PartOfSentenec> tweet)
+        //public static List<PartOfSentenece> removeStopWord(List<PartOfSentenece> tweet)
         //{
         //    foreach (var item in tweet)
         //    {
@@ -329,7 +417,7 @@ namespace Normalization
         //    }
         //    return tweet;
         //}
-        public static void removeHTML(List<PartOfSentenec> tweet)
+        public static void removeHTML(List<PartOfSentenece> tweet)
         {
             int startingPoint = -1, endingPoint = -1;
             List<removeObject> toRemove = new List<removeObject>();
@@ -355,9 +443,9 @@ namespace Normalization
         /// </summary>
         /// <param name="tweet"></param>
         /// <returns></returns>
-        public static void removePunc(List<PartOfSentenec> tweet)
+        public static void removePunc(List<PartOfSentenece> tweet)
         {
-            List<PartOfSentenec> toRemove = new List<PartOfSentenec>();
+            List<PartOfSentenece> toRemove = new List<PartOfSentenece>();
             foreach (var item in tweet)
                 if (item.type == type.puncuation && item.value != " " && item.value != ">" && item.value != "<")
                     toRemove.Add(item);
@@ -370,7 +458,7 @@ namespace Normalization
         /// Transforming all words into lowercase
         /// </summary>
         /// <param name="tweet"></param>
-        public static void toLower(List<PartOfSentenec> tweet)
+        public static void toLower(List<PartOfSentenece> tweet)
         {
             foreach (var item in tweet)
                 if (item.type == type.word)
@@ -381,7 +469,7 @@ namespace Normalization
         /// transforming all words into uppercase
         /// </summary>
         /// <param name="tweet"></param>
-        public static void toUpper(List<PartOfSentenec> tweet)
+        public static void toUpper(List<PartOfSentenece> tweet)
         {
             foreach (var item in tweet)
                 if (item.type == type.word)
@@ -392,7 +480,7 @@ namespace Normalization
         /// stop words are from the 421 chosen stop words
         /// </summary>
         /// <param name="tweet"></param>
-        public static void removeStopWord(List<PartOfSentenec> tweet)
+        public static void removeStopWord(List<PartOfSentenece> tweet)
         {
             foreach (var item in tweet)
             {
@@ -406,7 +494,7 @@ namespace Normalization
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string listToString(List<PartOfSentenec> list)
+        public static string listToString(List<PartOfSentenece> list)
         {
             string toReturn = "";
             foreach (var item in list)
@@ -847,16 +935,18 @@ namespace Normalization
         #endregion
 
     }
+
+    #region Help objects
     public enum type
     {
         word,
         puncuation
     }
-    public class PartOfSentenec
+    public class PartOfSentenece
     {
         public type type;
         public string value;
-        public PartOfSentenec(type type, string val)
+        public PartOfSentenece(type type, string val)
         {
             this.type = type;
             this.value = val;
@@ -867,25 +957,69 @@ namespace Normalization
         public int startingPoint = -1;
         public int endingPoint = -1;
     }
+    public class DirHelper
+    {
+        public string filename;
+        public List<string> fromRoot;
+        public DirHelper(string fn)
+        {
+            filename = fn;
+            fromRoot = new List<string>();
+        }
+        /// <summary>
+        /// returns the directory like this :
+        /// real file Directory : root->dir\file
+        /// function returns root->dir\file
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public string getPathFromRoot(string root)
+        {
+            string path = "";
+            foreach (var item in fromRoot)
+            {
+                path += "\\";
+                path += item;
+            }
+            return root+path + "\\" + filename;
+        }
+        /// <summary>
+        /// returns the directory like this :
+        /// real file Directory : root->dir\file
+        /// function returns root->dir
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public string getPathDirectory(string root)
+        {
+            string path = "";
+            foreach (var item in fromRoot)
+            {
+                path += "\\";
+                path += item;
+            }
+            return root+path;
+        }
+    }
+    #endregion
 }
 
 
-// for checking
-
+////for checking
 //namespace Normalization
 //{
 //    class app
 //    {
 //        public static void Main()
 //        {
-//            string test = "Hello,the my name is yair. i love to party: espically rock. <LOL> <LOL/>";
-//            List<PartOfSentenec> list = normalizer.getList(test);
-//            normalizer.removeStopWord(list);
-//            normalizer.removePunc(list);
-//            normalizer.removeHTML(list);
-//            normalizer.toUpper(list);
-//            string test2 = normalizer.listToString(list);
+//            var a = normalizer.getFilesFromDirectory(@"C:\Users\Yair\Desktop\data");
+//            List<string> ab = new List<string>();
+//            foreach (var item in a)
+//            {
+//                Console.WriteLine(@"C:\Users\Yair\Desktop\data_normal"+item.getPathFromRoot());
+//            }
 //        }
 //    }
 //}
+
 

@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Normalization;
 using Enums;
+using I_O;
 
 namespace WpfAArticleAnalysis
 {
@@ -27,7 +28,6 @@ namespace WpfAArticleAnalysis
         static int numberOfRemoved;
         static public List<string> allGramsWords;
         static int startYear = 1998;
-        static string dir_of_articles_folders = Directory.GetCurrentDirectory();
         static int INTERVAL_OF_YEAR_A = 3, INTERVAL_OF_YEAR_B = 5;
         static int TotalWords = 0;
         static double THRESHOLD = 0;
@@ -46,7 +46,6 @@ namespace WpfAArticleAnalysis
         private static HashSet<SeqString> rare_tri_chars;
         private static HashSet<SeqString> rare_quad_chars;
         private static bool FirstTime = true;
-        private static string output_path;
         public static event LogDelegate LogChanged;
         public static LogPage lg = null;
         private static string[] FILES_NAMES;
@@ -266,8 +265,9 @@ namespace WpfAArticleAnalysis
             StreamReader r;
             try
             {
-                files = GetFilesInDir(dir_of_articles);
-                s = new StreamWriter(output_path, false);
+                //files = GetFilesInDir(dir_of_articles);
+                files = normalizer.getFiles(dir_of_articles).ToArray();
+                s = new StreamWriter(Information.output_path, false);
             }
             catch
             {
@@ -1580,7 +1580,7 @@ namespace WpfAArticleAnalysis
                 year = name_of_file.Substring(year_pos + 1, rest.Length - (rest.Substring(0, year_pos + 1)).Length);
                 rest = rest.Substring(0, year_pos);
             }
-            else if (name_of_file.Contains(dir_of_articles_folders + "\\Books\\"))
+            else if (name_of_file.Contains(Information.dir_of_articles_folders + "\\Books\\"))
             {
                 year = "-"; //because the books have NO years...
             }
@@ -1635,29 +1635,29 @@ namespace WpfAArticleAnalysis
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             Process.GetCurrentProcess().MaxWorkingSet = new IntPtr(99999999999999999);
-            output_path = "U-" + Program.NUM_OF_ONE + " B-" + Program.NUM_OF_TWO + " T-" + Program.NUM_OF_THREE + " F-" + Program.NUM_OF_FOUR;
-            output_path += (Program.RareUniGrams != 0) ? (" RU-" + Program.RareUniGrams.ToString()) : "";
-            output_path += (Program.RareBiGrams != 0) ? (" RB-" + Program.RareBiGrams.ToString()) : "";
-            output_path += (Program.RareTriGrams != 0) ? (" RT-" + Program.RareTriGrams.ToString()) : "";
-            output_path += (Program.RareQuadGrams != 0) ? (" RQ-" + Program.RareQuadGrams.ToString()) : "";
-            output_path += (Program.UniChars != 0) ? (" UC-" + Program.UniChars.ToString()) : "";
-            output_path += (Program.BiChars != 0) ? (" BC-" + Program.BiChars.ToString()) : "";
-            output_path += (Program.TriChars != 0) ? (" TC-" + Program.TriChars.ToString()) : "";
-            output_path += (Program.QuadChars != 0) ? (" QC-" + Program.QuadChars.ToString()) : "";
-            output_path += (Program.RareUniChars != 0) ? (" RUC-" + Program.RareUniChars.ToString()) : "";
-            output_path += (Program.RareBiChars != 0) ? (" RBC-" + Program.RareBiChars.ToString()) : "";
-            output_path += (Program.RareTriChars != 0) ? (" RTC-" + Program.RareTriChars.ToString()) : "";
-            output_path += (Program.RareQuadChars != 0) ? (" RQC-" + Program.RareQuadChars.ToString()) : "";
+            Information.output_path = "U-" + Program.NUM_OF_ONE + " B-" + Program.NUM_OF_TWO + " T-" + Program.NUM_OF_THREE + " F-" + Program.NUM_OF_FOUR;
+            Information.output_path += (Program.RareUniGrams != 0) ? (" RU-" + Program.RareUniGrams.ToString()) : "";
+            Information.output_path += (Program.RareBiGrams != 0) ? (" RB-" + Program.RareBiGrams.ToString()) : "";
+            Information.output_path += (Program.RareTriGrams != 0) ? (" RT-" + Program.RareTriGrams.ToString()) : "";
+            Information.output_path += (Program.RareQuadGrams != 0) ? (" RQ-" + Program.RareQuadGrams.ToString()) : "";
+            Information.output_path += (Program.UniChars != 0) ? (" UC-" + Program.UniChars.ToString()) : "";
+            Information.output_path += (Program.BiChars != 0) ? (" BC-" + Program.BiChars.ToString()) : "";
+            Information.output_path += (Program.TriChars != 0) ? (" TC-" + Program.TriChars.ToString()) : "";
+            Information.output_path += (Program.QuadChars != 0) ? (" QC-" + Program.QuadChars.ToString()) : "";
+            Information.output_path += (Program.RareUniChars != 0) ? (" RUC-" + Program.RareUniChars.ToString()) : "";
+            Information.output_path += (Program.RareBiChars != 0) ? (" RBC-" + Program.RareBiChars.ToString()) : "";
+            Information.output_path += (Program.RareTriChars != 0) ? (" RTC-" + Program.RareTriChars.ToString()) : "";
+            Information.output_path += (Program.RareQuadChars != 0) ? (" RQC-" + Program.RareQuadChars.ToString()) : "";
 
-            output_path += ((chooseMethod == 1) ? "_Only Ngrams" : "_with families_");
-            output_path += ((OrthograficChecked) ? "_Orthografic" : "");
-            output_path += ((QuantitativeChecked) ? "_Quantitative" : "");
-            output_path += ((ReachnessLangChecked) ? "_ReachnessLang" : "");
-            output_path += ((StemmerChecked) ? "_Stemmer" : "");
-            output_path += ((TaggerChecked) ? "_Tagger" : "");
+            Information.output_path += ((chooseMethod == 1) ? "_Only Ngrams" : "_with families_");
+            Information.output_path += ((OrthograficChecked) ? "_Orthografic" : "");
+            Information.output_path += ((QuantitativeChecked) ? "_Quantitative" : "");
+            Information.output_path += ((ReachnessLangChecked) ? "_ReachnessLang" : "");
+            Information.output_path += ((StemmerChecked) ? "_Stemmer" : "");
+            Information.output_path += ((TaggerChecked) ? "_Tagger" : "");
 
 
-            //lg.SetText("The OutPut Path is: \n\n" + output_path);
+            //lg.SetText("The OutPut Path is: \n\n" + Information.output_path);
             Submit.IsEnabled = false;
             TakeOutStopWords.IsEnabled = false;
             AnalysisMethod.IsEnabled = false;
@@ -1668,11 +1668,11 @@ namespace WpfAArticleAnalysis
 
             try
             {
+                //setOutputDirectories(); moved to NormalizeText();
                 NormalizeText();
                 MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
                     "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
                 //lg.SetText("=========\nThe normalizer has finished his work \nmoving to features extraction\n=========");
-                setOutputDirectories();
             }
             catch (Exception ex)
             {
@@ -1685,18 +1685,18 @@ namespace WpfAArticleAnalysis
         }
         private void setOutputDirectories()
         {
-            dir_of_articles_folders = Normalizer.AfterNormalDir;
+            Information.dir_of_articles_folders = Normalizer.AfterNormalDir;
             string stop = "";
-            if (Program.RemoveStopWords == true)
+            if (takeOutStopWords)
                 stop = "_S";
             if (!Directory.Exists(Normalizer.BeforeNormalDir + "\\excels"))
                 Directory.CreateDirectory(Normalizer.BeforeNormalDir + "\\excels");
-            output_path = Normalizer.BeforeNormalDir + "\\excels\\" + output_path + Normalizer.Changes + stop + "__0";
-            if (File.Exists(output_path + ".csv"))
+            Information.output_path = Normalizer.BeforeNormalDir + "\\excels\\" + Information.output_path + Normalizer.Changes + stop + "__0";
+            if (File.Exists(Information.output_path + ".csv"))
             {
-                output_path = fixEnding(output_path);
+                Information.output_path = fixEnding(Information.output_path);
             }
-            output_path += ".csv";
+            Information.output_path += ".csv";
         }
         private DirectoryInfo[] GetDirsFromPath()
         {
@@ -1717,7 +1717,7 @@ namespace WpfAArticleAnalysis
         }
         public void make_csv_file()
         {
-            make_csv_file(dir_of_articles_folders, output_path);
+            make_csv_file(Information.dir_of_articles_folders, Information.output_path);
             this.Dispatcher.Invoke((Action)(() =>
             {
                 Submit.IsEnabled = true;
@@ -1736,7 +1736,7 @@ namespace WpfAArticleAnalysis
         }
         private void ArticleDir_TextChanged(object sender, TextChangedEventArgs e)
         {
-            dir_of_articles_folders = ArticleDir.Text;
+            Information.dir_of_articles_folders = ArticleDir.Text;
         }
         private void Threshold_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -2309,7 +2309,7 @@ namespace WpfAArticleAnalysis
                 if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     ArticleDir.Text = folderDialog.SelectedPath;
-                    dir_of_articles_folders = folderDialog.SelectedPath;
+                    Information.dir_of_articles_folders = folderDialog.SelectedPath;
                 }
             }
         }
@@ -2879,10 +2879,11 @@ namespace WpfAArticleAnalysis
 
             //added here the function of the thread , since we are not using thread
 
-            Normalizer = new normalizer(dir_of_articles_folders, TextType, "");
+            Normalizer = new normalizer(Information.dir_of_articles_folders, TextType, "");
             //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
             MessageBox.Show("The Normalizer has started his work", "Normaliztion Started", MessageBoxButton.OK, MessageBoxImage.Information);
             //lg.SetText("=========/nThe Normalizer has started his work/n=========");
+            setOutputDirectories();
             Normalizer.Normalize(flags);
         }
         /// <summary>

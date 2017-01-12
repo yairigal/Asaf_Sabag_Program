@@ -125,7 +125,6 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfA
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\WpfAArticleAnalysis.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\ContentFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Enums.dll
-C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Normalization.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\PatternFamilies.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Statistics.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\I_O.dll
@@ -228,3 +227,4 @@ C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogP
 C:\Users\user\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.baml
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.g.cs
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\obj\Debug\LogPage.baml
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\WpfAArticleAnalysis\bin\Debug\Normalization.dll

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Information.cs" />
     <Compile Include="IOFactory.cs" />
     <Compile Include="IOInterface.cs" />
     <Compile Include="IOJson.cs" />

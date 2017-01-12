@@ -162,6 +162,10 @@
       <Project>{a8d7d679-424c-4afe-a4b9-849e293592f6}</Project>
       <Name>Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\I_O\I_O.csproj">
+      <Project>{6c639b8d-6c90-404f-adf4-199ab640b8da}</Project>
+      <Name>I_O</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Normalization\Normalization.csproj">
       <Project>{6caa8a44-6671-4849-b90e-b0e571aad226}</Project>
       <Name>Normalization</Name>
