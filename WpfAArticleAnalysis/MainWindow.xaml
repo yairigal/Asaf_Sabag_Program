@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfAArticleAnalysis.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="889.852" Width="530" Closed="Window_Closed" Loaded="Window_Loaded">
+        Title="MainWindow" Height="798.352" Width="530" Closed="Window_Closed" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Image x:Key="rightButton" Source="Images/rightButton.png"/>
@@ -13,8 +13,8 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="500"/>
             <RowDefinition Height="85"/>
-            <RowDefinition Height="147"/>
-            <RowDefinition Height="0*"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="121"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="frameTitle" Content="Title" Background="#FFB9B9B9" FontWeight="Bold" Margin="0,0,0,499" Grid.RowSpan="2"/>
@@ -35,9 +35,9 @@
             <Image x:Name="image" HorizontalAlignment="Right" Height="48" VerticalAlignment="Center" Width="54" MouseDown="image_MouseDown" Source="Images/rightButton.png" Margin="0,18,102,18" />
             <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Center" Width="48" Source="Images/leftButton.png" MouseDown="image_Copy_MouseDown" Margin="102,18,0,18"  />
         </Grid>
-        <DockPanel Grid.Row="3" LastChildFill="True" Margin="0,3,0,2">
+        <ProgressBar Name="updateBar" Grid.Row="3"/>
+        <DockPanel Grid.Row="4" LastChildFill="True" Margin="0,3,0,0">
             <Frame x:Name="logFrame" Grid.Row="3" Content="Log"/>
         </DockPanel>
-
     </Grid>
 </Window>

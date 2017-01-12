@@ -28,6 +28,9 @@ namespace Normalization
         public string BeforeNormalDir { get { return dirToBeNormal; } }
 
         public string Changes { get { return changes; } }
+
+        private int numberOfFiles;
+        private int currentFile = 0;
         /// <summary>
         /// CTOR
         /// </summary>
@@ -69,11 +72,12 @@ namespace Normalization
             Directory.CreateDirectory(dirForTheNormal);
 
             var fileList = getFilesFromDirectory(dirToBeNormal);
-
+            numberOfFiles = fileList.Count;
             try
             {
                 foreach (var file in fileList)
                 {
+                    currentFile++;
                     foreach (string tweet in ReadWrt.fileToTweets(file.getPathFromRoot(dirToBeNormal), "", 0))
                     {
                         normalTweet = tweet;
@@ -236,6 +240,12 @@ namespace Normalization
             foreach (var file in list)           
                 toReturn.Add(file.getPathFromRoot(dir));
             return toReturn;        
+        }
+        public double getPercentage()
+        {
+            if (numberOfFiles == 0)
+                return 0;
+            return Math.Round(((float)currentFile / numberOfFiles)*100,2);
         }
 
         #region String Functions

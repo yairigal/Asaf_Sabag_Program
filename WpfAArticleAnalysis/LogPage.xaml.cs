@@ -58,7 +58,7 @@ namespace WpfAArticleAnalysis
 
         public void SetText(string str)
         {
-            this.Dispatcher.Invoke((Action)(() =>
+            logBlock.Dispatcher.Invoke((Action)(() =>
             {
                 logBlock.Text = str;
             }));

@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using Normalization;
 using Enums;
 using I_O;
+using System.Windows.Threading;
 
 namespace WpfAArticleAnalysis
 {
@@ -56,6 +57,7 @@ namespace WpfAArticleAnalysis
         public delegate void LogDelegate(string str);
         private Thread newLogThread;
         private Thread PercentUpdateThread;
+        private Thread PercentNormalThread;
         private Thread newWindowThread = null;
         private Thread myThread = null;
         private bool MakingLog = false;
@@ -66,6 +68,7 @@ namespace WpfAArticleAnalysis
         private bool TaggerChecked;
         private bool saveNormalDir = true;
         private bool PercentUpdateThreadFlag = false;
+        private bool PercentNormalThreadFlag = false;
         private bool takeOutStopWords = false;
         int TrainingSetPres = 0;
 
@@ -615,7 +618,21 @@ namespace WpfAArticleAnalysis
         {
 
             HashSet<SeqString> tmp = new HashSet<SeqString>();
-            int overallSize = getOverallSize(arr, table);
+            int overallSize = 0;
+            lg.SetText("Counting files...");
+            Thread counting =  new Thread(new ThreadStart(() => { getOverallSize(arr, table,ref overallSize); }));
+            counting.Start();
+
+            while (true)
+            {
+                if (counting.ThreadState == System.Threading.ThreadState.Stopped)
+                    break;
+                double percentage = Math.Round((float)overallSize*100 / arr.Length,2);
+                updateBar.Value = percentage;
+                Refresh(updateBar);
+                Thread.Sleep(1000);
+            }
+
             string title = "";
             int count = 0;
             int currentRun = 0;
@@ -838,10 +855,11 @@ namespace WpfAArticleAnalysis
                 if (overallSize != 0)
                     percent = Math.Round(((float)count / overallSize) * 100, 2);
 
-                Dispatcher.Invoke(() => lg.SetText(a + "\n" + percent + " %"));
+                //Dispatcher.Invoke(() => lg.SetText(a + "\n" + percent + " %"));
+                Dispatcher.Invoke(()=>updateBar.Value = percent);
+                Refresh(updateBar);
             }
         }
-
         /// <summary>
         /// returns the overall size of the running loop above
         /// </summary>
@@ -857,42 +875,39 @@ namespace WpfAArticleAnalysis
         ///  quadchar
         /// </param>
         /// <returns></returns>
-        private int getOverallSize(P_family[] arr, string i)
+        private void getOverallSize(P_family[] arr, string i,ref int count)
         {
-            int count = 0;
             switch (i)
             {
                 case "table_of_one":
-                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;
+                    foreach (var item in arr) { count += item.table_of_one.Count; }
                     break;
                 case "table_of_two":
-                    foreach (var item in arr) foreach (var w in item.table_of_two) count++;
+                    foreach (var item in arr) { count += item.table_of_two.Count; }
                     break;
                 case "table_of_three":
-                    foreach (var item in arr) foreach (var w in item.table_of_three) count++;
+                    foreach (var item in arr) { count += item.table_of_three.Count; }
                     break;
                 case "table_of_four":
-                    foreach (var item in arr) foreach (var w in item.table_of_four) count++;
+                    foreach (var item in arr) { count += item.table_of_four.Count; }
                     break;
                 case "unichar":
-                    foreach (var item in arr) foreach (var w in item.unichar) count++;
+                    foreach (var item in arr) { count += item.unichar.Count; }
                     break;
                 case "bichar":
-                    foreach (var item in arr) foreach (var w in item.bichar) count++;
+                    foreach (var item in arr) { count += item.bichar.Count; }
                     break;
                 case "trichar":
-                    foreach (var item in arr) foreach (var w in item.trichar) count++;
+                    foreach (var item in arr) { count += item.trichar.Count; }
                     break;
                 case "quadchar":
-                    foreach (var item in arr) foreach (var w in item.quadchar) count++;
+                    foreach (var item in arr) { count += item.quadchar.Count; }
                     break;
                 default:
-                    foreach (var item in arr) foreach (var w in item.table_of_one) count++;
+                    foreach (var item in arr) { count += item.table_of_one.Count; }
                     break;
             }
-            return count;
         }
-
         private void MakeNGRAMWords()
         {
             P_family[] arr = null;
@@ -2432,7 +2447,6 @@ namespace WpfAArticleAnalysis
             DeleteNormalizationDirectoryIfNeeded();
             killAllRunningThreads();
         }
-
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -2870,6 +2884,15 @@ namespace WpfAArticleAnalysis
             Submit.IsEnabled = mode;
         }
         /// <summary>
+        /// Refreshing the UI thread.
+        /// </summary>
+        /// <param name="ele"></param>
+        public static void Refresh(UIElement ele)
+        {
+            Action a = new Action(() => { });
+            ele.Dispatcher.Invoke(a, DispatcherPriority.Render);
+        }
+        /// <summary>
         /// This functions Normalizes the Text
         /// </summary>
         private void NormalizeText()
@@ -2884,7 +2907,51 @@ namespace WpfAArticleAnalysis
             MessageBox.Show("The Normalizer has started his work", "Normaliztion Started", MessageBoxButton.OK, MessageBoxImage.Information);
             //lg.SetText("=========/nThe Normalizer has started his work/n=========");
             setOutputDirectories();
-            Normalizer.Normalize(flags);
+            //start NormalPercentThread
+            //startNormalPercentThread();
+            lg.SetText("Normalizing");
+            Thread normalizing = new Thread(new ThreadStart(() => Normalizer.Normalize(flags)));
+            normalizing.Start();
+
+            //updaing percaente on UI
+            while (true)
+            {
+                if (normalizing.ThreadState == System.Threading.ThreadState.Stopped)
+                    break;
+                double percentage = Normalizer.getPercentage();
+                updateBar.Value = percentage;
+                Action a = new Action(() => { });
+                Refresh(updateBar);
+                Thread.Sleep(1000);
+            }
+            //end NormalPercentThread;
+            //stopNormalPercentThread();
+        }
+        /// <summary>
+        /// starting the Normalzition percentage Thread
+        /// </summary>
+        private void startNormalPercentThread()
+        {
+            PercentNormalThreadFlag = true;
+            PercentNormalThread = new Thread(new ThreadStart(()=>
+                {
+                    while(PercentNormalThreadFlag)
+                    {
+                        double percentage = Normalizer.getPercentage();
+                        Dispatcher.Invoke(() => updateBar.Value = percentage);
+                        Thread.Sleep(1000);
+                    }
+            }));
+            PercentNormalThread.IsBackground = true;
+            PercentNormalThread.Start();
+        }
+        /// <summary>
+        /// starting the Normalzition percentage Thread
+        /// </summary>
+        private void stopNormalPercentThread()
+        {
+            PercentNormalThreadFlag = false;
+            PercentNormalThread.Join();
         }
         /// <summary>
         /// Returns the flags for the normalizaion proccess

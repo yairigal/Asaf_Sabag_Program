@@ -8,7 +8,7 @@
       Height="140" Width="510"
       Title="LogPage">
 
-    <Grid ScrollViewer.CanContentScroll="True">
+    <Grid>
         <TextBox Name="logBlock" AcceptsReturn="True" TextWrapping="Wrap"
                 Text="- Log Window -" />
     </Grid>
