@@ -13,9 +13,9 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="500"/>
             <RowDefinition Height="85"/>
-            <RowDefinition Height="32"/>
-            <RowDefinition Height="121"/>
-            <RowDefinition/>
+            <RowDefinition Height="17"/>
+            <RowDefinition Height="136"/>
+            <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="frameTitle" Content="Title" Background="#FFB9B9B9" FontWeight="Bold" Margin="0,0,0,499" Grid.RowSpan="2"/>
         <Frame Name="pageFrame" Content="Frame" Grid.Row="1" Background="#FFF7EAEA" Margin="0,1,0,83" Grid.RowSpan="2"/>
@@ -35,7 +35,15 @@
             <Image x:Name="image" HorizontalAlignment="Right" Height="48" VerticalAlignment="Center" Width="54" MouseDown="image_MouseDown" Source="Images/rightButton.png" Margin="0,18,102,18" />
             <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="48"  VerticalAlignment="Center" Width="48" Source="Images/leftButton.png" MouseDown="image_Copy_MouseDown" Margin="102,18,0,18"  />
         </Grid>
-        <ProgressBar Name="updateBar" Grid.Row="3"/>
+
+        <ProgressBar Name="updateBar" Grid.Row="3">
+            <ProgressBar.Resources>
+                <Style TargetType="{x:Type ProgressBar}"
+           BasedOn="{StaticResource {x:Type ProgressBar}}">
+                    <Setter Property="ToolTip" Value="{Binding Value, RelativeSource={RelativeSource Self}}"/>
+                </Style>
+            </ProgressBar.Resources>
+        </ProgressBar>
         <DockPanel Grid.Row="4" LastChildFill="True" Margin="0,3,0,0">
             <Frame x:Name="logFrame" Grid.Row="3" Content="Log"/>
         </DockPanel>

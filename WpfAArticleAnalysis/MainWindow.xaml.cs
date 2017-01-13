@@ -442,11 +442,12 @@ namespace WpfAArticleAnalysis
                 DirectoryInfo[] dirs = GetDirsFromPath();
                 p_arr = new P_family[dirs.Length];
 
-
                 foreach (DirectoryInfo item in dirs)
                 {
                     lg.ClearText();
                     lg.SetText("Domain: " + item + " Proccesing");
+                    updateBar.Value = Math.Round(((float)i * 100 / dirs.Length), 2);
+                    Refresh(this);
                     p_arr[i] = new P_family(files_names.Where(x => x.Contains(item.ToString())).ToArray());
                     p_arr[i].ResizeTables();
                     TotalWords += p_arr[i].total_words;
@@ -464,6 +465,8 @@ namespace WpfAArticleAnalysis
                 lg.ClearText();
                 lg.SetText("File: " + item + "\nFile Number: " + (i + 1) + " From "
                     + files_names.Length + "\n" + Math.Round(((i + 1) / (float)files_names.Length) * 100, 2) + "%");
+                updateBar.Value = Math.Round(((float)i * 100 / files_names.Length), 2);
+                Refresh(this);
                 p_arr[i] = new P_family(item);
                 p_arr[i].ResizeTables();
                 TotalWords += p_arr[i].total_words;
@@ -628,7 +631,7 @@ namespace WpfAArticleAnalysis
                 if (counting.ThreadState == System.Threading.ThreadState.Stopped)
                     break;
                 double percentage = Math.Round((float)overallSize*100 / arr.Length,2);
-                updateBar.Value = percentage;
+                Dispatcher.Invoke(() => { updateBar.Value = percentage; });
                 Refresh(updateBar);
                 Thread.Sleep(1000);
             }
@@ -857,7 +860,7 @@ namespace WpfAArticleAnalysis
 
                 //Dispatcher.Invoke(() => lg.SetText(a + "\n" + percent + " %"));
                 Dispatcher.Invoke(()=>updateBar.Value = percent);
-                Refresh(updateBar);
+                Refresh(this);
             }
         }
         /// <summary>
@@ -911,8 +914,6 @@ namespace WpfAArticleAnalysis
         private void MakeNGRAMWords()
         {
             P_family[] arr = null;
-
-
 
             if (TrainingSetPres != 0)
             {
