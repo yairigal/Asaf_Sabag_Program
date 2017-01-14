@@ -169,11 +169,15 @@ namespace WpfAArticleAnalysis
         }
         private void DeleteNormalizationDirectoryIfNeeded()
         {
+            string root = Normalizer.AfterNormalDir;
+
             if (!saveNormalDir)
             {
-                foreach (var file in Directory.GetFiles(Normalizer.AfterNormalDir))             
+                foreach (var file in normalizer.getFiles(root))
                     File.Delete(file);
-                Directory.Delete(Normalizer.AfterNormalDir);
+                foreach (var item in Directory.GetDirectories(root))
+                    Directory.Delete(item, true);
+                Directory.Delete(root);
             }
         }
         private void setUpReducingUnigramsCombobox()
@@ -623,14 +627,14 @@ namespace WpfAArticleAnalysis
             HashSet<SeqString> tmp = new HashSet<SeqString>();
             int overallSize = 0;
             lg.SetText("Counting files...");
-            Thread counting =  new Thread(new ThreadStart(() => { getOverallSize(arr, table,ref overallSize); }));
+            Thread counting = new Thread(new ThreadStart(() => { getOverallSize(arr, table, ref overallSize); }));
             counting.Start();
 
             while (true)
             {
                 if (counting.ThreadState == System.Threading.ThreadState.Stopped)
                     break;
-                double percentage = Math.Round((float)overallSize*100 / arr.Length,2);
+                double percentage = Math.Round((float)overallSize * 100 / arr.Length, 2);
                 Dispatcher.Invoke(() => { updateBar.Value = percentage; });
                 Refresh(updateBar);
                 Thread.Sleep(1000);
@@ -643,7 +647,7 @@ namespace WpfAArticleAnalysis
             #region SettingUpTheThread
             //percentage for the log window.
             if (PercentUpdateThread != null)
-                if(PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running)
+                if (PercentUpdateThread.ThreadState == System.Threading.ThreadState.Running)
                 {
                     PercentUpdateThreadFlag = false;
                     PercentUpdateThread.Join();
@@ -859,7 +863,7 @@ namespace WpfAArticleAnalysis
                     percent = Math.Round(((float)count / overallSize) * 100, 2);
 
                 //Dispatcher.Invoke(() => lg.SetText(a + "\n" + percent + " %"));
-                Dispatcher.Invoke(()=>updateBar.Value = percent);
+                Dispatcher.Invoke(() => updateBar.Value = percent);
                 Refresh(this);
             }
         }
@@ -878,7 +882,7 @@ namespace WpfAArticleAnalysis
         ///  quadchar
         /// </param>
         /// <returns></returns>
-        private void getOverallSize(P_family[] arr, string i,ref int count)
+        private void getOverallSize(P_family[] arr, string i, ref int count)
         {
             switch (i)
             {
@@ -2934,15 +2938,15 @@ namespace WpfAArticleAnalysis
         private void startNormalPercentThread()
         {
             PercentNormalThreadFlag = true;
-            PercentNormalThread = new Thread(new ThreadStart(()=>
+            PercentNormalThread = new Thread(new ThreadStart(() =>
                 {
-                    while(PercentNormalThreadFlag)
+                    while (PercentNormalThreadFlag)
                     {
                         double percentage = Normalizer.getPercentage();
                         Dispatcher.Invoke(() => updateBar.Value = percentage);
                         Thread.Sleep(1000);
                     }
-            }));
+                }));
             PercentNormalThread.IsBackground = true;
             PercentNormalThread.Start();
         }

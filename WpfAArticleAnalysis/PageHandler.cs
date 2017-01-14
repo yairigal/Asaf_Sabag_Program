@@ -36,7 +36,7 @@ namespace WpfAArticleAnalysis
             new PageArgs(FeaturesPage.getThisPage(),"Features",Pages_ENUM.FeaturesPage,true),
             new PageArgs(FirstPage.getThisPage(),"Initial Preferences",Pages_ENUM.firstPage,true),
             new PageArgs(Ngrampage.getThisPage(),"N-Grams",Pages_ENUM.ngramPage,true),
-            new PageArgs(NormalizationPage.getThisPage(),"Normaliztion",Pages_ENUM.NormaliztionPage,true),
+            new PageArgs(NormalizationPage.getThisPage(),"Normalization",Pages_ENUM.NormaliztionPage,true),
             new PageArgs(Tagger.getThisPage(),"Tagger",Pages_ENUM.tagger,false)
         };
         private List<Pages_ENUM> pageOrder;
