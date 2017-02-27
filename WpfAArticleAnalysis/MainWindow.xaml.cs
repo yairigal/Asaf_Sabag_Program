@@ -14,6 +14,7 @@ using Normalization;
 using Enums;
 using I_O;
 using System.Windows.Threading;
+using Ookii.Dialogs;
 
 namespace WpfAArticleAnalysis
 {
@@ -170,7 +171,6 @@ namespace WpfAArticleAnalysis
         private void DeleteNormalizationDirectoryIfNeeded()
         {
             string root = Normalizer.AfterNormalDir;
-
             if (!saveNormalDir)
             {
                 foreach (var file in normalizer.getFiles(root))
@@ -199,14 +199,14 @@ namespace WpfAArticleAnalysis
             UniGRams.Text = "500";
             Program.NUM_OF_ONE = 500;
 
-            BiGRams.Text = "500";
-            Program.NUM_OF_TWO = 500;
+            BiGRams.Text = "0";
+            Program.NUM_OF_TWO = 0;
 
-            TriGRams.Text = "500";
-            Program.NUM_OF_THREE = 500;
+            TriGRams.Text = "0";
+            Program.NUM_OF_THREE = 0;
 
-            QuadGrams.Text = "500";
-            Program.NUM_OF_FOUR = 500;
+            QuadGrams.Text = "0";
+            Program.NUM_OF_FOUR = 0;
 
             RareUGRAMs.Text = "0";
             Program.RareUniGrams = 0;
@@ -2274,7 +2274,6 @@ namespace WpfAArticleAnalysis
                     TrainingSetPres = 0;
                     break;
             }
-            changeSUBMITbuttonMode(true);
         }
         private void Tag_Articles_Click(object sender, RoutedEventArgs e)
         {
@@ -2324,14 +2323,14 @@ namespace WpfAArticleAnalysis
         }
         private void OpenDir_Click(object sender, RoutedEventArgs e)
         {
-            using (var folderDialog = new System.Windows.Forms.FolderBrowserDialog())
-            {
-                if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            var folderDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+            var result = folderDialog.ShowDialog();
+                //folderDialog.Description = "Please choose a folder to work on.\nThe output will be displayed in the chosen folder,\nwithin a folder named 'excels'.";
+                if ((bool)result)
                 {
-                    ArticleDir.Text = folderDialog.SelectedPath;
+                    ArticleDir.Text = folderDialog.SelectedPath; ;
                     Information.dir_of_articles_folders = folderDialog.SelectedPath;
                 }
-            }
         }
         #endregion
         #endregion
@@ -2872,12 +2871,17 @@ namespace WpfAArticleAnalysis
         private void nextPage()
         {
             frameTitle.Content = PHandler.NextPage().name;
+
+            if (PHandler.isLastPage())
+                changeSUBMITbuttonMode(true);
         }
         /// <summary>
         /// sets the previous page on the frame.
         /// </summary>
         private void prevPage()
         {
+            if (PHandler.isLastPage())
+                changeSUBMITbuttonMode(false);
             frameTitle.Content = PHandler.PreviousPage().name;
         }
         /// <summary>

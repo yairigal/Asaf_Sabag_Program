@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Normalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplicateHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Enums\Enums.csproj">

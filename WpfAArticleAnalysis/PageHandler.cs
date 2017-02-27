@@ -58,6 +58,26 @@ namespace WpfAArticleAnalysis
 
         #region Functions
         /// <summary>
+        /// returns true if the current page is the last page.
+        /// </summary>
+        /// <returns></returns>
+        public bool isLastPage()
+        {
+            if (getCurrentPage() == PageConvertor.convertToPage(last))
+                return true;
+            return false;
+        }
+        /// <summary>
+        /// returns true if the current page is the first page.
+        /// </summary>
+        /// <returns></returns>
+        public bool isFirstPage()
+        {
+            if (getCurrentPage() == PageConvertor.convertToPage(first))
+                return true;
+            return false;
+        }
+        /// <summary>
         /// returns the next page in the order
         /// </summary>
         /// <returns>throws exepction if its the last page</returns>

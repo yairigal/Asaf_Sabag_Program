@@ -64,13 +64,13 @@
         "Entry"
         {
         "MsmKey" = "8:_8396FA2A7E6228E6B9927B3DB20E219A"
-        "OwnerKey" = "8:_6DA50B26118A07C275921205641E8684"
+        "OwnerKey" = "8:_6A6A85C78779A9134540572D4AAB8565"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8396FA2A7E6228E6B9927B3DB20E219A"
-        "OwnerKey" = "8:_6A6A85C78779A9134540572D4AAB8565"
+        "OwnerKey" = "8:_6DA50B26118A07C275921205641E8684"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,31 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_36DB9EE5B67F426197FE8F168D8EFF6C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7B6EA7BECBACE6C1C950E88748533F71"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A49F679294EF5025256A18312322F867"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6DA50B26118A07C275921205641E8684"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6A6A85C78779A9134540572D4AAB8565"
+        "OwnerKey" = "8:_8396FA2A7E6228E6B9927B3DB20E219A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -136,7 +112,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8396FA2A7E6228E6B9927B3DB20E219A"
+        "OwnerKey" = "8:_6A6A85C78779A9134540572D4AAB8565"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6DA50B26118A07C275921205641E8684"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A49F679294EF5025256A18312322F867"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7B6EA7BECBACE6C1C950E88748533F71"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_36DB9EE5B67F426197FE8F168D8EFF6C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -157,6 +157,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -173,6 +181,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -209,11 +225,6 @@
             "AssemblyAsmDisplayName" = "8:I_O, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6A6A85C78779A9134540572D4AAB8565"
-                    {
-                    "Name" = "8:I_O.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:I_O.dll"
             "TargetName" = "8:"
@@ -240,11 +251,6 @@
             "AssemblyAsmDisplayName" = "8:Normalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6DA50B26118A07C275921205641E8684"
-                    {
-                    "Name" = "8:Normalization.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Normalization.dll"
             "TargetName" = "8:"
@@ -271,11 +277,6 @@
             "AssemblyAsmDisplayName" = "8:Statistics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7B6EA7BECBACE6C1C950E88748533F71"
-                    {
-                    "Name" = "8:Statistics.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Statistics.dll"
             "TargetName" = "8:"
@@ -302,11 +303,6 @@
             "AssemblyAsmDisplayName" = "8:ContentFamilies, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7EB3A72206C232D9A1DA32E1B708B4CE"
-                    {
-                    "Name" = "8:ContentFamilies.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ContentFamilies.dll"
             "TargetName" = "8:"
@@ -333,11 +329,6 @@
             "AssemblyAsmDisplayName" = "8:Enums, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8396FA2A7E6228E6B9927B3DB20E219A"
-                    {
-                    "Name" = "8:Enums.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Enums.dll"
             "TargetName" = "8:"
@@ -364,11 +355,6 @@
             "AssemblyAsmDisplayName" = "8:PatternFamilies, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A49F679294EF5025256A18312322F867"
-                    {
-                    "Name" = "8:PatternFamilies.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:PatternFamilies.dll"
             "TargetName" = "8:"
@@ -395,11 +381,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BF3D2EA017408BACCF967D156CE79ABE"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -475,15 +456,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Installation"
-        "ProductCode" = "8:{C6A726AC-C0B4-44D7-AA8A-EF654A28BD86}"
-        "PackageCode" = "8:{93571EE4-626B-4915-843F-3CCE473744BB}"
+        "ProductCode" = "8:{A7D97103-0CA6-41A1-B3EB-B8DCA0DF923B}"
+        "PackageCode" = "8:{407F9B0A-E151-46C0-A90B-758C1CE9110C}"
         "UpgradeCode" = "8:{F8D242E3-413E-4FF9-8218-F0F4F3FCCAB0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Default Company Name"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

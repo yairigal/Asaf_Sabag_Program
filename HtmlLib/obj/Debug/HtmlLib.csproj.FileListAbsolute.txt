@@ -34,5 +34,6 @@ C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\HtmlLib\obj\Debug\HtmlLib.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Project\HtmlLib\obj\Debug\HtmlLib.pdb
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\bin\Debug\HtmlLib.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\bin\Debug\HtmlLib.pdb
+C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\obj\Debug\HtmlLib.csprojResolveAssemblyReference.cache
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\obj\Debug\HtmlLib.dll
 C:\Users\Yair\Source\Repos\Asaf_Sabag_Program\HtmlLib\obj\Debug\HtmlLib.pdb

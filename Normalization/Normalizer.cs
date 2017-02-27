@@ -31,6 +31,7 @@ namespace Normalization
 
         private int numberOfFiles;
         private int currentFile = 0;
+
         /// <summary>
         /// CTOR
         /// </summary>
@@ -48,6 +49,13 @@ namespace Normalization
             ReadWrt = IOFactory.getFacotry(type);
         }
 
+        private bool ifNoFlagsSelected(IDictionary<NormaliztionMethods, bool> flags)
+        {
+            foreach (var item in flags)
+                if (item.Value && item.Key != NormaliztionMethods.NONE)
+                    return false;
+            return true;
+        }
 
         /// <summary>
         /// this function will normalize the text by the user choice
@@ -64,6 +72,10 @@ namespace Normalization
         /// </param>
         public void Normalize(IDictionary<NormaliztionMethods, bool> flags)
         {
+            //check , maybe we dont need to run the whole function.
+            if (ifNoFlagsSelected(flags))
+                return;
+
             List<string> tweets = new List<string>();
             string normalTweet = "";
 
@@ -332,7 +344,7 @@ namespace Normalization
         /// <returns></returns>
         public static List<PartOfSentenece> Parser(string tweet)
         {
-            char[] punctuationString = { ' ', '.', ',', ':', '\n', '\r', '(', ')', '=', '{', '}','!', '<', '>', '+', '-', '[', ']', '\t', '\"', '\\', '*', '@' };
+            char[] punctuationString = { ' ', '.', ',', ':', '\n', '\r', '(', ')', '=', '{', '}','!', '<', '>', '+', '-', '[', ']', '\t','\"', '\\', '*', '@' };
             //string punctuationString = ".,;()[]{}:-_?!'\\\"/@#$%^&`~ <>\n\r";
             List<PartOfSentenece> toReturn = new List<PartOfSentenece>();
             string wordAdder = string.Empty;
@@ -507,10 +519,8 @@ namespace Normalization
         public static string listToString(List<PartOfSentenece> list)
         {
             string toReturn = "";
-            foreach (var item in list)
-            {
-                toReturn += item.value;
-            }
+            foreach (var item in list)       
+                toReturn += item.value;         
             return toReturn;
         }
         #endregion

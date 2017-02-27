@@ -16,7 +16,7 @@
         <TextBox x:Name="ArticleDir" HorizontalAlignment="Left" IsEnabled="False" Height="56" Margin="183,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="189"/>
         <Label Content="Make Log files" HorizontalAlignment="Left" Margin="5,121,0,0" VerticalAlignment="Top" Height="27" Width="139"/>
         <CheckBox x:Name="MakeLogFiles" IsEnabled="False" Content="" HorizontalAlignment="Left" Margin="166,134,0,0" VerticalAlignment="Top" Height="14" Width="17"/>
-        <Label Content="Tranings set by Domains" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" Height="24" Width="156"/>
+        <Label Content="Tranings set by Domains" HorizontalAlignment="Left" Margin="5,153,0,0" VerticalAlignment="Top" Height="43" Width="156"/>
         <CheckBox x:Name="DomainsCounter" Content="" HorizontalAlignment="Left" Margin="166,163,0,0" VerticalAlignment="Top" Height="14" Width="17" />
         <Button x:Name="openDir" Content="Open" HorizontalAlignment="Left" Margin="377,46,0,0" VerticalAlignment="Top" Width="58" Height="56"/>
     </Grid>
