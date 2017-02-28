@@ -468,7 +468,7 @@ namespace WpfAArticleAnalysis
             {
                 lg.ClearText();
                 lg.SetText("File: " + item + "\nFile Number: " + (i + 1) + " From "
-                    + files_names.Length + "\n" + Math.Round(((i + 1) / (float)files_names.Length) * 100, 2) + "%");
+                    + files_names.Length + "  \n" + Math.Round(((i + 1) / (float)files_names.Length) * 100, 2) + "%");
                 updateBar.Value = Math.Round(((float)i * 100 / files_names.Length), 2);
                 Refresh(this);
                 p_arr[i] = new P_family(item);
@@ -479,7 +479,7 @@ namespace WpfAArticleAnalysis
 
             //SaveData = P_family.GetTmpCopy(p_arr[0]);
 
-            return; // what does that soppose to mean?
+            return; // what does that suppose to mean?
             P_family.Serialize(p_arr.ToList());
         }
         private static string[] GetFilesInDir(string path)
@@ -1690,9 +1690,9 @@ namespace WpfAArticleAnalysis
             {
                 //setOutputDirectories(); moved to NormalizeText();
                 NormalizeText();
-                MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
-                    "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
-                //lg.SetText("=========\nThe normalizer has finished his work \nmoving to features extraction\n=========");
+                //MessageBox.Show("The normalizer has finished his work \nmoving to features extraction",
+                //    "normalizer finished", MessageBoxButton.OK, MessageBoxImage.Information);
+                lg.SetText("=========\nThe normalizer has finished his work \nmoving to features extraction\n=========");
             }
             catch (Exception ex)
             {
@@ -1703,21 +1703,36 @@ namespace WpfAArticleAnalysis
             myThread.Start();
 
         }
-        private void setOutputDirectories()
+        private void setOutputDirectories(IDictionary<NormaliztionMethods, bool> flags)
         {
             Information.dir_of_articles_folders = Normalizer.AfterNormalDir;
-            string stop = "";
-            if (takeOutStopWords)
-                stop = "_S";
+            string ext = getExtantionsFromNormalzationFlags(flags);
             if (!Directory.Exists(Normalizer.BeforeNormalDir + "\\excels"))
                 Directory.CreateDirectory(Normalizer.BeforeNormalDir + "\\excels");
-            Information.output_path = Normalizer.BeforeNormalDir + "\\excels\\" + Information.output_path + Normalizer.Changes + stop + "__0";
+            Information.output_path = Normalizer.BeforeNormalDir + "\\excels\\" + Information.output_path + Normalizer.Changes + ext + "__0";
             if (File.Exists(Information.output_path + ".csv"))
             {
                 Information.output_path = fixEnding(Information.output_path);
             }
             Information.output_path += ".csv";
         }
+
+        private static string getExtantionsFromNormalzationFlags(IDictionary<NormaliztionMethods, bool> flags)
+        {
+            string ext = "";
+            if (flags[NormaliztionMethods.All_Capitals])
+                ext += "_C";
+            if (flags[NormaliztionMethods.All_Lowercase])
+                ext += "_L";
+            if (flags[NormaliztionMethods.No_HTML_Tags])
+                ext += "_H";
+            if (flags[NormaliztionMethods.No_Punctuation])
+                ext += "_P";
+            if (flags[NormaliztionMethods.No_Stop_Words])
+                ext += "_S";
+            return ext;
+        }
+
         private DirectoryInfo[] GetDirsFromPath()
         {
             this.Dispatcher.Invoke((Action)(() =>
@@ -2913,9 +2928,9 @@ namespace WpfAArticleAnalysis
 
             Normalizer = new normalizer(Information.dir_of_articles_folders, TextType, "");
             //Dispatcher.Invoke(() => MessageBox.Show("Normalizaion Started"));
-            MessageBox.Show("The Normalizer has started his work", "Normaliztion Started", MessageBoxButton.OK, MessageBoxImage.Information);
+            lg.SetText("Normaliztion Started");
             //lg.SetText("=========/nThe Normalizer has started his work/n=========");
-            setOutputDirectories();
+            setOutputDirectories(flags);
             //start NormalPercentThread
             //startNormalPercentThread();
             lg.SetText("Normalizing");
