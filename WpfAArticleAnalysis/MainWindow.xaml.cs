@@ -329,7 +329,7 @@ namespace WpfAArticleAnalysis
 				Console.WriteLine("Way: B");
 #endif
                 LogChanged("\t---\nThe program calculates :");
-                LogChanged("\n" + "no. " + run_num + " of " + files_names.Length + "\t" + ((float)run_num * 100 / files_names.Length).ToString("f2") + "%");
+                LogChanged("\n" + "no. " + run_num + " of " + files_names.Length + "\t  " + ((float)run_num * 100 / files_names.Length).ToString("f2") + "%");
                 print(name_of_file, s, r, run_num);
                 run_num++;
                 r.Close();
